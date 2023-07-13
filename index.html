@@ -5,55 +5,98 @@
     <meta description="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&amp;subset=japanese"><!-- google web fonts -->
     <title>TBD</title>
   </head>
   <body>
     <header>
-      <b>sss</b>
+      <b>TBD</b>
       <nav class="menu-wrap">
         <ul class="menu">
-          <li>Profile</li>
-          <li>Skills</li>
-          <li>nav3</li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#skill">Skill</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
     </header>
+
     <h1>My Portfolio</h1>
-    <main class="main">
-      <div class="container">
-        <section class="profile" id="profile">
-          <h2>Profile</h2>
-          <article class="skillbox">
-            <h3>プログラミング言語</h3>
-            <p>Webサービスの保守開発、運用をやってきています。現在のメイン言語はRubyですが独学でPythonをやっており、学生時代にC, C++、verilog HDL等も学んでおります。</p>
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">言語名</th>
-                  <th scope="col">年数</th>
-                  <th scope="col">レベル</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">PHP</th>
-                  <td>3.5年</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </article>
-          <article class="skillbox">
-            <h3>Database</h3>
-            <p>ほぼMySQLユーザーです</p>
-          </article>
-        </section>
-        <section class="skills" id="skills">
-          <h2>Skills</h2>
-          <article class="">
-          </article>
-        </section>
-      </div>
+    <main class="container">
+      <h2 id="profile">Profile</h2>
+      <section class="flex-contents">
+        <p>TBD</p>
+      </section>
+
+      <hr>
+
+      <h2 id="skill">Skill</h2>
+      <section class="flex-contents">
+        <article class="skillbox">
+          <h3>BackEnd / Framework</h3>
+          <p>Webサービスの保守開発、運用をやってきています。現在のメイン言語はRubyですが独学でPythonをやっており、学生時代にC, C++、verilog HDL等も学んでおります。<br>
+            他にはGoでバッチ制作の業務経験もありますが年数的には少ないので割愛します。<br>
+            Frameworkにおいては圧倒的にRailsが長いですが言語さえ押さえておけば他の学習コストはあまり高くないと思います。触っていないものも必要に応じて早急に学習できます
+          </p>
+          <ul>
+            <li>PHP / Symfony</li>
+            <li>Ruby / Ruby on Rails</li>
+            <li>Java / -</li>
+          </ul>
+        </article>
+        <article class="skillbox">
+          <h3>Frontend</h3>
+          <p>機会は少ないですが生JSも書けます</p>
+          <ul>
+            <li>jQuery</li>
+            <li>BackboneJS</li>
+          </ul>
+        </article>
+        <article class="skillbox">
+          <h3>Cloud</h3>
+          <p>業務経験で言えばほぼオンプレミスのみで、個人でAWSの一部サービスを利用しております</p>
+          <ul>
+            <li>AWS</li>
+            <li>オンプレミス</li>
+          </ul>
+        </article>
+        <article class="skillbox">
+          <h3>Database</h3>
+          <p>ほぼMySQLユーザーです</p>
+          <ul>
+            <li>MySQL</li>
+            <li>OracleDB</li>
+            <li>DynamoDB</li>
+          </ul>
+        </article>
+        <article class="skillbox">
+          <h3>Other</h3>
+          <p>主に業務中に利用していたソフトなど</p>
+          <ul>
+            <li>Docker</li>
+          </ul>
+        </article>
+      </section>
+
+      <hr>
+
+      <h2 id="products">Products</h2>
+      <section class="flex-contents">
+        <article class="skillbox"></article>
+        <p>制作中</p>
+      </section>
+
+      <hr>
+
+      <h2 id="contacts">Contacts</h2>
+      <section class="align-center">
+        <article>
+          <ul>
+            <li><a href="mailto:77gecco@gmai.com?subject=&body=お問い合わせ内容">Gmail</li>
+            <li><a href="https://www.linkedin.com/in/takashi-miyano-webd" target="_blank">LinkedIn</a></li>
+          </ul>
+        </article>
+      </section>
     </main>
     <footer></footer>
   </body>

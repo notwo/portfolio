@@ -3,10 +3,18 @@
   padding: 0;
 }
 
+html {
+  background-color: #222222;
+}
+
 /*
  * ナビゲーションメニュー
  */
 header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   background-color: black;
@@ -31,32 +39,64 @@ ol,ul {
 /*
  * メインコンテンツ
  */
-.main {
+.container {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.flex-contents {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.container {
-  margin: 0 auto;
-}
-
-.main .profile {
-  width: calc(50% - 10px);
+.skillbox {
+  width: calc(33% - 20px);
   margin: 5px;
 }
-.skillbox {
-  display: flex;
-  align-items: center;
-}
 
-h1 {
+.align-center {
   text-align: center;
-  padding: 2em 0;
 }
 
 /*
- * テーブル
+ * 基本タグ
  */
-.table {
+h1 {
+  text-align: center;
+  padding: 2em 0;
+  font-size: 3rem;
+  color: #CCCCCC;
+}
+h2 {
+  text-align: center;
+  padding: 1.5em 0;
+  font-size: 2.5rem;
+  color: #BBBBBB;
+}
+h3 {
+  text-align: center;
+  padding: 1.2em 0;
+  font-size: 1.5rem;
+  color: #AAAAAA;
+}
+a {
+  text-decoration: none;
+  color: #CCC;
+}
+a:hover {
+  opacity: 0.6;
+}
+li {
+  color: #AAA;
+}
+p {
+  color: #AAA;
+}
+hr {
+  height: 3px;
+  border:0;
+  background:linear-gradient(left, #222222, #CCC, #222222);
+  background:-webkit-linear-gradient(left, #222222, #CCC, #222222);
+  background:-moz-linear-gradient(left, #222222, #CCC, #222222);
 }
