@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * ナビゲーションメニュー
+ */
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+}
+.menu-wrap {
+  padding: 0.7em;
+}
+ul.menu {
+  display: flex;
+  align-items: center;
+}
+ul.menu li {
+  padding: 0.7em;
+  font-weight: 700;
+}
+
+ol,ul {
+  list-style: none;
+}
+
+/*
+ * メインコンテンツ
+ */
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.main .profile {
+  width: calc(50% - 10px);
+  margin: 5px;
+}
+.skillbox {
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 2em 0;
+}
+
+/*
+ * テーブル
+ */
+.table {
+}
