@@ -50,10 +50,28 @@ ol,ul {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.flex-contents-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .skillbox {
-  width: calc(33% - 20px);
+  width: calc(30% - 20px);
   margin: 5px;
+}
+.skillbox p {
+  padding: 1em;
+}
+.skillbox li {
+  padding: 0 1em;
+  text-align: center;
+}
+
+p.profile {
+  font-size: 1.2rem;
+  width: 70%;
+  padding-bottom: 4em;
 }
 
 .align-center {
@@ -67,18 +85,21 @@ h1 {
   text-align: center;
   padding: 2em 0;
   font-size: 3rem;
+  font-family: 'Noto Serif JP', serif;
   color: #CCCCCC;
 }
 h2 {
   text-align: center;
   padding: 1.5em 0;
   font-size: 2.5rem;
+  font-family: 'Noto Serif JP', serif;
   color: #BBBBBB;
 }
 h3 {
   text-align: center;
   padding: 1.2em 0;
   font-size: 1.5rem;
+  font-family: 'Noto Serif JP', serif;
   color: #AAAAAA;
 }
 a {
@@ -90,9 +111,13 @@ a:hover {
 }
 li {
   color: #AAA;
+  line-height: 1.5;
+  font-family: 'Noto Serif JP', serif;
 }
 p {
   color: #AAA;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
   font-family: 'Noto Serif JP', serif;
 }
 hr {
