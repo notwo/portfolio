@@ -16,7 +16,7 @@ header {
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: black;
   color: white;
 }
@@ -29,6 +29,7 @@ ul.menu {
 }
 ul.menu li {
   padding: 0.7em;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
@@ -92,6 +93,7 @@ li {
 }
 p {
   color: #AAA;
+  font-family: 'Noto Serif JP', serif;
 }
 hr {
   height: 3px;
