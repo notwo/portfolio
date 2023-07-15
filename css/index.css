@@ -4,7 +4,7 @@
 }
 
 html {
-  background-color: #222222;
+  background-color: #333333;
 }
 
 /*
@@ -29,7 +29,7 @@ ul.menu {
 }
 ul.menu li {
   padding: 0.7em;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 
@@ -45,6 +45,33 @@ ol,ul {
   max-width: 1300px;
 }
 
+.container h2 {
+  display: flex;
+  justify-content: center;
+}
+.container h2:before {
+  flex-grow: 0.5;
+  content: "　";
+  height: 1px;
+  background:linear-gradient(left, #333333, #CCC, #CCC);
+  background:-webkit-linear-gradient(left, #333333, #CCC, #CCC);
+  background:-moz-linear-gradient(left, #333333, #CCC, #CCC);
+  position: relative;
+  margin-right: 30px;
+  top: 25px;
+}
+.container h2:after {
+  flex-grow: 0.5;
+  content: "　";
+  height: 1px;
+  background:linear-gradient(left, #CCC, #CCC, #333333);
+  background:-webkit-linear-gradient(left, #CCC, #CCC, #333333);
+  background:-moz-linear-gradient(left, #CCC, #CCC, #333333);
+  position: relative;
+  margin-left: 30px;
+  top: 25px;
+}
+
 .flex-contents {
   display: flex;
   justify-content: space-between;
@@ -57,25 +84,68 @@ ol,ul {
 }
 
 .skillbox {
-  width: calc(30% - 20px);
-  margin: 5px;
+  width: calc(30% - 15px);
+  margin: 0.6em;
+  background-color: rgb(40,40,40);
+  box-shadow: 10px 10px 0 #222222;
 }
 .skillbox p {
   padding: 1em;
 }
-.skillbox li {
+.skillbox ul {
   padding: 0 1em;
+  margin-bottom: 2em;
   text-align: center;
 }
 
-p.profile {
+.sentenses-only {
   font-size: 1.2rem;
   width: 70%;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
 }
 
 .align-center {
   text-align: center;
+}
+
+ul.contact {
+  display: flex;
+  align-items: center;
+}
+ul.contact li {
+  margin: 0 1em 3em;
+  padding: 0.8em 0.8em;
+}
+ul.contact a {
+  padding: 0.5em 1em;
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.mail {
+  border-radius: 3px;
+  background-image: url('../images/mail.png');
+  background-color:rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sns {
+  border-radius: 3px;
+  background-image: url('../images/sns.png');
+  background-color:rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.copyright {
+  font-size: 0.4rem;
+}
+
+footer {
+  padding: 3em;
+  background-color: black;
 }
 
 /*
@@ -83,10 +153,22 @@ p.profile {
  */
 h1 {
   text-align: center;
-  padding: 2em 0;
-  font-size: 3rem;
+  padding: 2.4em 0;
+  font-size: 4rem;
   font-family: 'Noto Serif JP', serif;
   color: #CCCCCC;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1::after{
+  content:"Web Engineer";
+  display: block;
+  font-size: 2rem;
+  position: relative;
+  top: 30px;
 }
 h2 {
   text-align: center;
@@ -119,11 +201,4 @@ p {
   line-height: 1.5;
   letter-spacing: 0.1em;
   font-family: 'Noto Serif JP', serif;
-}
-hr {
-  height: 3px;
-  border:0;
-  background:linear-gradient(left, #222222, #CCC, #222222);
-  background:-webkit-linear-gradient(left, #222222, #CCC, #222222);
-  background:-moz-linear-gradient(left, #222222, #CCC, #222222);
 }
