@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #333333;
+}
+
+/*
+ * ナビゲーションメニュー
+ */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+}
+.menu-wrap {
+  padding: 0.7em;
+}
+ul.menu {
+  display: flex;
+  align-items: center;
+}
+ul.menu li {
+  padding: 0.7em;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+ol,ul {
+  list-style: none;
+}
+
+/*
+ * メインコンテンツ
+ */
+.container {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.container h2 {
+  display: flex;
+  justify-content: center;
+}
+.container h2:before {
+  flex-grow: 0.5;
+  content: "　";
+  height: 1px;
+  background:linear-gradient(left, #333333, #CCC, #CCC);
+  background:-webkit-linear-gradient(left, #333333, #CCC, #CCC);
+  background:-moz-linear-gradient(left, #333333, #CCC, #CCC);
+  position: relative;
+  margin-right: 30px;
+  top: 25px;
+}
+.container h2:after {
+  flex-grow: 0.5;
+  content: "　";
+  height: 1px;
+  background:linear-gradient(left, #CCC, #CCC, #333333);
+  background:-webkit-linear-gradient(left, #CCC, #CCC, #333333);
+  background:-moz-linear-gradient(left, #CCC, #CCC, #333333);
+  position: relative;
+  margin-left: 30px;
+  top: 25px;
+}
+
+.flex-contents {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.flex-contents-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skillbox {
+  width: calc(30% - 15px);
+  margin: 0.6em;
+  background-color: rgb(40,40,40);
+  box-shadow: 10px 10px 0 #222222;
+}
+.skillbox p {
+  padding: 1em;
+}
+.skillbox ul {
+  padding: 0 1em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.sentenses-only {
+  font-size: 1.2rem;
+  width: 70%;
+  padding-bottom: 2em;
+}
+
+.align-center {
+  text-align: center;
+}
+
+ul.contact {
+  display: flex;
+  align-items: center;
+}
+ul.contact li {
+  margin: 0 1em 3em;
+  padding: 0.8em 0.8em;
+}
+ul.contact a {
+  padding: 0.5em 1em;
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.mail {
+  border-radius: 3px;
+  background-image: url('../images/mail.png');
+  background-color:rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sns {
+  border-radius: 3px;
+  background-image: url('../images/sns.png');
+  background-color:rgba(0,0,0,0.6);
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.copyright {
+  font-size: 0.4rem;
+}
+
+footer {
+  padding: 3em;
+  background-color: black;
+}
+
+/*
+ * 基本タグ
+ */
+h1 {
+  text-align: center;
+  padding: 2.4em 0;
+  font-size: 4rem;
+  font-family: 'Noto Serif JP', serif;
+  color: #CCCCCC;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1::after{
+  content:"Web Engineer";
+  display: block;
+  font-size: 2rem;
+  position: relative;
+  top: 30px;
+}
+h2 {
+  text-align: center;
+  padding: 1.5em 0;
+  font-size: 2.5rem;
+  font-family: 'Noto Serif JP', serif;
+  color: #BBBBBB;
+}
+h3 {
+  text-align: center;
+  padding: 1.2em 0;
+  font-size: 1.5rem;
+  font-family: 'Noto Serif JP', serif;
+  color: #AAAAAA;
+}
+a {
+  text-decoration: none;
+  color: #CCC;
+}
+a:hover {
+  opacity: 0.6;
+}
+li {
+  color: #AAA;
+  line-height: 1.5;
+  font-family: 'Noto Serif JP', serif;
+}
+p {
+  color: #AAA;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  font-family: 'Noto Serif JP', serif;
+}
