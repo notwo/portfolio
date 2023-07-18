@@ -157,9 +157,9 @@ h1 {
   font-size: 4rem;
   font-family: 'Noto Serif JP', serif;
   color: #CCCCCC;
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.png');
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.webp');
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.webp');
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.webp');
   background-repeat: no-repeat;
   background-size: cover;
 }
