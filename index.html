@@ -5,7 +5,7 @@
     <meta name="description" content="Web Engineer Takashi portfolio - Takashiのポートフォリオ">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/media.css">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,13 +29,14 @@
     <main class="container">
       <h2 id="profile">Profile</h2>
       <section class="flex-contents-center">
-        <p class="sentenses-only sp-char">現在社会人12年目のwebエンジニアのTakashiです。新卒の頃から主にバックエンドでの保守開発、運用、時々フロントエンドの実装を担当しております(独学でPythonも使っているがほぼRubyer)。<br>
+        <p class="sentenses-only sp-char">現在社会人12年目のwebエンジニアのTakashiです。新卒の頃から主にバックエンドでの保守開発、運用、時々フロントエンドの開発を担当しております(独学でPythonも使っているがほぼRubyer)。<br>
         学生時代にC, C++、verilog HDL等、他の言語もいくつか学んできました。<br>
-        現在ではAIやゲーム開発に興味はありますが、個人的にやりたいことが多くなかなか手が出せていません
+        開発のみならずドキュメンテーションや開発効率化のためのスクリプト制作にも取り組んでおります。<br>
+        ゲームやものづくりが好きなので、現在は隙間時間でプロダクト制作に励んでいます。
       </section>
 
       <h2 id="skill">Skill</h2>
-      <section class="flex-contents">
+      <section class="flex-contents-center">
         <article class="skillbox">
           <h3>BackEnd / Framework</h3>
           <ul>
@@ -49,6 +50,7 @@
         <article class="skillbox">
           <h3>Frontend</h3>
           <ul>
+            <li><b>HTML</b></li>
             <li><b>jQuery (11年)</b></li>
             <li><b>BackboneJS (2年)</b></li>
           </ul>
@@ -82,14 +84,14 @@
 
       <h2 id="products">Products</h2>
       <section class="flex-contents-center">
-        <p class="sentenses-only align-center sp-char">知識整理アプリ(制作中)</p>
+        <b class="sentenses-only align-center sp-char"><a href="https://github.com/notwo/portfolio" target="_blank">本ポートフォリオ</a></b>
       </section>
-      <section class="flex-contents-center">
-          <p class="sentenses-only align-center sp-char">
-            <a href="https://github.com/notwo/youknowFrontend" target="_blank">Frontend</a>
-            /
-            <a href="https://github.com/notwo/youknow" target="_blank">Backend</a>
-          </p>
+      <section class="flex-contents-column">
+        <b class="sentenses-only align-center sp-char">知識整理アプリ(制作中)<br>
+          <a href="https://github.com/notwo/youknowFrontend" target="_blank">Frontend</a>
+          /
+          <a href="https://github.com/notwo/youknow" target="_blank">Backend</a>
+        </b>
       </section>
 
       <h2 id="contacts">Contacts</h2>
@@ -99,17 +101,17 @@
       <section class="flex-contents-center contacts">
         <article class="mail">
           <a class="align-center" href="mailto:77gecco@gmai.com?subject=&body=お問い合わせ内容">
-            <img src="http://dpqf1kwnvi1be.cloudfront.net/googlemail-128.png" alt="Gmail">
+            <img src="http://dpqf1kwnvi1be.cloudfront.net/googlemail-128.png" loading="lazy" alt="Gmail">
           </a>
         </article>
         <article class="sns">
           <a href="https://www.linkedin.com/in/takashi-miyano-webd" target="_blank">
-            <img src="http://dpqf1kwnvi1be.cloudfront.net/LinkedIn-Logos/LI-In-Bug.png" alt="LinkedIn">
+            <img src="http://dpqf1kwnvi1be.cloudfront.net/LinkedIn-Logos/LI-In-Bug.png" loading="lazy" alt="LinkedIn">
           </a>
         </article>
         <article class="github">
           <a href="https://github.com/notwo" target="_blank">
-            <img src="https://dpqf1kwnvi1be.cloudfront.net/github-mark/github-mark-white.svg" alt="GitHub">
+            <img src="https://dpqf1kwnvi1be.cloudfront.net/github-mark/github-mark-white.svg" loading="lazy" alt="GitHub">
           </a>
         </article>
       </section>
