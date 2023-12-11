@@ -152,12 +152,24 @@ h1 {
   font-size: 4rem;
   font-family: 'Noto Serif JP', serif;
   color: #CCCCCC;
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.webp');
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.webp');
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.4)), url('../images/galaxy.webp');
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.2)), url('../images/galaxy.webp');
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.2)), url('../images/galaxy.webp');
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.2)), url('../images/galaxy.webp');
   background-repeat: no-repeat;
   background-size: cover;
+  animation: fadeIn .7s ease;
 }
+
+@keyframes fadeIn {
+  0%{
+    display: none;
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
 h1::after{
   content:"Web Engineer";
   display: block;
