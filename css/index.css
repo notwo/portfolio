@@ -7,6 +7,15 @@ html {
   background-color: #333333;
 }
 
+body.no_scroll{
+  overflow: hidden;
+}
+
+/* コンポーネント */
+.c-color--white {
+  color: white;
+}
+
 /*
  * ナビゲーションメニュー
  */
@@ -21,16 +30,121 @@ header {
   color: white;
 }
 .menu-wrap {
-  padding: 0.7em;
+  padding: 0.7rem;
 }
 ul.menu {
   display: flex;
   align-items: center;
 }
 ul.menu li {
-  padding: 0.7em;
+  padding: 0.7rem;
   font-size: 1.7rem;
   font-weight: 700;
+}
+
+.sp-navButton {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  padding: .2rem;
+  top: 1.2rem;
+  bottom: 0;
+  right: 1.2rem;
+  width: 20px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background: none;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 10000;
+}
+
+.sp-navButton .sp-navItem {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transition: all .15s;
+  background-color: #ffffff;
+}
+
+.sp-navButton .sp-navItem:nth-of-type(1) {
+  top: -5px;
+}
+.sp-navButton .sp-navItem:nth-of-type(2) {
+  top: 2.5px;
+}
+.sp-navButton .sp-navItem:nth-of-type(3) {
+  top: 10px;
+}
+
+.sp-navButton .sp-navMenu,
+.sp-navButton .sp-navClose {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -40%;
+  width: 34px;
+  height: 11px;
+  font-size: .7rem;
+}
+
+.sp-navButton .sp-navClose {
+  display: none;
+}
+
+.sp-navButton.sp-nav-open .sp-navItem {
+  height: 4px;
+  transition: all .15s;
+}
+.sp-navButton.sp-nav-open .sp-navItem:nth-of-type(1) {
+  top: 4px;
+  transform: rotate(45deg);
+}
+.sp-navButton.sp-nav-open .sp-navItem:nth-of-type(2) {
+  top: 4px;
+  transform: rotate(-45deg);
+}
+.sp-navButton.sp-nav-open .sp-navItem:nth-of-type(3) {
+  display: none;
+}
+.sp-navButton.sp-nav-open .sp-navMenu {
+  display: none;
+}
+.sp-navButton.sp-nav-open .sp-navClose {
+  display: block;
+}
+
+.sp-navOverlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100vh;
+  transition: all .15s;
+  z-index: 9999;
+  background-color: rgba(0,0,0,0.8);
+}
+.sp-navOverlay.visible {
+  width: 100%;
+  opacity: 1;
+}
+
+.sp-menu-wrap {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 20%;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+.sp-menu li {
+  margin: 1rem 0;
+  font-size: 1.3rem;
 }
 
 ol,ul {
@@ -42,7 +156,7 @@ ol,ul {
  */
 .container {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1200px;
 }
 
 .container h2 {
@@ -95,21 +209,21 @@ ol,ul {
 
 .skillbox {
   width: calc(30% - 15px);
-  margin: 0.6em;
+  margin: 0.6rem;
   background-color: rgb(40,40,40);
   box-shadow: 10px 10px 0 #222222;
 }
 .skillbox p {
-  padding: 1em;
+  padding: 1rem;
 }
 .skillbox ul {
-  padding: 0 1em;
-  margin-bottom: 2em;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .sentenses-only {
-  padding-bottom: 1.2em;
+  padding-bottom: 1.2rem;
   font-size: 1.3rem;
   width: 70%;
 }
@@ -119,10 +233,10 @@ ol,ul {
 }
 
 .contacts {
-  margin: 8em 0;
+  margin: 8rem 0;
 }
 .contacts article {
-  margin: 0 3em;
+  margin: 0 3rem;
 }
 .mail {
 }
@@ -138,7 +252,7 @@ ol,ul {
 }
 
 footer {
-  padding: 3em;
+  padding: 3rem;
   background-color: black;
 }
 
@@ -148,7 +262,7 @@ footer {
 h1 {
   text-align: center;
   text-shadow: 1px 1px 0 #000;
-  padding: 2.4em 0;
+  padding: 6.4rem 0;
   font-size: 4rem;
   font-family: 'Noto Serif JP', serif;
   color: #CCCCCC;
@@ -179,15 +293,15 @@ h1::after{
 }
 h2 {
   text-align: center;
-  padding: 3.5em 0;
+  padding: 3.5rem 0;
   font-size: 2.5rem;
   font-family: 'Noto Serif JP', serif;
   color: #BBBBBB;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.25rem;
 }
 h3 {
   text-align: center;
-  padding: 1.2em 0;
+  padding: 1.2rem 0;
   font-size: 1.5rem;
   font-family: 'Noto Serif JP', serif;
   color: #AAAAAA;
@@ -201,16 +315,16 @@ a:hover {
 }
 li {
   color: #AAA;
-  line-height: 1.5em;
+  line-height: 1.5rem;
   font-family: 'Noto Serif JP', serif;
 }
 p {
   color: #AAA;
-  line-height: 1.6em;
-  letter-spacing: .15em;
+  line-height: 1.6rem;
+  letter-spacing: .15rem;
   font-family: 'Noto Serif JP', serif;
 }
 b {
-  line-height: 1.3em;
+  line-height: 1.3rem;
   color: #CCC;
 }
