@@ -23,6 +23,25 @@
           <li><a class="sp-char-mini" href="#contacts">Contacts</a></li>
         </ul>
       </nav>
+
+      <button class="sp-navButton">
+        <span class="sp-navItem"></span>
+        <span class="sp-navItem"></span>
+        <span class="sp-navItem"></span>
+        <span class="sp-navMenu c-color--white">MENU</span>
+        <span class="sp-navClose c-color--white">CLOSE</span>
+      </button>
+
+      <section class="sp-navOverlay">
+        <nav class="sp-menu-wrap">
+          <ul class="sp-menu">
+            <li><a class="sp-char-mini sp-close-link" href="#profile">Profile</a></li>
+            <li><a class="sp-char-mini sp-close-link" href="#skill">Skill</a></li>
+            <li><a class="sp-char-mini sp-close-link" href="#products">Products</a></li>
+            <li><a class="sp-char-mini sp-close-link" href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
+      </section>
     </header>
 
     <h1>Takashi's Portfolio</h1>
@@ -99,25 +118,27 @@
         <p class="sentenses-only sp-char align-center">ご連絡はメールもしくはLinkedInからお願いします。</p>
       </section>
       <section class="flex-contents-center contacts">
-        <article class="mail">
+        <section class="mail">
           <a class="align-center" href="mailto:77gecco@gmai.com?subject=&body=お問い合わせ内容">
             <img src="http://dpqf1kwnvi1be.cloudfront.net/googlemail-128.png" loading="lazy" alt="Gmail">
           </a>
-        </article>
-        <article class="sns">
+        </section>
+        <section class="sns">
           <a href="https://www.linkedin.com/in/takashi-miyano-webd" target="_blank">
             <img src="http://dpqf1kwnvi1be.cloudfront.net/LinkedIn-Logos/LI-In-Bug.png" loading="lazy" alt="LinkedIn">
           </a>
-        </article>
-        <article class="github">
+        </section>
+        <section class="github">
           <a href="https://github.com/notwo" target="_blank">
             <img src="https://dpqf1kwnvi1be.cloudfront.net/github-mark/github-mark-white.svg" loading="lazy" alt="GitHub">
           </a>
-        </article>
+        </section>
       </section>
     </main>
     <footer>
       <p class="copyright align-center">Copyright©Takashi Miyano. All Rights Reserved.</p>
     </footer>
+
+    <script type="text/Javascript" src="js/index.js"></script>
   </body>
 </html>
