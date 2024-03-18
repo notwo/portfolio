@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #333333;
+}
+
+main {
+  padding-top: 7rem;
+}
+
+/*
+ * メインコンテンツ
+ */
+.l-container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.l-container h2 {
+  margin: 2rem 0;
+  padding: .5rem;
+  font-size: 1.8rem;
+  border-left: 7px solid #777;
+  border-bottom: 5px solid #333;
+  background:linear-gradient(left, #999, #333);
+  background:-webkit-linear-gradient(left, #999, #333);
+  background:-moz-linear-gradient(left, #999, #333);
+}
+
+.l-container h3 {
+  font-size: 1.4rem;
+}
+.l-container h3::before {
+  content: "■";
+  color: #999;
+}
+
+.l-container h4::before {
+  content: "";
+}
+
+.p-title {
+  margin: 1.6rem 0;
+  padding: .2rem;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(to right, #456, #333) 1;
+  border-image: -webkit-linear-gradient(to right, #456, #333) 1;
+  border-image: -moz-linear-gradient(to right, #456, #333) 1;
+  width: auto;
+}
+
+.p-code {
+  margin: 1rem 0;
+  background-color: black;
+  overflow-x: auto;
+}
+
+.p-filename {
+  display: inline-block;
+  position: relative;
+  padding: .35rem;
+  font-size: .9rem;
+  font-weight: 800;
+  background-color: gray;
+}
+
+.p-python .p-keyword {
+  color: orange;
+}
+
+.p-python .p-string {
+  color: rgb(28, 193, 39);
+}
+
+.p-python .p-search, .p-python .p-arguments {
+  color: rgb(177, 52, 3);
+}
+
+.p-python .p-self {
+  color: rgb(195, 50, 195);
+}
+
+.p-python .p-decorator {
+  color: rgb(195, 195, 44);
+}
+
+.p-codeWrap {
+  margin: .5rem 0;
+}
+
+/* 基本タグ */
+h1 {
+}
+
+h4 {
+}
+
+p {
+  font-family: 'Noto Serif JP', serif;
+}
+
+a {
+  text-decoration: none;
+  color: #CCC;
+}
+a:hover {
+  opacity: 0.6;
+}
+
+ol,ul {
+  list-style: none;
+}
+
+pre {
+  display: block;
+  font-size: .8rem;
+}
+
+code {
+  display: block;
+  padding: 1.0rem 1.3rem;
+  line-height: 1.8;
+}
+
+/* sp */
+@media screen and (max-width: 414px) {
+  header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 3.8rem;
+  }
+
+  main {
+    padding-top: 5rem;
+  }
+  
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 3.8rem;
+  }
+
+  main {
+    padding-top: 5rem;
+  }
+  
+}

@@ -1,0 +1,163 @@
+/*
+ * ナビゲーションメニュー
+ */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+}
+.p-menuWrap {
+  padding: 0.7rem;
+}
+ul.p-menu {
+  display: flex;
+  align-items: center;
+}
+ul.p-menu li {
+  padding: 0.7rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.p-sp__navButton {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  padding: .2rem;
+  top: 1.2rem;
+  bottom: 0;
+  right: 1.2rem;
+  width: 20px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background: none;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 10000;
+}
+
+.p-sp__navButton .p-sp__navItem {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transition: all .15s;
+  background-color: #ffffff;
+}
+
+.p-sp__navButton .p-sp__navItem:nth-of-type(1) {
+  top: -5px;
+}
+.p-sp__navButton .p-sp__navItem:nth-of-type(2) {
+  top: 2.5px;
+}
+.p-sp__navButton .p-sp__navItem:nth-of-type(3) {
+  top: 10px;
+}
+
+.p-sp__navButton .p-sp__navMenu,
+.p-sp__navButton .p-sp__navClose {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -40%;
+  width: 34px;
+  height: 11px;
+  font-size: .7rem;
+}
+
+.p-sp__navButton .p-sp__navClose {
+  display: none;
+}
+
+.p-sp__navButton.sp-nav-open .p-sp__navItem {
+  height: 4px;
+  transition: all .15s;
+}
+.p-sp__navButton.sp-nav-open .p-sp__navItem:nth-of-type(1) {
+  top: 4px;
+  transform: rotate(45deg);
+}
+.p-sp__navButton.sp-nav-open .p-sp__navItem:nth-of-type(2) {
+  top: 4px;
+  transform: rotate(-45deg);
+}
+.p-sp__navButton.sp-nav-open .p-sp__navItem:nth-of-type(3) {
+  display: none;
+}
+.p-sp__navButton.sp-nav-open .p-sp__navMenu {
+  display: none;
+}
+.p-sp__navButton.sp-nav-open .p-sp__navClose {
+  display: block;
+}
+
+.p-sp__navOverlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100vh;
+  transition: all .15s;
+  z-index: 9999;
+  background-color: rgba(0,0,0,0.8);
+}
+.p-sp__navOverlay.visible {
+  width: 100%;
+  opacity: 1;
+}
+
+.p-sp__menuWrap {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+}
+
+.p-sp__menu li {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+
+/* sp */
+@media screen and (max-width: 414px) {
+  .p-menuWrap {
+    display: none;
+  }
+
+  .p-sp__navButton {
+    display: block;
+  }
+
+  .p-sp__menu li {
+    margin: 2.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  .p-menuWrap {
+    display: none;
+  }
+
+  .p-sp__navButton {
+    display: block;
+  }
+
+  .p-sp__menu li {
+    margin: 2.5rem 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+}

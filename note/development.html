@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="実装ノート">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+    <link rel="stylesheet" href="../css/development.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/sp-nav.css">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap">
+    <title>Takashi's 実装ノート</title>
+  </head>
+  <body>
+    <header class="c-color--white">
+      <nav class="p-menuWrap">
+        <ul class="p-menu">
+          <li><a class="p-sp__charMini" href="#python">Python</a></li>
+          <li><a class="p-sp__charMini" href="#ruby">Ruby</a></li>
+          <li><a class="p-sp__charMini" href="#javascript">Javascript</a></li>
+          <li><a class="p-sp__charMini" href="#css">CSS</a></li>
+          <li><a class="p-sp__charMini" href="#vba">VBA</a></li>
+        </ul>
+      </nav>
+      <button class="p-sp__navButton js-navButton">
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navMenu c-color--white">MENU</span>
+        <span class="p-sp__navClose c-color--white">CLOSE</span>
+      </button>
+
+      <section class="p-sp__navOverlay js-navOverlay">
+        <nav class="p-sp__menuWrap c-flex--column c-text--alignCenter">
+          <ul class="p-sp__menu">
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#python">Python</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#ruby">Ruby</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#javascript">Javascript</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#css">CSS</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#vba">VBA</a></li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+
+    <main class="l-container c-color--white">
+      <h2 class="c-flex--start" id="python">Python</h2>
+      <section class="p-language p-python">
+        <h3>Django</h3>
+        <section class="p-framework">
+          <section class="p-title"></section>
+          <section class="p-code">
+            <section class="p-filename"></section>
+            <pre><code></code></pre>
+          </section>
+          <section class="p-explanation"></section>
+        </section>
+
+        <h3>DRF</h3>
+        <section class="p-framework">
+          <section class="p-title">ModelViewSetの定義例</section>
+          <section class="p-codeWrap">
+            <h4>基本形</h4>
+            <section class="p-code">
+              <section class="p-filename">views.py</section>
+              <pre><code><span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
+<span>    serializer_class = SampleSerializer # serializerの定義</span>
+<span>    queryset = Sample.objects.all() # sampleのqueryset定義</span>
+<span>    filter_fields = (</span><span class="p-string">'column1'</span><span>, </span><span class="p-string">'column2'</span><span>, </span><span class="p-string">'...'</span><span>) # オブジェクト取得時のカラムの絞り込み</span>
+<span>    filter_backends = [filters.DjangoFilterBackend, OrderingFilter] # ListApiViewでsampleの絞り込みを可能にする</span>
+<span>    ordering_fields = [</span><span class="p-string">'-column'</span><span>] # ソート用</span>
+</code></pre>
+            </section>
+            <section class="p-explanation"></section>
+          </section>
+
+          <section class="p-codeWrap">
+            <h4>検索</h4>
+            <section class="p-code">
+              <section class="p-filename">views.py</section>
+              <pre><code><span class="p-keyword">class</span><span> SampleFilter(filters.FilterSet):</span>
+<span>    title = filters.CharFilter(</span><span class="p-search">lookup_expr</span><span>=</span><span class="p-string">'icontains'</span><span>)</span>
+<span></span>
+<span>    </span><span class="p-keyword">class</span><span> Meta:</span>
+<span>      model = Model名</span>
+<span>      fields = [</span><span class="p-string">'title'</span><span>]</span>
+<span></span>
+<span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
+<span>    filterset_class = SampleFilter # filter class設定</span>
+</code></pre>
+            </section>
+            <section class="p-explanation"></section>
+          </section>
+
+          <section class="p-codeWrap">
+            <h4>ページネーション</h4>
+            <section class="p-code">
+              <section class="p-filename">views.py</section>
+              <pre><code><span class="p-keyword">class</span><span> SamplePagination(pagination.LimitOffsetPagination):</span>
+<span>    ordering = (</span><span class="p-string">'-column1'</span><span>,) # ソート用</span>
+<span>    page_size = 1ページあたりの要素数</span>
+<span></span>
+<span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
+<span>    pagination_class = SamplePagination</span>
+</code></pre>
+            </section>
+            <section class="p-explanation"></section>
+          </section>
+
+          <section class="p-codeWrap">
+            <h4>list</h4>
+            <section class="p-code">
+              <section class="p-filename">views.py</section>
+              <pre><code><span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
+<span>    ...</span>
+<span></span>
+<span class="p-keyword">def</span><span> get_queryset(</span><span class="p-self">self</span><span>):</span>
+<span>    </span><span class="p-keyword">return</span><span> Model名.objects.filter(</span>
+<span>        </span><span class="p-search">custom_user</span><span>=</span><span class="p-self">self</span>.kwargs[<span class="p-string">'you_know_customuser_pk'</span><span>]</span>
+<span>    ).order_by(</span><span class="p-string">'-created_at'</span><span>)</span>
+</code></pre>
+            </section>
+            <section class="p-explanation"></section>
+          </section>
+
+          <section class="p-codeWrap">
+            <h4>REST以外のメソッド</h4>
+            <section class="p-code">
+              <section class="p-filename">views.py</section>
+              <pre><code><span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
+<span>    ...</span>
+<span></span>
+<span>    </span><span class="p-decorator">@action</span><span>(</span><span class="p-arguments">methods</span>=[</span><span class="p-string">'get'</span><span>], </span><span class="p-arguments">detail</span><span>=</span><span class="p-keyword">False</span><span>)</span>
+<span>    </span><span class="p-keyword">def</span><span> メソッド名(</span><span class="p-self">self</span><span>, request, **kwargs):</span>
+<span>        ...</span>
+<span>        serializer = </span><span class="p-self">self</span><span>.get_serializer(</span><span class="p-search">instance</span><span>=インスタンスのオブジェクト、配列<span>, </span><span class="p-search">many</span><span>=</span><span class="p-keyword">True</span><span>)</span>
+<span>        </span><span class="p-keyword">return</span><span> Response(serializer.data)</span>
+</code></pre>
+            </section>
+            <section class="p-explanation"></section>
+          </section>
+        </section>
+      </section>
+
+      <h2 class="c-flex--start" id="python">JS</h2>
+      <section class="p-language">
+        <h3>Pure JS</h3>
+        <section class="p-framework">
+        </section>
+
+        <h3>Vue3</h3>
+        <section class="p-framework">
+        </section>
+
+        <h3>TypeScript</h3>
+        <section class="p-framework">
+        </section>
+
+        <h3>jQuery</h3>
+        <section class="p-framework">
+        </section>
+      </section>
+
+      <h2 class="c-flex--start" id="python">CSS</h2>
+      <section class="p-language">
+        <h3>Pure CSS</h3>
+        <section class="p-framework">
+        </section>
+      </section>
+    </main>
+
+    <footer class="c-color--white">
+    </footer>
+
+    <script type="text/Javascript" src="../js/index.js"></script>
+  </body>
+</html>

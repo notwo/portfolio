@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" href="css/index.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sp-nav.css">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,50 +16,52 @@
   </head>
   <body>
     <header>
-      <nav class="menu-wrap">
-        <ul class="menu">
-          <li><a class="sp-char-mini" href="#profile">Profile</a></li>
-          <li><a class="sp-char-mini" href="#skill">Skill</a></li>
-          <li><a class="sp-char-mini" href="#products">Products</a></li>
-          <li><a class="sp-char-mini" href="#contacts">Contacts</a></li>
+      <nav class="p-menuWrap">
+        <ul class="p-menu">
+          <li><a class="p-sp__charMini" href="#profile">Profile</a></li>
+          <li><a class="p-sp__charMini" href="#skill">Skill</a></li>
+          <li><a class="p-sp__charMini" href="#products">Products</a></li>
+          <li><a class="p-sp__charMini" href="#developments">Developments</a></li>
+          <li><a class="p-sp__charMini" href="#contacts">Contacts</a></li>
         </ul>
       </nav>
 
-      <button class="sp-navButton">
-        <span class="sp-navItem"></span>
-        <span class="sp-navItem"></span>
-        <span class="sp-navItem"></span>
-        <span class="sp-navMenu c-color--white">MENU</span>
-        <span class="sp-navClose c-color--white">CLOSE</span>
+      <button class="p-sp__navButton js-navButton">
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navMenu c-color--white">MENU</span>
+        <span class="p-sp__navClose c-color--white">CLOSE</span>
       </button>
 
-      <section class="sp-navOverlay">
-        <nav class="sp-menu-wrap">
-          <ul class="sp-menu">
-            <li><a class="sp-char-mini sp-close-link" href="#profile">Profile</a></li>
-            <li><a class="sp-char-mini sp-close-link" href="#skill">Skill</a></li>
-            <li><a class="sp-char-mini sp-close-link" href="#products">Products</a></li>
-            <li><a class="sp-char-mini sp-close-link" href="#contacts">Contacts</a></li>
+      <section class="p-sp__navOverlay js-navOverlay">
+        <nav class="p-sp__menuWrap c-flex--column c-text--alignCenter">
+          <ul class="p-sp__menu">
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#profile">Profile</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#skill">Skill</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#products">Products</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#developments">Developments</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#contacts">Contacts</a></li>
           </ul>
         </nav>
       </section>
     </header>
 
-    <h1>Takashi's Portfolio</h1>
-    <main class="container">
-      <h2 id="profile">Profile</h2>
-      <section class="flex-contents-center">
-        <p class="sentenses-only sp-char">現在社会人12年目のwebエンジニアのTakashiです。新卒の頃から主にバックエンドでの保守開発、運用、時々フロントエンドの開発を担当しております(独学でPythonも使っているがほぼRubyer)。<br>
+    <h1 class="c-text--alignCenter c-color--white">Takashi's Portfolio</h1>
+    <main class="l-container">
+      <h2 class="c-flex__contents--center c-text--alignCenter" id="profile">Profile</h2>
+      <section class="c-flex__contents--center c-flexWrap">
+        <p class="p-sentensesOnly p-spChar">現在社会人12年目のwebエンジニアのTakashiです。新卒の頃から主にバックエンドでの保守開発、運用、時々フロントエンドの開発を担当しております(独学でPythonも使っているがほぼRubyer)。<br>
         学生時代にC, C++、verilog HDL等、他の言語もいくつか学んできました。<br>
         開発のみならずドキュメンテーションや開発効率化のためのスクリプト制作にも取り組んでおります。<br>
         ゲームやものづくりが好きなので、現在は隙間時間でプロダクト制作に励んでいます。
       </section>
 
-      <h2 id="skill">Skill</h2>
-      <section class="flex-contents-center">
-        <article class="skillbox">
-          <h3>BackEnd / Framework</h3>
-          <ul>
+      <h2 class="c-flex__contents--center c-text--alignCenter" id="skill">Skill</h2>
+      <section class="c-flex__contents--center c-flexWrap">
+        <article class="p-skillbox">
+          <h3 class="c-text--alignCenter">BackEnd / Framework</h3>
+          <ul class="c-text--alignCenter">
             <li><b>PHP / Symfony (約4年)</b></li>
             <li><b>Ruby / Ruby on Rails (8年)</b></li>
             <li><b>Java (1年) / -</b></li>
@@ -66,32 +69,32 @@
             <li><b>ShellScript (約4年) / -</b></li>
           </ul>
         </article>
-        <article class="skillbox">
-          <h3>Frontend</h3>
-          <ul>
+        <article class="p-skillbox">
+          <h3 class="c-text--alignCenter">Frontend</h3>
+          <ul class="c-text--alignCenter">
             <li><b>HTML</b></li>
             <li><b>jQuery (11年)</b></li>
             <li><b>BackboneJS (2年)</b></li>
           </ul>
         </article>
-        <article class="skillbox">
-          <h3>Cloud</h3>
-          <ul>
+        <article class="p-skillbox">
+          <h3 class="c-text--alignCenter">Cloud</h3>
+          <ul class="c-text--alignCenter">
             <li>AWS</li>
             <li><b>オンプレミス (12年)</b></li>
           </ul>
         </article>
-        <article class="skillbox">
-          <h3>Database</h3>
-          <ul>
+        <article class="p-skillbox">
+          <h3 class="c-text--alignCenter">Database</h3>
+          <ul class="c-text--alignCenter">
             <li><b>MySQL (11年)</b></li>
             <li><b>OracleDB (1年)</b></li>
             <li>DynamoDB</li>
           </ul>
         </article>
-        <article class="skillbox">
-          <h3>Other</h3>
-          <ul>
+        <article class="p-skillbox">
+          <h3 class="c-text--alignCenter">Other</h3>
+          <ul class="c-text--alignCenter">
             <li><b>Docker, Docker Compose (1年3ヶ月)</b></li>
             <li><b>Jenkins (2年)</b></li>
             <li><b>Eclipse (1.5年)</b></li>
@@ -101,34 +104,39 @@
         </article>
       </section>
 
-      <h2 id="products">Products</h2>
-      <section class="flex-contents-center">
-        <b class="sentenses-only align-center sp-char"><a href="https://github.com/notwo/portfolio" target="_blank">本ポートフォリオ</a></b>
+      <h2 class="c-flex__contents--center c-text--alignCenter" id="products">Products</h2>
+      <section class="c-flex__contents--center c-flexWrap">
+        <b class="p-sentensesOnly c-text--alignCenter p-spChar"><a href="https://github.com/notwo/portfolio" target="_blank">本ポートフォリオ</a></b>
       </section>
-      <section class="flex-contents-column">
-        <b class="sentenses-only align-center sp-char">知識整理アプリ(制作中)<br>
+      <section class="c-flex--column c-flex__align--center c-flexWrap">
+        <b class="p-sentensesOnly c-text--alignCenter p-spChar">知識整理アプリ(制作中)<br>
           <a href="https://github.com/notwo/youknowFrontend" target="_blank">Frontend</a>
           /
           <a href="https://github.com/notwo/youknow" target="_blank">Backend</a>
         </b>
       </section>
 
-      <h2 id="contacts">Contacts</h2>
-      <section class="flex-contents-center">
-        <p class="sentenses-only sp-char align-center">ご連絡はメールもしくはLinkedInからお願いします。</p>
+      <h2 class="c-flex__contents--center c-text--alignCenter" id="developments">dev</h2>
+      <section class="c-flex--column c-flex__align--center c-flexWrap">
+        <b class="p-sentensesOnly c-text--alignCenter p-spChar"><a href="note/development.html" target="_blank">実装ノート</a></b>
       </section>
-      <section class="flex-contents-center contacts">
-        <section class="mail">
-          <a class="align-center" href="mailto:77gecco@gmai.com?subject=&body=お問い合わせ内容">
+
+      <h2 class="c-flex__contents--center c-text--alignCenter" id="contacts">Contacts</h2>
+      <section class="c-flex__contents--center c-flexWrap">
+        <p class="p-sentensesOnly p-spChar c-text--alignCenter">ご連絡はメールもしくはLinkedInからお願いします。</p>
+      </section>
+      <section class="c-flex__contents--center c-flexWrap p-contacts">
+        <section class="p-sns">
+          <a class="c-text--alignCenter" href="mailto:77gecco@gmai.com?subject=&body=お問い合わせ内容">
             <img src="http://dpqf1kwnvi1be.cloudfront.net/googlemail-128.png" loading="lazy" alt="Gmail">
           </a>
         </section>
-        <section class="sns">
+        <section class="p-sns">
           <a href="https://www.linkedin.com/in/takashi-miyano-webd" target="_blank">
             <img src="http://dpqf1kwnvi1be.cloudfront.net/LinkedIn-Logos/LI-In-Bug.png" loading="lazy" alt="LinkedIn">
           </a>
         </section>
-        <section class="github">
+        <section class="p-github">
           <a href="https://github.com/notwo" target="_blank">
             <img src="https://dpqf1kwnvi1be.cloudfront.net/github-mark/github-mark-white.svg" loading="lazy" alt="GitHub">
           </a>
@@ -136,7 +144,7 @@
       </section>
     </main>
     <footer>
-      <p class="copyright align-center">Copyright©Takashi Miyano. All Rights Reserved.</p>
+      <p class="p-copyright c-text--alignCenter">Copyright©Takashi Miyano. All Rights Reserved.</p>
     </footer>
 
     <script type="text/Javascript" src="js/index.js"></script>
