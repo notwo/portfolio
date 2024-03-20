@@ -53,7 +53,7 @@ main {
 }
 
 .p-code {
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   background-color: black;
   overflow-x: auto;
 }
@@ -61,7 +61,7 @@ main {
 .p-filename {
   display: inline-block;
   position: relative;
-  padding: .35rem;
+  padding: .5rem;
   font-size: .9rem;
   font-weight: 800;
   background-color: gray;
@@ -73,6 +73,14 @@ main {
 
 .p-python .p-string {
   color: rgb(28, 193, 39);
+}
+
+.p-python .p-number {
+  color: rgb(9, 152, 254);
+}
+
+.p-python .p-function {
+  color: rgb(242, 255, 2);
 }
 
 .p-python .p-search, .p-python .p-arguments {
@@ -87,9 +95,58 @@ main {
   color: rgb(195, 195, 44);
 }
 
+.p-javascript .p-keyword__files, .p-javascript .p-innerBlanket, .p-javascript .p-keyword2 {
+  color: rgb(195, 50, 195);
+}
+
+.p-javascript .p-vue__file, .p-javascript .p-symol, .p-javascript .p-imported, .p-javascript .p-arguments, .p-javascript .p-attribute {
+  color: rgb(52, 220, 214);
+}
+
+.p-javascript .p-string {
+  color: orange;
+}
+
+.p-javascript .p-blanket, .p-javascript .p-function {
+  color: rgb(195, 195, 44);
+}
+
+.p-javascript .p-keyword, .p-javascript .p-keyword__innerFiles, .p-javascript .p-innerBlanket2, .p-javascript .p-htmltag {
+  color: rgb(35, 61, 255);
+}
+
+.p-javascript .p-variables {
+  color: rgb(82, 132, 169);
+}
+
+.p-javascript .p-varType {
+  color: rgb(108, 253, 117);
+}
+
+.p-javascript .p-tagblanket {
+  color: #777;
+}
+
 .p-codeWrap {
+  margin: .5rem 0 0 0;
+}
+
+.p-explanation {
+  margin: 0 0 2rem 0;
+  padding: 1.5rem 0.7rem;
+  background-color: #444;
+  overflow-x: auto;
+}
+
+.p-explanation .p-subsentence {
+  margin: .2rem 0;
+  line-height: 1.5;
+}
+
+.p-explanation .p-example {
   margin: .5rem 0;
 }
+
 
 /* 基本タグ */
 h1 {
