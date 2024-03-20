@@ -182,6 +182,34 @@ code {
   line-height: 1.8;
 }
 
+details > summary > .c-toggleIcon:before {
+  position: absolute;
+  margin: -4.5rem 70%;
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 4px solid #ffffff;
+  border-top: 4px solid #ffffff;
+  font-size: 2rem;
+  transform: rotate(135deg);
+  transition: .1s;
+}
+details[open] > summary > .c-toggleIcon:before {
+  position: absolute;
+  margin: -4rem 70%;
+  content: "";
+  transform: rotate(-135deg) scaleY(-1);
+  transition: .1s;
+}
+
+summary {
+  display: block;
+  cursor: pointer;
+}
+summary::-webkit-details-marker, summary::-moz-details-marker {
+  display: none;
+}
+
 /* sp */
 @media screen and (max-width: 414px) {
   header {
@@ -194,7 +222,13 @@ code {
   main {
     padding-top: 5rem;
   }
-  
+
+  details > summary > .c-toggleIcon:before {
+    margin: -4.5rem 80%;
+  }
+  details[open] > summary > .c-toggleIcon:before {
+    margin: -4rem 80%;
+  }
 }
 
 /* tablet */
@@ -210,4 +244,10 @@ code {
     padding-top: 5rem;
   }
   
+  details > summary > .c-toggleIcon:before {
+    margin: -4.5rem 80%;
+  }
+  details[open] > summary > .c-toggleIcon:before {
+    margin: -4rem 80%;
+  }
 }

@@ -48,31 +48,35 @@
 
     <main class="l-container c-color--white">
       <section class="p-languageWrap">
-        <h2 class="c-flex--start" id="python">Python</h2>
-        <section class="p-language p-python">
-          <section class="p-frameworkWrap">
-            <h3>Django</h3>
-            <section class="p-framework">
-              <!--
-              <section class="p-title"></section>
-              <section class="p-code">
-                <section class="p-filename"></section>
-                <pre><code></code></pre>
-              </section>
-              <section class="p-explanation"></section>
-              -->
-            </section>
-          </section>
-
-          <section class="p-frameworkWrap">
-            <h3>DRF</h3>
-            <section class="p-framework">
-              <section class="p-title">ModelViewSetの定義例</section>
-              <section class="p-codeWrap">
-                <h4>基本形</h4>
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="python">Python</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-language p-python">
+            <section class="p-frameworkWrap">
+              <h3>Django</h3>
+              <section class="p-framework">
+                <!--
+                <section class="p-title"></section>
                 <section class="p-code">
-                  <section class="p-filename">views.py</section>
-                  <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
+                  <section class="p-filename"></section>
+                  <pre><code></code></pre>
+                </section>
+                <section class="p-explanation"></section>
+                -->
+              </section>
+            </section>
+  
+            <section class="p-frameworkWrap">
+              <h3>DRF</h3>
+              <section class="p-framework">
+                <section class="p-title">ModelViewSetの定義例</section>
+                <section class="p-codeWrap">
+                  <h4>基本形</h4>
+                  <section class="p-code">
+                    <section class="p-filename">views.py</section>
+                    <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
 <span class="p-keyword">from</span><span> rest_framework.filters </span><span class="p-keyword">import</span><span> OrderingFilter</span>
 <span class="p-keyword">from</span><span> ..models </span><span class="p-keyword">import</span><span> Sample</span>
 <span class="p-keyword">from</span><span> ..serializers </span><span class="p-keyword">import</span><span> SampleSerializer</span>
@@ -84,15 +88,15 @@
 <span>    filter_backends = [filters.DjangoFilterBackend, OrderingFilter] # ListApiViewでsampleの絞り込みを可能にする</span>
 <span>    ordering_fields = [</span><span class="p-string">'-column'</span><span>] # ソート用</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>検索</h4>
-                <section class="p-code">
-                  <section class="p-filename">views.py</section>
-                  <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
+  
+                <section class="p-codeWrap">
+                  <h4>検索</h4>
+                  <section class="p-code">
+                    <section class="p-filename">views.py</section>
+                    <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
 <span class="p-keyword">from</span><span> django_filters </span><span class="p-keyword">import</span><span> rest_framework </span><span class="p-keyword">as</span><span> filters</span>
 <span></span>
 <span class="p-keyword">class</span><span> SampleFilter(filters.FilterSet):</span>
@@ -105,15 +109,15 @@
 <span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
 <span>    filterset_class = SampleFilter # filter class設定</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>ページネーション</h4>
-                <section class="p-code">
-                  <section class="p-filename">views.py</section>
-                  <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets, pagination</span>
+  
+                <section class="p-codeWrap">
+                  <h4>ページネーション</h4>
+                  <section class="p-code">
+                    <section class="p-filename">views.py</section>
+                    <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets, pagination</span>
 <span></span>
 <span class="p-keyword">class</span><span> SamplePagination(pagination.LimitOffsetPagination):</span>
 <span>    ordering = (</span><span class="p-string">'-column1'</span><span>,) # ソート用</span>
@@ -122,15 +126,15 @@
 <span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
 <span>    pagination_class = SamplePagination</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>list</h4>
-                <section class="p-code">
-                  <section class="p-filename">views.py</section>
-                  <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
+  
+                <section class="p-codeWrap">
+                  <h4>list</h4>
+                  <section class="p-code">
+                    <section class="p-filename">views.py</section>
+                    <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
 <span></span>
 <span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
 <span>    ...</span>
@@ -140,15 +144,15 @@
 <span>        </span><span class="p-search">custom_user</span><span>=</span><span class="p-self">self</span>.kwargs[<span class="p-string">'you_know_customuser_pk'</span><span>]</span>
 <span>    ).order_by(</span><span class="p-string">'-created_at'</span><span>)</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>REST以外のメソッド</h4>
-                <section class="p-code">
-                  <section class="p-filename">views.py</section>
-                  <pre><code><span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
+  
+                <section class="p-codeWrap">
+                  <h4>REST以外のメソッド</h4>
+                  <section class="p-code">
+                    <section class="p-filename">views.py</section>
+                    <pre><code><span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
 <span>    ...</span>
 <span></span>
 <span>    </span><span class="p-decorator">@action</span><span>(</span><span class="p-arguments">methods</span>=[</span><span class="p-string">'get'</span><span>], </span><span class="p-arguments">detail</span><span>=</span><span class="p-keyword">False</span><span>)</span>
@@ -157,17 +161,17 @@
 <span>        serializer = </span><span class="p-self">self</span><span>.get_serializer(</span><span class="p-search">instance</span><span>=インスタンスのオブジェクト、配列<span>, </span><span class="p-search">many</span><span>=</span><span class="p-keyword">True</span><span>)</span>
 <span>        </span><span class="p-keyword">return</span><span> Response(serializer.data)</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
               </section>
-            </section>
-            <section class="p-framework">
-              <section class="p-title">Serializerの定義例</section>
-              <section class="p-codeWrap">
-                <h4>基本形</h4>
-                <section class="p-code">
-                  <section class="p-filename">serializer.py</section>
-                  <pre><code><span class="p-keyword">from </span><span>rest_framework </span><span class="p-keyword">import </span><span>serializers</span>
+              <section class="p-framework">
+                <section class="p-title">Serializerの定義例</section>
+                <section class="p-codeWrap">
+                  <h4>基本形</h4>
+                  <section class="p-code">
+                    <section class="p-filename">serializer.py</section>
+                    <pre><code><span class="p-keyword">from </span><span>rest_framework </span><span class="p-keyword">import </span><span>serializers</span>
 <span class="p-keyword">from </span><span>.models </span><span class="p-keyword">import </span><span>Sample</span>
 <span></span>
 <span class="p-keyword">class </span><span>SampleSerializer(serializers.ModelSerializer):</span>
@@ -176,15 +180,15 @@
 <span>        fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"username"</span><span>, </span><span class="p-string">"email"</span><span>, </span><span class="p-string">"password"</span><span>]</span>
 <span>        read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>1対N, N対N</h4>
-                <section class="p-code">
-                  <section class="p-filename">serializer.py</section>
-                  <pre><code><span class="p-keyword">from </span><span>rest_framework </span><span class="p-keyword">import </span><span>serializers</span>
+  
+                <section class="p-codeWrap">
+                  <h4>1対N, N対N</h4>
+                  <section class="p-code">
+                    <section class="p-filename">serializer.py</section>
+                    <pre><code><span class="p-keyword">from </span><span>rest_framework </span><span class="p-keyword">import </span><span>serializers</span>
 <span class="p-keyword">from </span><span>.models </span><span class="p-keyword">import </span><span>Shop, Item</span>
 <span></span>
 <span class="p-keyword">class </span><span>ShopSerializer(serializers.ModelSerializer):</span>
@@ -201,17 +205,17 @@
 <span>        fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"shop"</span><span>, </span><span class="p-string">"shop_id"</span><span>, </span><span class="p-string">"name"</span><span>, </span><span class="p-string">"price"</span><span>, </span><span class="p-string">"stock"</span><span>]</span>
 <span>        read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">この例ではShop1に対してItemN</p>
+                  </section>
                 </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">この例ではShop1に対してItemN</p>
-                </section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>子要素とページネーション</h4>
-                <section class="p-code">
-                  <section class="p-filename">serializer.py</section>
-                  <pre><code><span class="p-keyword">from </span><span>rest_framework </span><span class="p-keyword">import </span><span>serializers</span>
+  
+                <section class="p-codeWrap">
+                  <h4>子要素とページネーション</h4>
+                  <section class="p-code">
+                    <section class="p-filename">serializer.py</section>
+                    <pre><code><span class="p-keyword">from </span><span>rest_framework </span><span class="p-keyword">import </span><span>serializers</span>
 <span class="p-keyword">from </span><span>django.core.paginator </span><span class="p-keyword">import</span><span> Paginator</span>
 <span class="p-keyword">from </span><span>.models </span><span class="p-keyword">import </span><span>Shop, Item</span>
 <span></span>
@@ -251,17 +255,17 @@
 <span class="p-keyword">    class </span><span>Meta:</span>
 <span>        model = Item</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
               </section>
-            </section>
-            <section class="p-framework">
-              <section class="p-title">ルーティング</section>
-              <section class="p-codeWrap">
-                <h4>基本形</h4>
-                <section class="p-code">
-                  <section class="p-filename">プロジェクトルート/アプリケーション/urls.py</section>
-                  <pre><code><span class="p-keyword">from </span><span>rest_framework_nested </span><span class="p-keyword">import</span><span> routers</span>
+              <section class="p-framework">
+                <section class="p-title">ルーティング</section>
+                <section class="p-codeWrap">
+                  <h4>基本形</h4>
+                  <section class="p-code">
+                    <section class="p-filename">プロジェクトルート/アプリケーション/urls.py</section>
+                    <pre><code><span class="p-keyword">from </span><span>rest_framework_nested </span><span class="p-keyword">import</span><span> routers</span>
 <span class="p-keyword">from </span><span>django.urls </span><span class="p-keyword">import</span><span> path</span>
 <span class="p-keyword">from </span><span>. </span><span class="p-keyword">import</span><span> index, user</span>
 <span></span>
@@ -276,12 +280,12 @@
 <span>  path(</span><span class="p-string">""</span><span>, index.IndexView.as_view(), </span><span class="p-search">name=</span><span class="p-string">"index"),</span>
 <span>]</span>
 </code></pre>
-                </section>
-                <section class="p-explanation"></section>
-
-                <section class="p-code">
-                  <section class="p-filename">プロジェクトルート/urls.py</section>
-                  <pre><code><span class="p-keyword">from </span><span>django.urls </span><span class="p-keyword">import</span><span> path, include</span>
+                  </section>
+                  <section class="p-explanation"></section>
+  
+                  <section class="p-code">
+                    <section class="p-filename">プロジェクトルート/urls.py</section>
+                    <pre><code><span class="p-keyword">from </span><span>django.urls </span><span class="p-keyword">import</span><span> path, include</span>
 <span class="p-keyword">from </span><span>you_know.urls </span><span class="p-keyword">import</span><span> users_router</span>
 <span></span>
 <span>urlpatterns = [</span>
@@ -289,219 +293,240 @@
 <span>    path(</span><span class="p-string">'api/'</span><span>, include(users_router.urls)),</span>
 <span>]</span>
 </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
                 </section>
-                <section class="p-explanation"></section>
               </section>
             </section>
           </section>
         </section>
+      </details>
+
+      <section class="p-languageWrap">
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="ruby">Ruby</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-language p-ruby">
+            <section class="p-frameworkWrap">
+              <h3>Ruby</h3>
+              <section class="p-framework">
+              </section>
+  
+              <h3>Rails</h3>
+              <section class="p-framework">
+              </section>
+            </section>
+          </section>
+        </details>
       </section>
 
       <section class="p-languageWrap">
-        <h2 class="c-flex--start" id="ruby">Ruby</h2>
-        <section class="p-language p-ruby">
-          <section class="p-frameworkWrap">
-            <h3>Ruby</h3>
-            <section class="p-framework">
-            </section>
-
-            <h3>Rails</h3>
-            <section class="p-framework">
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="javascript">JS</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-language p-javascript">
+            <section class="p-frameworkWrap">
+              <h3>Pure JS</h3>
+              <section class="p-framework">
+              </section>
+  
+              <h3>Vue3</h3>
+              <section class="p-framework">
+                <section class="p-title">Vueの使い方</section>
+                <section class="p-codeWrap">
+                  <h4>プロジェクトの登録</h4>
+                  <section class="p-code">
+                    <section class="p-filename">index.js</section>
+                    <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-vue__file">App</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">"./App.vue"</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">app</span><span> = </span><span class="p-function">createApp</span><span class="p-blanket">(</span><span class="p-vue__file">App</span><span class="p-blanket">)</span><span>;</span>
+  <span class="p-variables">app</span><span>.</span><span class="p-function">mount</span><span class="p-blanket">(</span><span class="p-string">'#app'</span><span class="p-blanket">)</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">所謂エントリポイント</p>
+                  </section>
+                </section>
+  
+                <section class="p-codeWrap">
+                  <h4>外部Vueファイルのimport</h4>
+                  <section class="p-code">
+                    <section class="p-filename">vueファイル</section>
+                    <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-vue__file">exportされているclass名</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">"vueファイル名"</span><span>;</span></code></pre>
+                  </section>
+                  <section class="p-explanation"><p class="p-subsentence">@でプロジェクトルートディレクトリを表現できる。</p>
+                    <section class="p-example">例：/component/SampleClass.vueをimportする場合</section>
+                    <pre><code><span class="p-keyword__files">import</span><span class="p-vue__file"> SampleClass </span><span class="p-string">"@/component/SampleClass.vue"</span></code></pre>
+                  </section>
+                </section>
+  
+                <section class="p-title">Vue Routerの使い方</section>
+                <section class="p-codeWrap">
+                  <h4>router基本形</h4>
+                  <section class="p-code">
+                    <section class="p-filename">router/index.ts</section>
+                    <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+  <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
+  <span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-symol">meta: </span><span class="p-innerBlanket2">{ </span><span class="p-symol">title: </span><span class="p-string">'titleタグの名前' </span><span class="p-innerBlanket2">}</span><span class="p-innerBlanket">}</span><span>,</span>
+  <span class="p-blanket">]</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">import文で遅延loadが可能</p>
+                  </section>
+                </section>
+  
+                <section class="p-codeWrap">
+                  <h4>router登録</h4>
+                  <section class="p-code">
+                    <section class="p-filename">router/index.ts</section>
+                    <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+  <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
+  <span>  ...</span>
+  <span class="p-blanket">]</span><span>;</span>
+  <span></span>
+  <span class="p-keyword">const </span><span class="p-variables">router</span><span> = </span><span class="p-function">createRouter</span><span class="p-blanket">(</span><span class="p-innerBlanket">{</span>
+  <span class="p-symol">  history: </span><span class="p-function">createWebHistory</span><span class="p-innerBlanket2">()</span><span>,</span>
+  <span class="p-symol">  routes</span>
+  <span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
+  
+                  <section class="p-code">
+                    <section class="p-filename">index.js</section>
+                    <pre><code><span class="p-keyword__files">import </span><span class="p-imported">router </span><span class="p-keyword__files">from </span><span class="p-string">'./router'</span><span>;</span>
+  <span>...</span>
+  <span class="p-variables">app</span><span>.</span><span class="p-function">use</span><span class="p-blanket">(</span><span class="p-variables">router</span><span class="p-blanket">)</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
+  
+                  <section class="p-code">
+                    <section class="p-filename">App.vue</section>
+                    <pre><code><span class="p-tagblanket">&lt;</span><span class="p-htmltag">template</span><span class="p-tagblanket">&gt;</span>
+  <span class="p-tagblanket">  &lt;</span><span class="p-htmltag">router-view</span><span class="p-tagblanket">&gt;</span><span class="p-tagblanket">&lt;</span><span class="p-htmltag">/router-view</span><span class="p-tagblanket">&gt;</span></span>
+  <span class="p-tagblanket">&lt;</span><span class="p-htmltag">/template</span><span class="p-tagblanket">&gt;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">router-viewの部分が、登録したrouterの通りに描画される</p>
+                  </section>
+                </section>
+  
+                <section class="p-codeWrap">
+                  <h4>ルーティング前処理</h4>
+                  <section class="p-code">
+                    <section class="p-filename">router/index.ts</section>
+                    <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+  <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
+  <span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
+  <span>    </span><span class="p-function">beforeEnter: </span><span class="p-innerBlanket2">(</span><span class="p-arguments">to</span><span>, </span><span class="p-arguments">from</span><span>, </span><span class="p-arguments">next</span><span class="p-innerBlanket2">)</span><span> => </span><span class="p-innerBlanket2">{</span>
+  <span>      何かしらの処理</span>
+  <span class="p-innerBlanket2">    }</span><span>,</span>
+  <span class="p-innerBlanket">  }</span><span>,</span>
+  <span class="p-blanket">]</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">未ログイン時にリダイレクトさせる処理はここに記述する</p>
+                  </section>
+                </section>
+  
+                <section class="p-codeWrap">
+                  <h4>ネストしたルート</h4>
+                  <section class="p-code">
+                    <section class="p-filename">router/index.ts</section>
+                    <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+  <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
+  <span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/:username/samples'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
+  <span class="p-symol">    children: </span><span class="p-innerBlanket2">[</span>
+  <span class="p-blanket">      {</span>
+  <span class="p-symol">        path: </span><span class="p-string">'samples'</span><span>,</span>
+  <span class="p-function">        component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/SampleList.vue'</span><span class="p-innerBlanket2">)</span><span>,</span>
+  <span class="p-blanket">      }<span></span>,</span>
+  <span class="p-innerBlanket2">    ]</span><span>,</span>
+  <span class="p-innerBlanket">  ]</span>
+  <span class="p-blanket">]</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation"></section>
+                </section>
+  
+                <section class="p-codeWrap">
+                  <h4>404</h4>
+                  <section class="p-code">
+                    <section class="p-filename">router/index.ts</section>
+                    <pre><code><span class="p-innerBlanket">{ </span><span class="p-symol">path: </span><span class="p-string">'/:matchAll(.*)'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'error'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/404.vue'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-symol">meta: </span><span class="p-innerBlanket2">{ </span><span class="p-symol">title: </span><span class="p-string">'お探しのページが見つかりませんでした - You Know' </span><span class="p-innerBlanket2">} </span><span class="p-innerBlanket">}</span><span>,</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">どの条件にも該当しないURLパターンがここで拾われる</p>
+                  </section>
+                </section>
+  
+                <section class="p-codeWrap">
+                  <h4>titleタグ動的変更</h4>
+                  <section class="p-code">
+                    <section class="p-filename">router/index.ts</section>
+                    <pre><code><span class="p-variables">router</span><span>.</span><span class="p-function">afterEach</span><span class="p-blanket">(</span><span class="p-innerBlanket">(</span><span class="p-arguments">to</span><span class="p-innerBlanket">)</span><span> => </span><span class="p-innerBlanket">{</span>
+  <span class="p-keyword">  const</span><span class="p-variables"> title</span><span> = </span><span class="p-attribute">to</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">title </span><span class="p-keyword2">as </span><span class="p-varType">String</span><span>;</span>
+  <span class="p-attribute">  document</span><span>.</span><span class="p-attribute">title</span><span> = </span><span class="p-variables">title</span><span>;</span>
+  <span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
+  </code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">画面ロードによる遷移を挟まないSPAの場合、titleタグの中身は原則として不変である。</p>
+                    <p class="p-subsentence">よって画面遷移時にタイトルを変更するには、JSで動的にdocument.titleを上書きする必要がある</p>
+                  </section>
+                </section>
+              </section>
+  
+              <h3>TypeScript</h3>
+              <section class="p-framework">
+              </section>
+  
+              <h3>jQuery</h3>
+              <section class="p-framework">
+              </section>
             </section>
           </section>
-        </section>
+        </details>
       </section>
 
       <section class="p-languageWrap">
-        <h2 class="c-flex--start" id="javascript">JS</h2>
-        <section class="p-language p-javascript">
-          <section class="p-frameworkWrap">
-            <h3>Pure JS</h3>
-            <section class="p-framework">
-            </section>
-
-            <h3>Vue3</h3>
-            <section class="p-framework">
-              <section class="p-title">Vueの使い方</section>
-              <section class="p-codeWrap">
-                <h4>プロジェクトの登録</h4>
-                <section class="p-code">
-                  <section class="p-filename">index.js</section>
-                  <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-vue__file">App</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">"./App.vue"</span><span>;</span>
-<span class="p-keyword">const </span><span class="p-variables">app</span><span> = </span><span class="p-function">createApp</span><span class="p-blanket">(</span><span class="p-vue__file">App</span><span class="p-blanket">)</span><span>;</span>
-<span class="p-variables">app</span><span>.</span><span class="p-function">mount</span><span class="p-blanket">(</span><span class="p-string">'#app'</span><span class="p-blanket">)</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">所謂エントリポイント</p>
-                </section>
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="css">HTML/CSS</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-language p-css">
+            <section class="p-frameworkWrap">
+              <h3>Pure CSS</h3>
+              <section class="p-framework">
               </section>
-
-              <section class="p-codeWrap">
-                <h4>外部Vueファイルのimport</h4>
-                <section class="p-code">
-                  <section class="p-filename">vueファイル</section>
-                  <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-vue__file">exportされているclass名</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">"vueファイル名"</span><span>;</span></code></pre>
-                </section>
-                <section class="p-explanation"><p class="p-subsentence">@でプロジェクトルートディレクトリを表現できる。</p>
-                  <section class="p-example">例：/component/SampleClass.vueをimportする場合</section>
-                  <pre><code><span class="p-keyword__files">import</span><span class="p-vue__file"> SampleClass </span><span class="p-string">"@/component/SampleClass.vue"</span></code></pre>
-                </section>
-              </section>
-
-              <section class="p-title">Vue Routerの使い方</section>
-              <section class="p-codeWrap">
-                <h4>router基本形</h4>
-                <section class="p-code">
-                  <section class="p-filename">router/index.ts</section>
-                  <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
-<span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-symol">meta: </span><span class="p-innerBlanket2">{ </span><span class="p-symol">title: </span><span class="p-string">'titleタグの名前' </span><span class="p-innerBlanket2">}</span><span class="p-innerBlanket">}</span><span>,</span>
-<span class="p-blanket">]</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">import文で遅延loadが可能</p>
-                </section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>router登録</h4>
-                <section class="p-code">
-                  <section class="p-filename">router/index.ts</section>
-                  <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
-<span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  ...</span>
-<span class="p-blanket">]</span><span>;</span>
-<span></span>
-<span class="p-keyword">const </span><span class="p-variables">router</span><span> = </span><span class="p-function">createRouter</span><span class="p-blanket">(</span><span class="p-innerBlanket">{</span>
-<span class="p-symol">  history: </span><span class="p-function">createWebHistory</span><span class="p-innerBlanket2">()</span><span>,</span>
-<span class="p-symol">  routes</span>
-<span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation"></section>
-
-                <section class="p-code">
-                  <section class="p-filename">index.js</section>
-                  <pre><code><span class="p-keyword__files">import </span><span class="p-imported">router </span><span class="p-keyword__files">from </span><span class="p-string">'./router'</span><span>;</span>
-<span>...</span>
-<span class="p-variables">app</span><span>.</span><span class="p-function">use</span><span class="p-blanket">(</span><span class="p-variables">router</span><span class="p-blanket">)</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation"></section>
-
-                <section class="p-code">
-                  <section class="p-filename">App.vue</section>
-                  <pre><code><span class="p-tagblanket">&lt;</span><span class="p-htmltag">template</span><span class="p-tagblanket">&gt;</span>
-<span class="p-tagblanket">  &lt;</span><span class="p-htmltag">router-view</span><span class="p-tagblanket">&gt;</span><span class="p-tagblanket">&lt;</span><span class="p-htmltag">/router-view</span><span class="p-tagblanket">&gt;</span></span>
-<span class="p-tagblanket">&lt;</span><span class="p-htmltag">/template</span><span class="p-tagblanket">&gt;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">router-viewの部分が、登録したrouterの通りに描画される</p>
-                </section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>ルーティング前処理</h4>
-                <section class="p-code">
-                  <section class="p-filename">router/index.ts</section>
-                  <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
-<span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
-<span>    </span><span class="p-function">beforeEnter: </span><span class="p-innerBlanket2">(</span><span class="p-arguments">to</span><span>, </span><span class="p-arguments">from</span><span>, </span><span class="p-arguments">next</span><span class="p-innerBlanket2">)</span><span> => </span><span class="p-innerBlanket2">{</span>
-<span>      何かしらの処理</span>
-<span class="p-innerBlanket2">    }</span><span>,</span>
-<span class="p-innerBlanket">  }</span><span>,</span>
-<span class="p-blanket">]</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">未ログイン時にリダイレクトさせる処理はここに記述する</p>
-                </section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>ネストしたルート</h4>
-                <section class="p-code">
-                  <section class="p-filename">router/index.ts</section>
-                  <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
-<span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/:username/samples'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
-<span class="p-symol">    children: </span><span class="p-innerBlanket2">[</span>
-<span class="p-blanket">      {</span>
-<span class="p-symol">        path: </span><span class="p-string">'samples'</span><span>,</span>
-<span class="p-function">        component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/SampleList.vue'</span><span class="p-innerBlanket2">)</span><span>,</span>
-<span class="p-blanket">      }<span></span>,</span>
-<span class="p-innerBlanket2">    ]</span><span>,</span>
-<span class="p-innerBlanket">  ]</span>
-<span class="p-blanket">]</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation"></section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>404</h4>
-                <section class="p-code">
-                  <section class="p-filename">router/index.ts</section>
-                  <pre><code><span class="p-innerBlanket">{ </span><span class="p-symol">path: </span><span class="p-string">'/:matchAll(.*)'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'error'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/404.vue'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-symol">meta: </span><span class="p-innerBlanket2">{ </span><span class="p-symol">title: </span><span class="p-string">'お探しのページが見つかりませんでした - You Know' </span><span class="p-innerBlanket2">} </span><span class="p-innerBlanket">}</span><span>,</span>
-</code></pre>
-                </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">どの条件にも該当しないURLパターンがここで拾われる</p>
-                </section>
-              </section>
-
-              <section class="p-codeWrap">
-                <h4>titleタグ動的変更</h4>
-                <section class="p-code">
-                  <section class="p-filename">router/index.ts</section>
-                  <pre><code><span class="p-variables">router</span><span>.</span><span class="p-function">afterEach</span><span class="p-blanket">(</span><span class="p-innerBlanket">(</span><span class="p-arguments">to</span><span class="p-innerBlanket">)</span><span> => </span><span class="p-innerBlanket">{</span>
-<span class="p-keyword">  const</span><span class="p-variables"> title</span><span> = </span><span class="p-attribute">to</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">title </span><span class="p-keyword2">as </span><span class="p-varType">String</span><span>;</span>
-<span class="p-attribute">  document</span><span>.</span><span class="p-attribute">title</span><span> = </span><span class="p-variables">title</span><span>;</span>
-<span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
-</code></pre>
-                </section>
-                <section class="p-explanation">
-                  <p class="p-subsentence">画面ロードによる遷移を挟まないSPAの場合、titleタグの中身は原則として不変である。</p>
-                  <p class="p-subsentence">よって画面遷移時にタイトルを変更するには、JSで動的にdocument.titleを上書きする必要がある</p>
-                </section>
-              </section>
-            </section>
-
-            <h3>TypeScript</h3>
-            <section class="p-framework">
-            </section>
-
-            <h3>jQuery</h3>
-            <section class="p-framework">
             </section>
           </section>
-        </section>
+        </details>
       </section>
 
       <section class="p-languageWrap">
-        <h2 class="c-flex--start" id="css">HTML/CSS</h2>
-        <section class="p-language p-css">
-          <section class="p-frameworkWrap">
-            <h3>Pure CSS</h3>
-            <section class="p-framework">
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="vba">VBA</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-language p-vba">
+            <section class="p-frameworkWrap">
+              <h3>VBA</h3>
+              <section class="p-framework">
+              </section>
             </section>
           </section>
-        </section>
-      </section>
-
-      <section class="p-languageWrap">
-        <h2 class="c-flex--start" id="vba">VBA</h2>
-        <section class="p-language p-vba">
-          <section class="p-frameworkWrap">
-            <h3>VBA</h3>
-            <section class="p-framework">
-            </section>
-          </section>
-        </section>
+        </details>
       </section>
     </main>
 
