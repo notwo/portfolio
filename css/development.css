@@ -99,7 +99,7 @@ main {
   color: rgb(195, 50, 195);
 }
 
-.p-javascript .p-vue__file, .p-javascript .p-symol, .p-javascript .p-imported, .p-javascript .p-arguments, .p-javascript .p-attribute {
+.p-javascript .p-vue__file, .p-javascript .p-symol, .p-javascript .p-imported, .p-javascript .p-arguments, .p-javascript .p-attribute, .p-javascript .p-element {
   color: rgb(52, 220, 214);
 }
 
@@ -119,12 +119,52 @@ main {
   color: rgb(82, 132, 169);
 }
 
+.p-javascript .p-numValue {
+  color: rgb(43, 192, 5);
+}
+
 .p-javascript .p-varType {
   color: rgb(108, 253, 117);
 }
 
 .p-javascript .p-tagblanket {
   color: #777;
+}
+
+.p-javascript .p-selector {
+  color: rgb(249, 228, 0);
+}
+
+.p-css .p-htmltag {
+  color: rgb(85, 105, 255);
+}
+
+.p-css .p-element, .p-css .p-attribute {
+  color: rgb(52, 220, 214);
+}
+
+.p-css .p-string {
+  color: orange;
+}
+
+.p-css .p-blanket, .p-css .p-selector {
+  color: rgb(255, 221, 48);
+}
+
+.p-css .p-innerBlanket {
+  color: rgb(195, 50, 195);
+}
+
+.p-css .p-keyframe {
+  color: rgb(237, 53, 237);
+}
+
+.p-css .p-numValue {
+  color: rgb(43, 192, 5);
+}
+
+.p-css .p-function {
+  color: rgb(195, 195, 44);
 }
 
 .p-codeWrap {
