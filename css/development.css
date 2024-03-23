@@ -31,6 +31,7 @@ main {
 }
 
 .l-container h3 {
+  margin: .9rem 0;
   font-size: 1.4rem;
 }
 .l-container h3::before {
