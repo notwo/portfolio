@@ -88,11 +88,11 @@
 <span class="p-keyword">from</span><span> ..serializers </span><span class="p-keyword">import</span><span> SampleSerializer</span>
 <span></span>
 <span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
-<span>    serializer_class = SampleSerializer # serializerの定義</span>
-<span>    queryset = Sample.objects.all() # sampleのqueryset定義</span>
-<span>    filter_fields = (</span><span class="p-string">'column1'</span><span>, </span><span class="p-string">'column2'</span><span>, </span><span class="p-string">'...'</span><span>) # オブジェクト取得時のカラムの絞り込み</span>
-<span>    filter_backends = [filters.DjangoFilterBackend, OrderingFilter] # ListApiViewでsampleの絞り込みを可能にする</span>
-<span>    ordering_fields = [</span><span class="p-string">'-column'</span><span>] # ソート用</span>
+    <span>serializer_class = SampleSerializer # serializerの定義</span>
+    <span>queryset = Sample.objects.all() # sampleのqueryset定義</span>
+    <span>filter_fields = (</span><span class="p-string">'column1'</span><span>, </span><span class="p-string">'column2'</span><span>, </span><span class="p-string">'...'</span><span>) # オブジェクト取得時のカラムの絞り込み</span>
+    <span>filter_backends = [filters.DjangoFilterBackend, OrderingFilter] # ListApiViewでsampleの絞り込みを可能にする</span>
+    <span>ordering_fields = [</span><span class="p-string">'-column'</span><span>] # ソート用</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -106,14 +106,14 @@
 <span class="p-keyword">from</span><span> django_filters </span><span class="p-keyword">import</span><span> rest_framework </span><span class="p-keyword">as</span><span> filters</span>
 <span></span>
 <span class="p-keyword">class</span><span> SampleFilter(filters.FilterSet):</span>
-<span>    title = filters.CharFilter(</span><span class="p-search">lookup_expr</span><span>=</span><span class="p-string">'icontains'</span><span>)</span>
+    <span>title = filters.CharFilter(</span><span class="p-search">lookup_expr</span><span>=</span><span class="p-string">'icontains'</span><span>)</span>
 <span></span>
-<span>    </span><span class="p-keyword">class</span><span> Meta:</span>
-<span>      model = Model名</span>
-<span>      fields = [</span><span class="p-string">'title'</span><span>]</span>
+    <span></span><span class="p-keyword">class</span><span> Meta:</span>
+        <span>model = Model名</span>
+        <span>fields = [</span><span class="p-string">'title'</span><span>]</span>
 <span></span>
 <span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
-<span>    filterset_class = SampleFilter # filter class設定</span>
+    <span>filterset_class = SampleFilter # filter class設定</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -126,11 +126,11 @@
                       <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets, pagination</span>
 <span></span>
 <span class="p-keyword">class</span><span> SamplePagination(pagination.LimitOffsetPagination):</span>
-<span>    ordering = (</span><span class="p-string">'-column1'</span><span>,) # ソート用</span>
-<span>    page_size = 1ページあたりの要素数</span>
+    <span>ordering = (</span><span class="p-string">'-column1'</span><span>,) # ソート用</span>
+    <span>page_size = 1ページあたりの要素数</span>
 <span></span>
 <span class="p-keyword">class</span><span> SampleAjaxViewSet(viewsets.ModelViewSet):</span>
-<span>    pagination_class = SamplePagination</span>
+    <span>pagination_class = SamplePagination</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -143,12 +143,12 @@
                       <pre><code><span class="p-keyword">from</span><span> rest_framework </span><span class="p-keyword">import</span><span> viewsets</span>
 <span></span>
 <span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
-<span>    ...</span>
+    <span>...</span>
 <span></span>
 <span class="p-keyword">def</span><span> get_queryset(</span><span class="p-self">self</span><span>):</span>
-<span>    </span><span class="p-keyword">return</span><span> Model名.objects.filter(</span>
-<span>        </span><span class="p-search">custom_user</span><span>=</span><span class="p-self">self</span>.kwargs[<span class="p-string">'you_know_customuser_pk'</span><span>]</span>
-<span>    ).order_by(</span><span class="p-string">'-created_at'</span><span>)</span>
+    <span></span><span class="p-keyword">return</span><span> Model名.objects.filter(</span>
+        <span class="p-search">custom_user</span><span>=</span><span class="p-self">self</span>.kwargs[<span class="p-string">'you_know_customuser_pk'</span><span>]</span>
+    <span>).order_by(</span><span class="p-string">'-created_at'</span><span>)</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -159,13 +159,13 @@
                     <section class="p-code">
                       <section class="p-filename">views.py</section>
                       <pre><code><span class="p-keyword">class</span><span> SamplePagination(viewsets.ModelViewSet):</span>
-<span>    ...</span>
+    <span>...</span>
 <span></span>
-<span>    </span><span class="p-decorator">@action</span><span>(</span><span class="p-arguments">methods</span>=[</span><span class="p-string">'get'</span><span>], </span><span class="p-arguments">detail</span><span>=</span><span class="p-keyword">False</span><span>)</span>
-<span>    </span><span class="p-keyword">def</span><span> メソッド名(</span><span class="p-self">self</span><span>, request, **kwargs):</span>
-<span>        ...</span>
-<span>        serializer = </span><span class="p-self">self</span><span>.get_serializer(</span><span class="p-search">instance</span><span>=インスタンスのオブジェクト、配列<span>, </span><span class="p-search">many</span><span>=</span><span class="p-keyword">True</span><span>)</span>
-<span>        </span><span class="p-keyword">return</span><span> Response(serializer.data)</span>
+    <span class="p-decorator">@action</span><span>(</span><span class="p-arguments">methods</span>=[</span><span class="p-string">'get'</span><span>], </span><span class="p-arguments">detail</span><span>=</span><span class="p-keyword">False</span><span>)</span>
+    <span class="p-keyword">def</span><span> メソッド名(</span><span class="p-self">self</span><span>, request, **kwargs):</span>
+        <span>...</span>
+        <span>serializer = </span><span class="p-self">self</span><span>.get_serializer(</span><span class="p-search">instance</span><span>=インスタンスのオブジェクト、配列<span>, </span><span class="p-search">many</span><span>=</span><span class="p-keyword">True</span><span>)</span>
+        <span class="p-keyword">return</span><span> Response(serializer.data)</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -181,10 +181,10 @@
 <span class="p-keyword">from </span><span>.models </span><span class="p-keyword">import </span><span>Sample</span>
 <span></span>
 <span class="p-keyword">class </span><span>SampleSerializer(serializers.ModelSerializer):</span>
-<span class="p-keyword">    class </span><span>Meta:</span>
-<span>        model = Sample</span>
-<span>        fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"username"</span><span>, </span><span class="p-string">"email"</span><span>, </span><span class="p-string">"password"</span><span>]</span>
-<span>        read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
+    <span class="p-keyword">class </span><span>Meta:</span>
+        <span>model = Sample</span>
+        <span>fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"username"</span><span>, </span><span class="p-string">"email"</span><span>, </span><span class="p-string">"password"</span><span>]</span>
+        <span>read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -198,18 +198,18 @@
 <span class="p-keyword">from </span><span>.models </span><span class="p-keyword">import </span><span>Shop, Item</span>
 <span></span>
 <span class="p-keyword">class </span><span>ShopSerializer(serializers.ModelSerializer):</span>
-<span class="p-keyword">    class </span><span>Meta:</span>
-<span>        model = Shop</span>
-<span>        fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"name"</span><span>]</span>
-<span>        read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
+    <span class="p-keyword">class </span><span>Meta:</span>
+        <span>model = Shop</span>
+        <span>fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"name"</span><span>]</span>
+        <span>read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
 <span></span>
 <span class="p-keyword">class </span><span>ItemSerializer(serializers.ModelSerializer):</span>
-<span>    shop = ShopSerializer</span>
+    <span>shop = ShopSerializer</span>
 <span></span>
-<span class="p-keyword">    class </span><span>Meta:</span>
-<span>        model = Item</span>
-<span>        fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"shop"</span><span>, </span><span class="p-string">"shop_id"</span><span>, </span><span class="p-string">"name"</span><span>, </span><span class="p-string">"price"</span><span>, </span><span class="p-string">"stock"</span><span>]</span>
-<span>        read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
+    <span class="p-keyword">class </span><span>Meta:</span>
+        <span>model = Item</span>
+        <span>fields = [</span><span class="p-string">"id"</span><span>, </span><span class="p-string">"shop"</span><span>, </span><span class="p-string">"shop_id"</span><span>, </span><span class="p-string">"name"</span><span>, </span><span class="p-string">"price"</span><span>, </span><span class="p-string">"stock"</span><span>]</span>
+        <span>read_only_fields = (</span><span class="p-string">'id'</span><span>,)</span>
 </code></pre>
                     </section>
                     <section class="p-explanation">
@@ -226,40 +226,40 @@
 <span class="p-keyword">from </span><span>.models </span><span class="p-keyword">import </span><span>Shop, Item</span>
 <span></span>
 <span class="p-keyword">class </span><span>ShopSerializer(serializers.ModelSerializer):</span>
-<span>    paginated_items = serializers.SerializerMethodField()</span>
+    <span>paginated_items = serializers.SerializerMethodField()</span>
 <span></span>
-<span class="p-keyword">    class </span><span>Meta:</span>
-<span>        model = Shop</span>
+    <span class="p-keyword">class </span><span>Meta:</span>
+        <span>model = Shop</span>
 <span></span>
-<span class="p-keyword">    def </span><span class="p-function">get_paginated_items</span><span>(</span><span class="p-self">self</span><span>, instance):</span>
-<span class="p-keyword">        if </span><span>instance </span><span class="p-keyword">is None</span><span>:</span>
-<span class="p-keyword">            return</span><span> {</span>
-<span class="p-string">                'prev': </span><span class="p-keyword">False</span><span>,</span>
-<span class="p-string">                'next': </span><span class="p-keyword">False</span><span>,</span>
-<span class="p-string">                'data': </span>[]</span>
-<span>            }</span>
-<span>        items = Item.objects.filter(</span><span class="p-search">item</span><span>=instance).order_by(</span><span class="p-string">'-created_at'</span><span>)</span>
-<span class="p-keyword">        if</span><span> items.count() == </span><span class="p-number">0</span><span>:</span>
-<span class="p-keyword">            return</span><span> {</span>
-<span class="p-string">                'prev': </span><span class="p-keyword">False</span><span>,</span>
-<span class="p-string">                'next': </span><span class="p-keyword">False</span><span>,</span>
-<span class="p-string">                'data': </span>[]</span>
-<span>            }</span>
-<span>        paginator = Paginator(items, </span><span class="p-number">1ページあたりの要素数</span><span>)</span>
-<span>        page = paginator.page(</span><span class="p-number">1</span><span>)</span>
-<span>        serializer = ItemSerializer(page, </span><span class="p-search">many</span><span>=</span><span class="p-keyword">True</span><span>)</span>
-<span>        result = {</span>
-<span class="p-string">            'prev': </span><span>page.has_previous(),</span>
-<span class="p-string">            'next': </span><span>page.has_next(),</span>
-<span class="p-string">            'data': </span><span>serializer.data</span>
-<span>        }</span>
-<span class="p-keyword">    return </span><span>result</span>
+    <span class="p-keyword">def </span><span class="p-function">get_paginated_items</span><span>(</span><span class="p-self">self</span><span>, instance):</span>
+        <span class="p-keyword">if </span><span>instance </span><span class="p-keyword">is None</span><span>:</span>
+            <span class="p-keyword">return</span><span> {</span>
+                <span class="p-string">'prev': </span><span class="p-keyword">False</span><span>,</span>
+                <span class="p-string">'next': </span><span class="p-keyword">False</span><span>,</span>
+                <span class="p-string">'data': </span>[]</span>
+            <span>}</span>
+        <span>items = Item.objects.filter(</span><span class="p-search">item</span><span>=instance).order_by(</span><span class="p-string">'-created_at'</span><span>)</span>
+        <span class="p-keyword">if</span><span> items.count() == </span><span class="p-number">0</span><span>:</span>
+            <span class="p-keyword">return</span><span> {</span>
+                <span class="p-string">'prev': </span><span class="p-keyword">False</span><span>,</span>
+                <span class="p-string">'next': </span><span class="p-keyword">False</span><span>,</span>
+                <span class="p-string">'data': </span>[]</span>
+            <span>}</span>
+        <span>paginator = Paginator(items, </span><span class="p-number">1ページあたりの要素数</span><span>)</span>
+        <span>page = paginator.page(</span><span class="p-number">1</span><span>)</span>
+        <span>serializer = ItemSerializer(page, </span><span class="p-search">many</span><span>=</span><span class="p-keyword">True</span><span>)</span>
+        <span>result = {</span>
+            <span class="p-string">'prev': </span><span>page.has_previous(),</span>
+            <span class="p-string">'next': </span><span>page.has_next(),</span>
+            <span class="p-string">'data': </span><span>serializer.data</span>
+        <span>}</span>
+    <span class="p-keyword">return </span><span>result</span>
 <span></span>
 <span class="p-keyword">class </span><span>ItemSerializer(serializers.ModelSerializer):</span>
-<span>    shop = ShopSerializer</span>
+    <span>shop = ShopSerializer</span>
 <span></span>
-<span class="p-keyword">    class </span><span>Meta:</span>
-<span>        model = Item</span>
+    <span class="p-keyword">class </span><span>Meta:</span>
+        <span>model = Item</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
@@ -283,7 +283,7 @@
 <span>blogs_router.register(</span><span class="p-string">'blogs'</span><span>, blog.BlogAjaxViewSet)</span>
 <span></span>
 <span>urlpatterns = [</span>
-<span>  path(</span><span class="p-string">""</span><span>, index.IndexView.as_view(), </span><span class="p-search">name=</span><span class="p-string">"index"),</span>
+  <span>path(</span><span class="p-string">""</span><span>, index.IndexView.as_view(), </span><span class="p-search">name=</span><span class="p-string">"index"),</span>
 <span>]</span>
 </code></pre>
                     </section>
@@ -295,8 +295,8 @@
 <span class="p-keyword">from </span><span>you_know.urls </span><span class="p-keyword">import</span><span> users_router</span>
 <span></span>
 <span>urlpatterns = [</span>
-<span>    path(</span><span class="p-string">''</span><span>, include(</span><span class="p-string">'you_know.urls'</span><span>)),</span>
-<span>    path(</span><span class="p-string">'api/'</span><span>, include(users_router.urls)),</span>
+    <span>path(</span><span class="p-string">''</span><span>, include(</span><span class="p-string">'you_know.urls'</span><span>)),</span>
+    <span>path(</span><span class="p-string">'api/'</span><span>, include(users_router.urls)),</span>
 <span>]</span>
 </code></pre>
                     </section>
@@ -355,6 +355,8 @@
                     <section class="p-code">
                       <section class="p-filename">index.js</section>
                       <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-vue__file">App</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">"./App.vue"</span><span>;</span>
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">createApp </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'vue'</span><span>;</span>
+<span></span>
 <span class="p-keyword">const </span><span class="p-variables">app</span><span> = </span><span class="p-function">createApp</span><span class="p-blanket">(</span><span class="p-vue__file">App</span><span class="p-blanket">)</span><span>;</span>
 <span class="p-variables">app</span><span>.</span><span class="p-function">mount</span><span class="p-blanket">(</span><span class="p-string">'#app'</span><span class="p-blanket">)</span><span>;</span>
 </code></pre>
@@ -384,8 +386,9 @@
                     <section class="p-code">
                       <section class="p-filename">router/index.ts</section>
                       <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+<span></span>
 <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-symol">meta: </span><span class="p-innerBlanket2">{ </span><span class="p-symol">title: </span><span class="p-string">'titleタグの名前' </span><span class="p-innerBlanket2">}</span><span class="p-innerBlanket">}</span><span>,</span>
+  <span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-symol">meta: </span><span class="p-innerBlanket2">{ </span><span class="p-symol">title: </span><span class="p-string">'titleタグの名前' </span><span class="p-innerBlanket2">}</span><span class="p-innerBlanket">}</span><span>,</span>
 <span class="p-blanket">]</span><span>;</span>
 </code></pre>
                     </section>
@@ -399,13 +402,14 @@
                     <section class="p-code">
                       <section class="p-filename">router/index.ts</section>
                       <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+<span></span>
 <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  ...</span>
+  <span>...</span>
 <span class="p-blanket">]</span><span>;</span>
 <span></span>
 <span class="p-keyword">const </span><span class="p-variables">router</span><span> = </span><span class="p-function">createRouter</span><span class="p-blanket">(</span><span class="p-innerBlanket">{</span>
-<span class="p-symol">  history: </span><span class="p-function">createWebHistory</span><span class="p-innerBlanket2">()</span><span>,</span>
-<span class="p-symol">  routes</span>
+  <span class="p-symol">history: </span><span class="p-function">createWebHistory</span><span class="p-innerBlanket2">()</span><span>,</span>
+  <span class="p-symol">routes</span>
 <span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
 </code></pre>
                     </section>
@@ -423,7 +427,7 @@
                     <section class="p-code">
                       <section class="p-filename">App.vue</section>
                       <pre><code><span class="p-tagblanket">&lt;</span><span class="p-htmltag">template</span><span class="p-tagblanket">&gt;</span>
-<span class="p-tagblanket">  &lt;</span><span class="p-htmltag">router-view</span><span class="p-tagblanket">&gt;</span><span class="p-tagblanket">&lt;</span><span class="p-htmltag">/router-view</span><span class="p-tagblanket">&gt;</span></span>
+  <span class="p-tagblanket">&lt;</span><span class="p-htmltag">router-view</span><span class="p-tagblanket">&gt;</span><span class="p-tagblanket">&lt;</span><span class="p-htmltag">/router-view</span><span class="p-tagblanket">&gt;</span></span>
 <span class="p-tagblanket">&lt;</span><span class="p-htmltag">/template</span><span class="p-tagblanket">&gt;</span>
 </code></pre>
                     </section>
@@ -437,12 +441,13 @@
                     <section class="p-code">
                       <section class="p-filename">router/index.ts</section>
                       <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+<span></span>
 <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
-<span>    </span><span class="p-function">beforeEnter: </span><span class="p-innerBlanket2">(</span><span class="p-arguments">to</span><span>, </span><span class="p-arguments">from</span><span>, </span><span class="p-arguments">next</span><span class="p-innerBlanket2">)</span><span> => </span><span class="p-innerBlanket2">{</span>
-<span>      何かしらの処理</span>
-<span class="p-innerBlanket2">    }</span><span>,</span>
-<span class="p-innerBlanket">  }</span><span>,</span>
+  <span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
+    <span></span><span class="p-function">beforeEnter: </span><span class="p-innerBlanket2">(</span><span class="p-arguments">to</span><span>, </span><span class="p-arguments">from</span><span>, </span><span class="p-arguments">next</span><span class="p-innerBlanket2">)</span><span> => </span><span class="p-innerBlanket2">{</span>
+      <span>何かしらの処理</span>
+    <span class="p-innerBlanket2">}</span><span>,</span>
+  <span class="p-innerBlanket">}</span><span>,</span>
 <span class="p-blanket">]</span><span>;</span>
 </code></pre>
                     </section>
@@ -456,15 +461,16 @@
                     <section class="p-code">
                       <section class="p-filename">router/index.ts</section>
                       <pre><code><span class="p-keyword__files">import</span><span> </span><span class="p-blanket">{</span><span> </span><span class="p-vue__file">createRouter</span><span>, </span><span class="p-vue__file">createWebHistory</span><span>, </span><span class="p-vue__file">RouteRecordRaw</span><span> </span><span class="p-blanket">}</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">'vue-router'</span><span>;</span>
+<span></span>
 <span class="p-keyword">const</span><span> </span><span class="p-variables">routes</span><span>: </span><span class="p-varType">Array</span><span class="p-blanket">&lt;</span><span class="p-varType">RouteRecordRaw</span><span class="p-blanket">&gt;</span><span> = </span><span class="p-blanket">[</span>
-<span>  </span><span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/:username/samples'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
-<span class="p-symol">    children: </span><span class="p-innerBlanket2">[</span>
-<span class="p-blanket">      {</span>
-<span class="p-symol">        path: </span><span class="p-string">'samples'</span><span>,</span>
-<span class="p-function">        component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/SampleList.vue'</span><span class="p-innerBlanket2">)</span><span>,</span>
-<span class="p-blanket">      }<span></span>,</span>
-<span class="p-innerBlanket2">    ]</span><span>,</span>
-<span class="p-innerBlanket">  ]</span>
+  <span class="p-innerBlanket">{</span><span> </span><span class="p-symol">path: </span><span class="p-string">'/:username/samples'</span><span>, </span><span class="p-symol">name: </span><span class="p-string">'routerに登録したいURL名'</span><span>, </span><span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/Samples.vue'</span><span class="p-innerBlanket2">)</span><span>,
+    <span class="p-symol">children: </span><span class="p-innerBlanket2">[</span>
+      <span class="p-blanket">{</span>
+        <span class="p-symol">path: </span><span class="p-string">'samples'</span><span>,</span>
+        <span class="p-function">component: </span><span class="p-innerBlanket2">()</span><span> => </span><span class="p-keyword__innerFiles">import</span><span class="p-innerBlanket2">(</span><span class="p-string">'../components/SampleList.vue'</span><span class="p-innerBlanket2">)</span><span>,</span>
+      <span class="p-blanket">}<span></span>,</span>
+    <span class="p-innerBlanket2">]</span><span>,</span>
+  <span class="p-innerBlanket">]</span>
 <span class="p-blanket">]</span><span>;</span>
 </code></pre>
                     </section>
@@ -488,8 +494,8 @@
                     <section class="p-code">
                       <section class="p-filename">router/index.ts</section>
                       <pre><code><span class="p-variables">router</span><span>.</span><span class="p-function">afterEach</span><span class="p-blanket">(</span><span class="p-innerBlanket">(</span><span class="p-arguments">to</span><span class="p-innerBlanket">)</span><span> => </span><span class="p-innerBlanket">{</span>
-<span class="p-keyword">  const</span><span class="p-variables"> title</span><span> = </span><span class="p-attribute">to</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">title </span><span class="p-keyword2">as </span><span class="p-varType">String</span><span>;</span>
-<span class="p-attribute">  document</span><span>.</span><span class="p-attribute">title</span><span> = </span><span class="p-variables">title</span><span>;</span>
+  <span class="p-keyword">const</span><span class="p-variables"> title</span><span> = </span><span class="p-attribute">to</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">title </span><span class="p-keyword2">as </span><span class="p-varType">String</span><span>;</span>
+  <span class="p-attribute">document</span><span>.</span><span class="p-attribute">title</span><span> = </span><span class="p-variables">title</span><span>;</span>
 <span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
 </code></pre>
                     </section>
@@ -499,122 +505,498 @@
                     </section>
                   </section>
                 </section>
+
                 <section class="p-framework">
-                  <section class="p-title">その他モジュール</section>
+                  <section class="p-title">Auth0</section>
                   <section class="p-codeWrap">
-                    <h4>上に戻るボタン</h4>
+                    <h4>使い方</h4>
+                    <section class="p-code">
+                      <section class="p-filename">index.js</section>
+                      <pre><code><span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">createAuth0 </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'@auth0/auth0-vue'</span><span>;</span>
+<span class="p-keyword__files">import</span><span> </span><span class="p-vue__file">App</span><span> </span><span class="p-keyword__files">from</span><span> </span><span class="p-string">"./App.vue"</span><span>;</span>
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">createApp </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'vue'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">app</span><span> = </span><span class="p-function">createApp</span><span class="p-blanket">(</span><span class="p-vue__file">App</span><span class="p-blanket">)</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-variables">auth</span><span> = </span><span class="p-function">createAuth0</span><span class="p-blanket">(</span><span class="p-innerBlanket">{</span>
+  <span class="p-attribute">domain</span><span>: </span><span class="p-keyword__files">import</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">env</span><span>.</span><span class="p-keyword__innerFiles">VITE_DOMAIN</span><span>,</span>
+  <span class="p-attribute">clientId</span><span>: </span><span class="p-keyword__files">import</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">env</span><span>.</span><span class="p-keyword__innerFiles">VITE_CLIENT_ID</span><span>,</span>
+  <span class="p-attribute"></span><span class="p-attribute">authorizationParams</span><span>: </span><span class="p-innerBlanket2">{</span>
+    <span class="p-attribute">redirect_uri: </span><span class="p-string">`</span><span class="p-blanket">${</span><span class="p-keyword__files">import</span><span>.</span><span class="p-attribute">meta</span><span>.</span><span class="p-attribute">env</span><span>.</span><span class="p-keyword__innerFiles">VITE_BASE_URL</span><span class="p-blanket">}</span><span class="p-string">/callback`</span><span>,</span>
+  <span class="p-innerBlanket2">}</span>
+<span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
+<span></span>
+<span class="p-variables">app</span><span>.</span><span class="p-function">use</span><span class="p-blanket">(</span><span class="p-arguments">auth</span><span class="p-blanket">)</span><span>;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation"></section>
+
                     <section class="p-code">
                       <section class="p-filename">Vueファイル</section>
                       <pre><code><span>&lt;</span><span class="p-htmltag">script </span><span class="p-attribute">setup lang</span><span>=</span><span class="p-string">"ts"</span><span>&gt;</span>
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">useAuth0 </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'@auth0/auth0-vue'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">auth0</span><span> = </span><span class="p-function">useAuth0</span><span class="p-blanket">()</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-blanket">{ </span><span class="p-function">logout </span><span class="p-blanket">}</span><span> = </span><span class="p-function">useAuth0</span><span class="p-blanket">()</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-function">login</span><span> = </span><span class="p-blanket">(</span><span class="p-arguments">event</span><span class="p-blanket">)</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-blanket">{</span>
+  <span class="p-variables">auth0</span><span>.</span><span class="p-function">loginWithRedirect</span><span class="p-innerBlanket">()</span><span>;</span>
+<span class="p-blanket">}</span>
+<span>&lt;/</span><span class="p-htmltag">script</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">template</span><span>&gt;</span>
+<span>&lt;</span><span class="p-htmltag">section </span><span class="p-keyword2">v-if</span><span>="</span><span class="p-variables">auth0</span><span>.</span><span class="p-attribute">isLoading</span><span>.</span><span class="p-attribute">value</span><span>"&gt;
+  </span><span>&lt;</span><span class="p-htmltag">p</span><span>&gt;Loading...&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+&lt;/</span><span class="p-htmltag">section</span><span>&gt;
+&lt;</span><span class="p-htmltag">section </span><span class="p-keyword2">v-else</span><span>&gt;
+  </span><span>ニックネーム: </span><span class="p-blanket">{{ </span><span class="p-variables">auth0</span><span>?.</span><span class="p-attribute">user</span><span>?.</span><span class="p-attribute">value</span><span>?.</span><span class="p-attribute">nickname </span><span class="p-blanket">}}</span><span>
+&lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">section </span><span class="p-keyword2">v-if</span><span>="</span><span class="p-variables">auth0</span><span>.</span><span class="p-attribute">isAuthenticated</span><span>.</span><span class="p-attribute">value"</span><span>&gt;</span>
+  <span>&lt;</span><span class="p-htmltag">span</span><span> @</span><span class="p-attribute">click</span><span>="</span><span class="p-function">logout</span><span>" </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"c-btn c-btn--logout"</span><span>&gt;ログアウト&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
+<span>&lt;</span><span class="p-htmltag">section </span><span class="p-keyword2">v-else</span><span>&gt;</span>
+  <span>&lt;</span><span class="p-htmltag">span</span><span> @</span><span class="p-attribute">click</span><span>="</span><span class="p-function">login</span><span>" </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"c-btn c-btn--register"</span><span>&gt;ユーザ登録/ログイン&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
+<span>&lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+<span>&lt;/</span><span class="p-htmltag">template</span><span>&gt;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">isLoading: Auth0の非同期読込中かどうか(Boolean)</p>
+                    </section>
+                  </section>
+                </section>
+
+                <section class="p-framework">
+                  <section class="p-title">その他モジュール</section>
+                  <section class="p-codeWrap">
+                    <h4>データ保存用ストア</h4>
+                    <section class="p-code">
+                      <section class="p-filename">store/index.ts</section>
+                      <pre><code><span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">ref</span><span>, </span><span class="p-vue__file">reactive</span><span>, </span><span class="p-vue__file">readonly</span><span class="p-blanket"> } </span><span class="p-keyword__files">from </span><span class="p-string">"vue"</span><span>;</span>
+<span></span>
+<span class="p-keyword2">export </span><span class="p-keyword">function </span><span class="p-function">useStore</span><span class="p-blanket">() {</span>
+  <span class="p-keyword">const </span><span class="p-variables">items</span><span> = </span><span class="p-function">reactive</span><span class="p-innerBlanket">(</span><span class="p-innerBlanket2">{ </span><span class="p-attribute">list</span><span>: </span><span class="p-blanket">[] </span><span class="p-innerBlanket2">}</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-keyword">let </span><span class="p-variables">backupList</span><span>: </span><span class="p-varType">Array</span><span>&lt;</span><span class="p-varType">Object</span><span>&gt;</span><span> = </span><span class="p-innerBlanket">[]</span><span>;</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">setItem</span><span class="p-innerBlanket">&lt;</span><span class="p-varType">T</span><span class="p-innerBlanket">&gt;</span><span class="p-innerBlanket">(</span><span class="p-arguments">list</span><span>: </span><span class="p-varType">T</span><span class="p-innerBlanket2">[]</span><span class="p-innerBlanket">) {</span>
+    <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span> = </span><span class="p-function">ref</span><span class="p-innerBlanket2">(</span><span class="p-arguments">list</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">backupList</span><span> = </span><span class="p-arguments">list</span><span>.</span><span class="p-function">concat</span><span class="p-innerBlanket2">()</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">add</span><span class="p-innerBlanket">&lt;</span><span class="p-varType">T</span><span class="p-innerBlanket">&gt;</span><span class="p-innerBlanket">(</span><span class="p-arguments">item</span><span>: </span><span class="p-varType">T</span><span class="p-innerBlanket">) {</span>
+    <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">unshift</span><span class="p-innerBlanket2">(</span><span class="p-arguments">item</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">backupList</span><span>.</span><span class="p-function">unshift</span><span class="p-innerBlanket2">(</span><span class="p-arguments">item</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">concat</span><span class="p-innerBlanket">&lt;</span><span class="p-varType">T</span><span class="p-innerBlanket">&gt;</span><span class="p-innerBlanket">(</span><span class="p-arguments">list</span><span>: </span><span class="p-varType">T</span><span class="p-innerBlanket2">[]</span><span class="p-innerBlanket">) {</span>
+    <span class="p-variables">list</span><span>.</span><span class="p-function">map</span><span class="p-innerBlanket2">(</span><span class="p-blanket">(</span><span class="p-arguments">_obj</span><span>: </span><span class="p-varType">object</span><span class="p-blanket">)</span><span> => </span><span class="p-blanket">{</span>
+      <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">push</span><span class="p-innerBlanket">(</span><span class="p-arguments">_obj</span><span class="p-innerBlanket">)</span>
+      <span class="p-variables">backupList</span><span>.</span><span class="p-function">push</span><span class="p-innerBlanket">(</span><span class="p-arguments">_obj</span><span class="p-innerBlanket">)</span>
+    <span class="p-blanket">}</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">backupList</span><span>.</span><span class="p-function">concat</span><span class="p-innerBlanket2">(</span><span class="p-variables">list</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">update</span><span class="p-innerBlanket">&lt;</span><span class="p-varType">T</span><span class="p-innerBlanket">&gt;</span><span class="p-innerBlanket">(</span><span class="p-arguments">item</span><span>: </span><span class="p-varType">T</span><span class="p-innerBlanket">) {</span>
+    <span class="p-keyword">const </span><span class="p-variables">_target</span><span> = </span><span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">filter</span><span class="p-innerBlanket2">(</span><span class="p-arguments">_obj</span><span> => </span><span class="p-arguments">_obj</span><span>.</span><span class="p-attribute">id</span><span> === </span><span class="p-arguments">item</span><span>.</span><span class="p-attribute">id</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-keyword">const </span><span class="p-variables">_updateIndex</span><span> = </span><span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">indexOf</span><span class="p-innerBlanket2">(</span><span class="p-variables">_target</span><span class="p-blanket">[</span><span class="p-numValue">0</span><span class="p-blanket">]</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">splice</span><span class="p-innerBlanket">(</span><span class="p-arguments">_updateIndex</span><span>, </span><span class="p-numValue">1</span><span>, </span><span class="p-arguments">item</span><span class="p-innerBlanket">)</span><span>;</span>
+    <span class="p-variables">backupList</span><span>.</span><span class="p-function">splice</span><span class="p-innerBlanket">(</span><span class="p-arguments">_updateIndex</span></span><span>, </span><span class="p-numValue">1</span><span>, </span><span class="p-arguments">item</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">remove</span><span class="p-innerBlanket">(</span><span class="p-arguments">id</span><span>: </span><span class="p-varType">Number</span><span class="p-innerBlanket">) {</span>
+    <span class="p-keyword">let </span><span class="p-variables">_target</span><span> = </span><span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">filter</span><span class="p-innerBlanket2">(</span><span class="p-arguments">_obj</span><span> => </span><span class="p-arguments">_obj</span><span>.</span><span class="p-attribute">id</span><span> === </span><span class="p-attribute">id</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-keyword">let </span><span class="p-variables">_removeIndex</span><span> = </span><span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">indexOf</span><span class="p-innerBlanket2">(</span><span class="p-arguments">_target</span><span class="p-blanket">[</span><span class="p-numValue">0</span><span class="p-blanket">]</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">splice</span><span class="p-innerBlanket2">(</span><span class="p-arguments">_removeIndex</span><span>, </span><span class="p-numValue">1</span><span class="p-innerBlanket2">)</span><span>;</span>
+<span></span>
+    <span class="p-variables">_target</span><span> = </span><span class="p-variables">backupList</span><span>.</span><span class="p-function">filter</span><span class="p-innerBlanket2">(</span><span class="p-arguments">_obj</span><span> => </span><span class="p-arguments">_obj</span><span>.</span><span class="p-arguments">id</span><span> === </span><span class="p-arguments">id</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">_removeIndex</span><span> = </span><span class="p-variables">backupList</span><span>.</span><span class="p-function">indexOf</span><span class="p-innerBlanket2">(</span><span class="p-variables">_target</span><span class="p-blanket">[</span><span class="p-numValue">0</span><span class="p-blanket">]</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-variables">backupList</span><span>.</span><span class="p-function">splice</span><span class="p-innerBlanket2">(</span><span class="p-variables">_removeIndex</span><span>, </span><span class="p-numValue">1</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">removeList</span><span class="p-innerBlanket">&lt;</span><span class="p-varType">T</span><span class="p-innerBlanket">&gt;</span><span class="p-innerBlanket">(</span><span class="p-arguments">ids</span><span>: </span><span class="p-varType">T</span><span class="p-innerBlanket2">[]</span><span class="p-innerBlanket">) {</span>
+    <span class="p-arguments">ids</span><span>.</span><span class="p-function">map</span><span class="p-innerBlanket2">(</span><span class="p-blanket">(</span><span class="p-arguments">_id</span><span>: </span><span class="p-varType">object</span><span class="p-blanket">)</span><span> => </span><span class="p-blanket">{</span>
+      <span class="p-function">remove</span><span class="p-innerBlanket">(</span><span class="p-arguments">_id</span><span class="p-innerBlanket">)</span><span>;</span>
+    <span class="p-blanket">}</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">search</span><span class="p-innerBlanket">&lt;</span><span class="p-varType">T</span><span class="p-innerBlanket">&gt;</span><span class="p-innerBlanket">(</span><span class="p-arguments">list</span><span>: </span><span class="p-varType">T</span><span class="p-innerBlanket2">[]</span><span>, </span><span class="p-arguments">searchTypeValue</span><span>: </span><span class="p-varType">Number</span><span> = </span><span class="p-numValue">0</span><span>, </span><span class="p-arguments">searchTitleValue</span><span>: </span><span class="p-varType">String</span><span class="p-innerBlanket">) {</span>
+    <span class="p-function">allClear</span><span class="p-innerBlanket2">()</span><span>;</span>
+    <span class="p-arguments">list</span><span>.</span><span class="p-function">map</span><span class="p-innerBlanket2">(</span><span class="p-blanket">(</span><span class="p-arguments">_obj</span><span>: </span><span class="p-varType">object</span><span class="p-blanket">)</span><span> => </span><span class="p-blanket">{</span>
+      <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">unshift</span><span class="p-innerBlanket">(</span><span class="p-arguments">_obj</span><span class="p-innerBlanket">)</span><span>;</span>
+    <span class="p-blanket">}</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">allClear</span><span class="p-innerBlanket">() {</span>
+    <span class="p-keyword">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">splice</span><span class="p-innerBlanket2">(</span><span class="p-numValue">0</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword">function </span><span class="p-function">restore</span><span class="p-innerBlanket">() {</span>
+    <span class="p-keyword2">if </span><span class="p-innerBlanket2">(</span><span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-attribute">length</span><span> === </span><span class="p-variables">backupList</span><span>.</span><span class="p-attribute">length</span><span class="p-innerBlanket2">) </span><span class="p-innerBlanket2">{ </span><span class="p-keyword2">return</span><span>; </span><span class="p-innerBlanket2">}</span>
+<span></span>
+    <span class="p-variables">backupList</span><span>.</span><span class="p-function">map</span><span class="p-innerBlanket2">(</span><span class="p-blanket">(</span><span class="p-arguments">_obj</span><span>: </span><span class="p-varType">Object</span><span class="p-blanket">)</span><span> => </span><span class="p-blanket">{</span>
+      <span class="p-variables">items</span><span>.</span><span class="p-attribute">list</span><span>.</span><span class="p-function">push</span><span class="p-innerBlanket">(</span><span class="p-arguments">_obj</span><span class="p-innerBlanket">)</span><span>;</span>
+    <span class="p-blanket">}</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span class="p-keyword2">return </span><span class="p-innerBlanket">{ </span><span class="p-attribute">items: </span><span class="p-function">readonly</span><span class="p-innerBlanket2">(</span><span class="p-variables">items</span><span class="p-innerBlanket2">),</span>
+    <span class="p-function">setItem</span><span>, </span><span class="p-function">add</span><span>, </span><span class="p-function">concat</span><span>, </span><span class="p-function">update</span><span>, </span><span class="p-function">remove</span><span>, </span><span class="p-function">removeList</span><span>, </span><span class="p-function">search</span><span>, </span><span class="p-function">restore</span><span>, </span><span class="p-function">allClear</span><span>, </span><span class="p-innerBlanket">}</span><span>;</span>
+<span class="p-blanket">}</span><span>;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">データリストを保存しておくことができる。search後にbackupListからバックアップも可能</p>
+                    </section>
+
+                    <section class="p-code">
+                      <section class="p-filename">App.vue</section>
+                      <pre><code><span>&lt;</span><span class="p-htmltag">script </span><span class="p-attribute">setup lang</span><span>=</span><span class="p-string">"ts"</span><span>&gt;
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">provide </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">"vue"</span><span>;</span>
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">useStore</span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'@/store/index'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">_sampleStore</span><span> = </span><span class="p-function">useStore</span><span class="p-blanket">()</span><span>;</span>
+<span class="p-function">provide</span><span class="p-blanket">(</span><span class="p-string">'sample'</span><span>, </span><span class="p-variables">_sampleStore</span><span class="p-blanket">)</span><span>;</span>
+&lt;/</span><span class="p-htmltag">script</span><span>&gt;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">provide()でメモリ上にstoreを保存し、inject()で取り出して使う。provide()は共通のApp.vue上で行う</p>
+                    </section>
+
+                    <section class="p-code">
+                      <section class="p-filename">Vueファイル</section>
+                      <pre><code><span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">inject </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'vue'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">store</span><span> = </span><span class="p-function">inject</span><span class="p-blanket">(</span><span class="p-string">'sample'</span><span class="p-blanket">)</span><span>;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation"></section>
+                  </section>
+
+                  <section class="p-codeWrap">
+                    <h4>Vuelidate</h4>
+                    <section class="p-code">
+                      <section class="p-filename">Vueファイル</section>
+                      <pre><code><span>&lt;</span><span class="p-htmltag">script </span><span class="p-attribute">setup lang</span><span>=</span><span class="p-string">"ts"</span><span>&gt;</span>
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">required</span><span>, </span><span class="p-vue__file">helpers </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">"@vuelidate/validators"</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">store</span><span> = </span><span class="p-function">inject</span><span class="p-blanket">(</span><span class="p-string">'sampleEdit'</span><span class="p-blanket">)</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-variables">state</span><span> = </span><span class="p-blanket">{ </span><span class="p-attribute">title</span><span>: </span><span class="p-varType">String </span><span class="p-blanket">}</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-variables">requiredMsg</span><span> = </span><span class="p-blanket">(</span><span class="p-arguments">val</span><span class="p-blanket">)</span><span> => </span><span class="p-string">`</span><span class="p-innerBlanket2">${</span><span class="p-arguments">val</span><span class="p-innerBlanket2">}</span><span class="p-string">は入力必須です`</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-variables">editRules</span><span> = </span><span class="p-blanket">{ </span><span class="p-attribute">title</span><span>: </span><span class="p-innerBlanket">{</span>
+  <span class="p-attribute">required</span><span>: </span><span class="p-vue__file">helpers</span><span>.</span><span class="p-function">withMessage</span><span class="p-innerBlanket">(</span><span class="p-function">requiredMsg</span><span class="p-innerBlanket2">(</span><span class="p-string">'タイトル1'</span><span class="p-innerBlanket2">)</span><span>, </span><span class="p-arguments">required</span><span class="p-innerBlanket">)</span>
+<span class="p-innerBlanket">}</span><span class="p-blanket">}</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-variables">v$</span><span> = </span><span class="p-function">useVuelidate</span><span class="p-blanket">(</span><span class="p-function">editRules</span><span class="p-innerBlanket">(</span><span class="p-string">'ライブラリ名'</span><span>, </span><span class="p-variables">store</span><span class="p-innerBlanket">)</span><span>, </span><span class="p-attribute">state</span><span class="p-blanket">)</span><span>;</span>
+<span>&lt;/</span><span class="p-htmltag">script</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">template</span><span>&gt;</span>
+<span>&lt;</span><span class="p-htmltag">input </span><span class="p-attribute">type</span><span>=</span><span class="p-string">"text" </span><span class="p-attribute">v-model</span><span>="</span><span class="p-variables">state</span><span>.</span><span class="p-attribute">title</span><span>" @</span><span class="p-attribute">blur</span><span>="</span><span class="p-variables">v$</span><span>.</span><span class="p-attribute">title</span><span>.</span><span class="p-attribute">$touch</span><span>" @</span><span class="p-attribute">input</span><span>="</span><span class="p-variables">v$</span><span>.</span><span class="p-attribute">title</span><span>.</span><span class="p-attribute">$touch</span><span>"&gt;</span>
+<span>&lt;/</span><span class="p-htmltag">template</span><span>&gt;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">入力バリデーション用</p>
+                      <p class="p-subsentence">required以外にもduplicated等、rulesに別のバリデーションを追加することもできる</p>
+                    </section>
+
+                    <section class="p-code">
+                      <section class="p-filename">Vueファイル</section>
+                      <pre><code><span class="p-variables">state</span><span>.</span><span class="p-attribute">title</span><span> = </span><span class="p-string">''</span><span>;</span>
+<span class="p-variables">state</span><span>.</span><span class="p-attribute">content</span><span> = </span><span class="p-string">'';</span>
+<span class="p-variables">v$</span><span>.</span><span class="p-attribute">value</span><span>.</span><span class="p-attribute">$reset</span><span class="p-blanket">()</span><span>;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">入力初期化。エラーだけ消したいなら最後の行だけでいい</p>
+                    </section>
+                  </section>
+
+                  <section class="p-codeWrap">
+                    <h4>上に戻るボタン</h4>
+                    <section class="p-code">
+                      <section class="p-filename">ScrollToTopButton.vue</section>
+                      <pre><code><span>&lt;</span><span class="p-htmltag">script </span><span class="p-attribute">setup lang</span><span>=</span><span class="p-string">"ts"</span><span>&gt;</span>
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">onMounted</span><span>, </span><span class="p-vue__file">onUnmounted </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'vue'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">props</span><span> = </span><span class="p-function">defineProps</span><span class="p-blanket">(</span><span class="p-innerBlanket">{</span>
+  <span class="p-variables">parentElementString</span><span>: </span><span class="p-varType">String</span><span>,</span>
+<span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
+<span></span>
 <span class="p-keyword">let </span><span class="p-variables">scrollId</span><span>: </span><span class="p-varType">number </span><span>= </span><span class="p-numValue">0</span><span>;</span>
 <span class="p-keyword">const </span><span class="p-function">showButton </span><span>= </span><span class="p-blanket">()</span><span>: </span><span class="p-varType">void </span><span>=> </span><span class="p-blanket">{</span>
-<span class="p-keyword">  const </span><span class="p-variables">button </span><span>= </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket">(</span><span class="p-string">"scrollToTopButton"</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">button </span><span>= </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket">(</span><span class="p-string">"scrollToTopButton"</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
 <span></span>
-<span class="p-keyword2">  if </span><span class="p-innerBlanket">(</span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">scrollY </span><span>=== </span><span class="p-numValue">0</span><span class="p-innerBlanket">) {</span>
-<span class="p-variables">    button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-function">    clearInterval</span><span class="p-innerBlanket2">(</span><span class="p-variables">scrollId</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-innerBlanket">  </span><span class="p-keyword2">} else </span><span class="p-innerBlanket">{</span>
-<span class="p-variables">    button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-innerBlanket">  }</span>
+  <span class="p-keyword2">if </span><span class="p-innerBlanket">(</span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">scrollY </span><span>=== </span><span class="p-numValue">0</span><span class="p-innerBlanket">) {</span>
+    <span class="p-variables">button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-function">clearInterval</span><span class="p-innerBlanket2">(</span><span class="p-variables">scrollId</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket"></span><span class="p-keyword2">} else </span><span class="p-innerBlanket">{</span>
+    <span class="p-variables">button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
 <span class="p-blanket">}</span><span>;</span>
 <span></span>
 <span class="p-varType">let </span><span class="p-variables">scrollIdExtra</span><span>: </span><span class="p-varType">number </span><span>= </span><span class="p-numValue">0</span><span>;</span>
 <span class="p-keyword">const </span><span class="p-function">showButtonExtra </span><span>= </span><span class="p-innerBlanket">()</span><span>: </span><span class="p-varType">void </span><span>=> </span><span class="p-blanket">{</span>
-<span class="p-keyword">  const </span><span class="p-variables">button </span><span>= </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket">(</span><span class="p-string">"scrollToTopButton"</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
-<span class="p-keyword">  const </span><span class="p-variables">parentElement </span><span>= </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
-<span class="p-keyword">  const </span><span class="p-variables">self </span><span>= </span><span class="p-variables">button</span><span>.</span><span class="p-attribute">parentElement </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
-<span class="p-variables">  self</span><span>.</span><span class="p-attribute">style</span><span>.</span><span class="p-attribute">bottom </span><span>= </span><span class="p-string">`-</span><span class="p-innerBlanket2">${</span><span class="p-variables">parentElement</span><span>?.</span><span class="p-attribute">scrollTop</span><span class="p-innerBlanket2">}</span><span class="p-string">px`</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">button </span><span>= </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket">(</span><span class="p-string">"scrollToTopButton"</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">parentElement </span><span>= </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">self </span><span>= </span><span class="p-variables">button</span><span>.</span><span class="p-attribute">parentElement </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-variables">self</span><span>.</span><span class="p-attribute">style</span><span>.</span><span class="p-attribute">bottom </span><span>= </span><span class="p-string">`-</span><span class="p-innerBlanket2">${</span><span class="p-variables">parentElement</span><span>?.</span><span class="p-attribute">scrollTop</span><span class="p-innerBlanket2">}</span><span class="p-string">px`</span><span>;</span>
 <span></span>
-<span class="p-keyword2">  if </span><span class="p-innerBlanket">(</span><span class="p-variables">parentElement</span><span>.</span><span class="p-attribute">scrollTop</span><span> === </span><span class="p-numValue">0</span><span class="p-innerBlanket">) {</span>
-<span class="p-variables">    button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-function">    clearInterval</span><span class="p-innerBlanket2">(</span><span class="p-arguments">scrollIdExtra</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-innerBlanket">  } </span><span class="p-keyword2">else </span><span class="p-innerBlanket">{</span>
-<span class="p-variables">    button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-innerBlanket">  }</span>
+  <span class="p-keyword2">if </span><span class="p-innerBlanket">(</span><span class="p-variables">parentElement</span><span>.</span><span class="p-attribute">scrollTop</span><span> === </span><span class="p-numValue">0</span><span class="p-innerBlanket">) {</span>
+    <span class="p-variables">button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
+    <span class="p-function">clearInterval</span><span class="p-innerBlanket2">(</span><span class="p-arguments">scrollIdExtra</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">} </span><span class="p-keyword2">else </span><span class="p-innerBlanket">{</span>
+    <span class="p-variables">button</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket2">(</span><span class="p-string">'js-fadeOut'</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
 <span class="p-blanket">}</span><span>;</span>
 <span></span>
 <span class="p-keyword">const </span><span class="p-variables">scrollToTop</span><span> = </span><span class="p-blanket">(</span><span class="p-arguments">event</span><span class="p-blanket">)</span><span>: </span><span class="p-varType">Boolean</span><span> => </span><span class="p-blanket">{</span>
-<span class="p-keyword">  const </span><span class="p-variables">parentElement</span><span> = </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">parentElement</span><span> = </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
 <span></span>
-<span class="p-keyword2">  if </span><span class="p-innerBlanket2">(</span><span class="p-arguments">parentElement</span><span class="p-innerBlanket2">) {</span>
-<span class="p-keyword">    const </span><span class="p-variables">scroll</span><span> = </span><span class="p-innerBlanket2">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-innerBlanket2">{</span>
-<span class="p-variables">      parentElement</span><span>.</span><span class="p-function">scrollTo</span><span class="p-blanket">(</span><span class="p-numValue">0</span><span>, </span><span class="p-variables">parentElement</span><span>.</span><span class="p-attribute">scrollTop</span><span> - </span><span class="p-variables">parentElement</span><span>.</span><span class="p-attribute">scrollTop</span><span> / </span><span class="p-numValue">10</span><span class="p-blanket">)</span><span>;</span>
-<span class="p-innerBlanket2">    }</span><span>;</span>
-<span class="p-variables">    scrollIdExtra</span><span> = </span><span class="p-function">setInterval</span><span class="p-innerBlanket2">(</span><span class="p-arguments">scroll</span><span>, </span><span class="p-numValue">10</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-innerBlanket2">  } </span><span class="p-keyword2">else </span><span class="p-innerBlanket2">{</span>
-<span class="p-keyword">    const </span><span class="p-variables">scroll</span><span> = </span><span class="p-innerBlanket2">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-innerBlanket2">{</span>
-<span class="p-attribute">      window</span><span>.</span><span class="p-function">scrollTo</span><span class="p-blanket">(</span><span class="p-numValue">0</span><span>, </span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">scrollY</span><span> - </span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">scrollY</span><span> / </span><span class="p-numValue">10</span><span class="p-blanket">)</span><span>;</span>
-<span class="p-innerBlanket2">    }</span><span>;</span>
-<span class="p-variables">    scrollId</span><span> = </span><span class="p-function">setInterval</span><span class="p-innerBlanket2">(</span><span class="p-arguments">scroll</span><span>, </span><span class="p-numValue">10</span><span class="p-innerBlanket2">)</span><span>;</span>
-<span class="p-innerBlanket">  }</span>
+  <span class="p-keyword2">if </span><span class="p-innerBlanket2">(</span><span class="p-arguments">parentElement</span><span class="p-innerBlanket2">) {</span>
+    <span class="p-keyword">const </span><span class="p-variables">scroll</span><span> = </span><span class="p-innerBlanket2">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-innerBlanket2">{</span>
+      <span class="p-variables">parentElement</span><span>.</span><span class="p-function">scrollTo</span><span class="p-blanket">(</span><span class="p-numValue">0</span><span>, </span><span class="p-variables">parentElement</span><span>.</span><span class="p-attribute">scrollTop</span><span> - </span><span class="p-variables">parentElement</span><span>.</span><span class="p-attribute">scrollTop</span><span> / </span><span class="p-numValue">10</span><span class="p-blanket">)</span><span>;</span>
+    <span class="p-innerBlanket2">}</span><span>;</span>
+    <span class="p-variables">scrollIdExtra</span><span> = </span><span class="p-function">setInterval</span><span class="p-innerBlanket2">(</span><span class="p-arguments">scroll</span><span>, </span><span class="p-numValue">10</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket2">} </span><span class="p-keyword2">else </span><span class="p-innerBlanket2">{</span>
+    <span class="p-keyword">const </span><span class="p-variables">scroll</span><span> = </span><span class="p-innerBlanket2">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-innerBlanket2">{</span>
+      <span class="p-attribute">window</span><span>.</span><span class="p-function">scrollTo</span><span class="p-blanket">(</span><span class="p-numValue">0</span><span>, </span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">scrollY</span><span> - </span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">scrollY</span><span> / </span><span class="p-numValue">10</span><span class="p-blanket">)</span><span>;</span>
+    <span class="p-innerBlanket2">}</span><span>;</span>
+    <span class="p-variables">scrollId</span><span> = </span><span class="p-function">setInterval</span><span class="p-innerBlanket2">(</span><span class="p-arguments">scroll</span><span>, </span><span class="p-numValue">10</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
 <span></span>
-<span class="p-keyword2">  return </span><span class="p-keyword">false</span><span>;</span>
+  <span class="p-keyword2">return </span><span class="p-keyword">false</span><span>;</span>
 <span class="p-blanket">}</span><span>;</span>
 <span></span>
 <span class="p-function">onMounted</span><span class="p-blanket">(</span><span class="p-innerBlanket">()</span><span> => </span><span class="p-innerBlanket">{</span>
-<span class="p-keyword">  const </span><span class="p-variables">parentElement</span><span> = </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket2">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket2">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
-<span class="p-keyword2">  if </span><span class="p-innerBlanket2">(</span><span class="p-arguments">parentElement</span><span class="p-innerBlanket2">) {</span>
-<span class="p-variables">    parentElement</span><span>.</span><span class="p-function">addEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButtonExtra</span><span>, </span><span class="p-innerBlanket">{ passive: true })</span><span>;</span>
-<span class="p-innerBlanket2">  } </span><span class="p-keyword2">else </span><span class="p-innerBlanket2">{</span>
-<span class="p-attribute">    window</span><span>.</span><span class="p-function">addEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButton</span><span>, </span><span class="p-innerBlanket">{ </span><span class="p-attribute">passive: </span><span class="p-keyword">true </span><span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
-<span class="p-innerBlanket2">  }</span>
+  <span class="p-keyword">const </span><span class="p-variables">parentElement</span><span> = </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket2">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket2">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
+  <span class="p-keyword2">if </span><span class="p-innerBlanket2">(</span><span class="p-arguments">parentElement</span><span class="p-innerBlanket2">) {</span>
+    <span class="p-variables">parentElement</span><span>.</span><span class="p-function">addEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButtonExtra</span><span>, </span><span class="p-innerBlanket">{ passive: true })</span><span>;</span>
+  <span class="p-innerBlanket2">} </span><span class="p-keyword2">else </span><span class="p-innerBlanket2">{</span>
+    <span class="p-attribute">window</span><span>.</span><span class="p-function">addEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButton</span><span>, </span><span class="p-innerBlanket">{ </span><span class="p-attribute">passive: </span><span class="p-keyword">true </span><span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
+  <span class="p-innerBlanket2">}</span>
 <span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
 <span class="p-function">onUnmounted</span><span class="p-blanket">(</span><span class="p-innerBlanket">()</span><span> => </span><span class="p-innerBlanket">{</span>
-<span class="p-keyword">  const </span><span class="p-variables">parentElement</span><span> = </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket2">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket2">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
-<span class="p-keyword2">  if </span><span class="p-innerBlanket2">(</span><span class="p-arguments">parentElement</span><span class="p-innerBlanket2">) {</span>
-<span class="p-variables">    parentElement</span><span>.</span><span class="p-function">removeEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButtonExtra</span><span>, </span><span class="p-keyword">false</span><span class="p-blanket">)</span><span>;</span>
-<span class="p-innerBlanket2">  } </span><span class="p-keyword2">else </span><span class="p-innerBlanket2">{</span>
-<span class="p-attribute">    window</span><span>.</span><span class="p-function">removeEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButton</span><span>, </span><span class="p-keyword">false</span><span class="p-blanket">)</span><span>;</span>
-<span class="p-innerBlanket2">  }</span>
+  <span class="p-keyword">const </span><span class="p-variables">parentElement</span><span> = </span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span> ? </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket2">(</span><span class="p-variables">props</span><span>.</span><span class="p-attribute">parentElementString</span><span class="p-innerBlanket2">)</span><span> : </span><span class="p-keyword">null</span><span>;</span>
+  <span class="p-keyword2">if </span><span class="p-innerBlanket2">(</span><span class="p-arguments">parentElement</span><span class="p-innerBlanket2">) {</span>
+    <span class="p-variables">parentElement</span><span>.</span><span class="p-function">removeEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButtonExtra</span><span>, </span><span class="p-keyword">false</span><span class="p-blanket">)</span><span>;</span>
+  <span class="p-innerBlanket2">} </span><span class="p-keyword2">else </span><span class="p-innerBlanket2">{</span>
+    <span class="p-attribute">window</span><span>.</span><span class="p-function">removeEventListener</span><span class="p-blanket">(</span><span class="p-string">"scroll"</span><span>, </span><span class="p-arguments">showButton</span><span>, </span><span class="p-keyword">false</span><span class="p-blanket">)</span><span>;</span>
+  <span class="p-innerBlanket2">}</span>
 <span class="p-blanket">}</span><span>;</span>
 <span>&lt;/</span><span class="p-htmltag">script</span><span>&gt;</span>
 <span></span>
 <span>&lt;</span><span class="p-htmltag">style </span><span class="p-attribute">scoped</span><span>&gt;</span>
 <span class="p-selector">.p-scrollToTopButton </span><span class="p-blanket">{</span>
-<span class="p-element">  position</span><span>: </span><span class="p-string">fixed</span><span>;</span>
-<span class="p-element">  bottom</span><span>: </span><span class="p-numValue">1.6rem</span><span>;</span>
-<span class="p-element">  right</span><span>: </span><span class="p-numValue">2rem</span><span>;</span>
-<span class="p-element">  z-index</span><span>: </span><span class="p-numValue">9000</span><span>;</span>
+  <span class="p-element">position</span><span>: </span><span class="p-string">fixed</span><span>;</span>
+  <span class="p-element">bottom</span><span>: </span><span class="p-numValue">1.6rem</span><span>;</span>
+  <span class="p-element">right</span><span>: </span><span class="p-numValue">2rem</span><span>;</span>
+  <span class="p-element">z-index</span><span>: </span><span class="p-numValue">9000</span><span>;</span>
 <span class="p-blanket">}</span>
 <span></span>
 <span class="p-selector">.p-scrollToTopButton a </span><span class="p-blanket">{</span>
-<span class="p-element">  display</span><span>: </span><span class="p-string">block</span><span>;</span>
-<span class="p-element">  position</span><span>: </span><span class="p-string">relative</span><span>;</span>
-<span class="p-element">  border-radius</span><span>: </span><span class="p-numValue">50%</span><span>;</span>
-<span class="p-element">  width</span><span>: </span><span class="p-numValue">2.8rem</span><span>;</span>
-<span class="p-element">  height</span><span>: </span><span class="p-numValue">2.8rem</span><span>;</span>
-<span class="p-element">  cursor</span><span>: </span><span class="p-string">pointer</span><span>;</span>
-<span class="p-element">  background-color</span><span>: </span><span class="p-function">rgba</span><span class="p-innerBlanket">(</span><span class="p-numValue">180</span><span>,</span><span class="p-numValue">180</span><span>,</span><span class="p-numValue">180</span><span>,</span><span class="p-numValue">.6</span><span class="p-innerBlanket">)</span><span>;</span>
-<span class="p-element">  overflow</span><span>: </span><span class="p-string">hidden</span><span>;</span>
+  <span class="p-element">display</span><span>: </span><span class="p-string">block</span><span>;</span>
+  <span class="p-element">position</span><span>: </span><span class="p-string">relative</span><span>;</span>
+  <span class="p-element">border-radius</span><span>: </span><span class="p-numValue">50%</span><span>;</span>
+  <span class="p-element">width</span><span>: </span><span class="p-numValue">2.8rem</span><span>;</span>
+  <span class="p-element">height</span><span>: </span><span class="p-numValue">2.8rem</span><span>;</span>
+  <span class="p-element">cursor</span><span>: </span><span class="p-string">pointer</span><span>;</span>
+  <span class="p-element">background-color</span><span>: </span><span class="p-function">rgba</span><span class="p-innerBlanket">(</span><span class="p-numValue">180</span><span>,</span><span class="p-numValue">180</span><span>,</span><span class="p-numValue">180</span><span>,</span><span class="p-numValue">.6</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-element">overflow</span><span>: </span><span class="p-string">hidden</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-selector">.p-scrollToTopButton a:before </span><span class="p-blanket">{</span>
-<span class="p-element">  display</span><span>: </span><span class="p-string">inline-block</span><span>;</span>
-<span class="p-element">  content</span><span>: </span><span class="p-string">""</span><span>;</span>
-<span class="p-element">  position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
-<span class="p-element">  width</span><span>: </span><span class="p-numValue">0.65rem</span><span>;</span>
-<span class="p-element">  height</span><span>: </span><span class="p-numValue">0.65rem</span><span>;</span>
-<span class="p-element">  top</span><span>: </span><span class="p-numValue">37%</span><span>;</span>
-<span class="p-element">  left</span><span>: </span><span class="p-numValue">33%</span><span>;</span>
-<span class="p-element">  border-right</span><span>: </span><span class="p-numValue">5px </span><span class="p-string">solid #000</span><span>;</span>
-<span class="p-element">  border-top</span><span>: </span><span class="p-numValue">5px </span><span class="p-string">solid #000</span><span>;</span>
-<span class="p-element">  font-size</span><span>: </span><span class="p-numValue">2rem</span><span>;</span>
-<span class="p-element">  transform</span><span>: </span><span class="p-numValue">rotate</span><span class="p-innerBlanket">(</span><span class="p-numValue">-45deg</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-element">display</span><span>: </span><span class="p-string">inline-block</span><span>;</span>
+  <span class="p-element">content</span><span>: </span><span class="p-string">""</span><span>;</span>
+  <span class="p-element">position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
+  <span class="p-element">width</span><span>: </span><span class="p-numValue">0.65rem</span><span>;</span>
+  <span class="p-element">height</span><span>: </span><span class="p-numValue">0.65rem</span><span>;</span>
+  <span class="p-element">top</span><span>: </span><span class="p-numValue">37%</span><span>;</span>
+  <span class="p-element">left</span><span>: </span><span class="p-numValue">33%</span><span>;</span>
+  <span class="p-element">border-right</span><span>: </span><span class="p-numValue">5px </span><span class="p-string">solid #000</span><span>;</span>
+  <span class="p-element">border-top</span><span>: </span><span class="p-numValue">5px </span><span class="p-string">solid #000</span><span>;</span>
+  <span class="p-element">font-size</span><span>: </span><span class="p-numValue">2rem</span><span>;</span>
+  <span class="p-element">transform</span><span>: </span><span class="p-numValue">rotate</span><span class="p-innerBlanket">(</span><span class="p-numValue">-45deg</span><span class="p-innerBlanket">)</span><span>;</span>
 <span class="p-blanket">}</span>
 <span></span>
 <span class="p-selector">.p-scrollToTopButton a.js-fadeOut </span><span class="p-blanket">{</span>
-<span class="p-element">  animation</span><span>: fadeOut </span><span class="p-numValue">.3s </span><span class="p-string">ease </span><span class="p-numValue">0s</span><span>;</span>
-<span class="p-element">  animation-fill-mode</span><span>: </span><span class="p-string">forwards</span><span>;</span>
+  <span class="p-element">animation</span><span>: fadeOut </span><span class="p-numValue">.3s </span><span class="p-string">ease </span><span class="p-numValue">0s</span><span>;</span>
+  <span class="p-element">animation-fill-mode</span><span>: </span><span class="p-string">forwards</span><span>;</span>
 <span class="p-blanket">}</span>
 <span>&lt;/</span><span class="p-htmltag">style</span><span>&gt;</span>
 <span></span>
 <span>&lt;</span><span class="p-htmltag">template</span><span>&gt;</span>
-<span>  &lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-scrollToTopButton"</span><span>&gt;</span>
-<span>    &lt;</span><span class="p-htmltag">a</span><span> :</span><span class="p-attribute">id</span><span>=</span><span class="p-string">"scrollToTopButton" </span><span>@</span><span class="p-attribute">click</span><span>=</span><span class="p-string">"scrollToTop" </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"js-fadeOut c-fadeIn--fast"</span><span>&gt;&lt;/</span><span class="p-htmltag">a</span><span>&gt;</span>
-<span>  &lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+  <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-scrollToTopButton"</span><span>&gt;</span>
+    <span>&lt;</span><span class="p-htmltag">a</span><span> :</span><span class="p-attribute">id</span><span>=</span><span class="p-string">"scrollToTopButton" </span><span>@</span><span class="p-attribute">click</span><span>=</span><span class="p-string">"scrollToTop" </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"js-fadeOut c-fadeIn--fast"</span><span>&gt;&lt;/</span><span class="p-htmltag">a</span><span>&gt;</span>
+  <span>&lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
 <span>&lt;/</span><span class="p-htmltag">template</span><span>&gt;</span>
 </code></pre>
                     </section>
-                    <section class="p-explanation"></section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">parentElementString: 親要素のクエリ文字列</p>
+                    </section>
+                  </section>
+                </section>
+
+                <section class="p-codeWrap">
+                  <h4>ローディング</h4>
+                  <section class="p-code">
+                    <section class="p-filename">Loading.vue</section>
+                    <pre><code><span>&lt;</span><span class="p-htmltag">script </span><span class="p-attribute">setup lang</span><span>=</span><span class="p-string">"ts"</span><span>&gt;
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">inject </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'vue'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">loadingStore</span><span> = </span><span class="p-function">inject</span><span class="p-blanket">(</span><span class="p-string">'loading'</span><span class="p-blanket">)</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">showLoading</span><span> = </span><span class="p-blanket">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-blanket">{</span>
+  <span class="p-keyword">const </span><span class="p-variables">loading</span><span> = </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket">(</span><span class="p-string">'loading'</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-keyword2">if </span><span class="p-innerBlanket">(</span><span class="p-variables">loading</span><span> !== </span><span class="p-keyword">null</span><span class="p-innerBlanket">) {</span>
+    <span class="p-variables">loadingStore</span><span>.</span><span class="p-function">setElement</span><span class="p-innerBlanket2">(</span><span class="p-arguments">loading</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+  <span class="p-variables">loadingStore</span><span>.</span><span class="p-attribute">element</span><span>.</span><span class="p-attribute">value</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket">(</span><span class="p-string">'js-open'</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-keyword">const </span><span class="p-variables">base</span><span> = </span><span class="p-attribute">document</span><span>.</span><span class="p-function">querySelector</span><span class="p-innerBlanket">(</span><span class="p-string">'.js-loadingBase'</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-variables">base</span><span>?.</span><span class="p-function">appendChild</span><span class="p-innerBlanket">(</span><span class="p-variables">loadingStore</span><span>.</span><span class="p-attribute">element</span><span>.</span><span class="p-attribute">value</span><span class="p-innerBlanket">)</span><span>;</span>
+<span class="p-blanket">}</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">hideLoading</span><span> = </span><span class="p-blanket">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-blanket">{</span>
+  <span class="p-variables">loadingStore</span><span>.</span><span class="p-attribute">element</span><span>.</span><span class="p-attribute">value</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket">(</span><span class="p-string">'js-open'</span><span class="p-innerBlanket">)</span><span>;</span>
+<span class="p-blanket">}</span><span>;</span>
+<span></span>
+<span class="p-variables">loadingStore</span><span>.</span><span class="p-function">setShowFunc</span><span class="p-blanket">(</span><span class="p-arguments">showLoading</span><span class="p-blanket">)</span><span>;</span>
+<span class="p-variables">loadingStore</span><span>.</span><span class="p-function">setHideFunc</span><span class="p-blanket">(</span><span class="p-arguments">hideLoading</span><span class="p-blanket">)</span><span>;</span>
+&lt;/</span><span class="p-htmltag">script</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">style </span><span class="p-attribute">scoped</span><span>&gt;
+<span class="p-selector">.p-loading </span><span class="p-blanket">{</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">none</span><span>;</span>
+<span class="p-blanket">}</span>
+<span class="p-selector">.p-loading.js-open </span><span class="p-blanket">{</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">block</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-loadingContent {</span>
+  <span class="p-element">margin</span><span>: </span><span class="p-numValue">3rem </span><span class="p-string">auto</span><span>;</span>
+  <span class="p-element">border</span><span>: </span><span class="p-numValue">4rem </span><span class="p-string">solid </span><span class="p-string">#3498db</span><span>;</span>
+  <span class="p-element">width</span><span>: </span><span class="p-numValue">10rem</span><span>;</span>
+  <span class="p-element">height</span><span>: </span><span class="p-numValue">10rem</span><span>;</span>
+  <span class="p-element">animation</span><span>: </span><span>spin </span><span class="p-numValue">1s </span><span class="p-string">linear infinite</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-keyframe">@keyframes </span><span class="p-attribute">spin </span><span class="p-blanket">{</span>
+  <span>0%</span><span class="p-innerBlanket">{</span>
+    <span class="p-element">transform</span><span>: </span><span class="p-function">rotate</span><span class="p-innerBlanket2">(</span><span class="p-numValue">0deg</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span></span>
+  <span>100%</span><span class="p-innerBlanket">{</span>
+    <span class="p-element">transform</span><span>: </span><span class="p-function">rotate</span><span class="p-innerBlanket2">(</span><span class="p-numValue">360deg</span><span class="p-innerBlanket2">)</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+<span class="p-blanket">}</span>
+&lt;/</span><span class="p-htmltag">style</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">template</span><span>&gt;</span>
+  <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-loading c-fadeIn--normal" </span><span class="p-attribute">id</span><span>=</span><span class="p-string">"loading"</span><span>&gt;
+    <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-loadingWrap"</span><span>&gt;
+      <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-loadingContent"</span><span>&gt;&lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+    &lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+  &lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+<span>&lt;/</span><span class="p-htmltag">template</span><span>&gt;</span>
+</code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <p class="p-subsentence">
+                      <a href="https://qiita.com/yoshio-the-end/items/8cec41bad0e817928893" target="_blank">参考元</a>
+                    </p>
+                  </section>
+                </section>
+
+                <section class="p-codeWrap">
+                  <h4>ダイアログ</h4>
+                  <section class="p-code">
+                    <section class="p-filename">Dialog.vue</section>
+                    <pre><code><span>&lt;</span><span class="p-htmltag">script </span><span class="p-attribute">setup lang</span><span>=</span><span class="p-string">"ts"</span><span>&gt;
+<span class="p-keyword__files">import </span><span class="p-blanket">{ </span><span class="p-vue__file">reactive</span><span>, </span><span class="p-vue__file">inject </span><span class="p-blanket">} </span><span class="p-keyword__files">from </span><span class="p-string">'vue'</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">dialogStore</span><span> = </span><span class="p-function">inject</span><span class="p-blanket">(</span><span class="p-string">'dialog'</span><span class="p-blanket">)</span><span>;</span>
+<span class="p-keyword">const </span><span class="p-variables">message</span><span> = </span><span class="p-function">reactive</span><span class="p-blanket">(</span><span class="p-innerBlanket">{</span>
+  <span class="p-attribute">subject</span><span>: </span><span class="p-varType">String</span><span>,</span>
+  <span class="p-attribute">body</span><span>: </span><span class="p-varType">String</span><span>,</span>
+  <span class="p-attribute">mode</span><span>: </span><span class="p-varType">String</span><span>,</span>
+<span class="p-innerBlanket">}</span><span class="p-blanket">)</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">closeDialog</span><span> = </span><span class="p-function">()</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-blanket">{</span>
+  <span class="p-keyword">const </span><span class="p-variables">dialog</span><span> = </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket">(</span><span class="p-string">'dialog'</span><span class="p-innerBlanket">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket">(</span><span class="p-string">'js-open'</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket">(</span><span class="p-string">'js-close'</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket">(</span><span class="p-string">'c-fadeOut--fast'</span><span class="p-innerBlanket">)</span><span>;</span>
+<span class="p-blanket">)</span><span>;</span>
+<span></span>
+<span class="p-keyword">const </span><span class="p-variables">openDialog</span><span> = </span><span class="p-function">(</span><span class="p-arguments">subject</span><span>: </span><span class="p-varType">String</span><span>, </span><span class="p-arguments">body</span><span>: </span><span class="p-varType">String</span><span>, </span><span class="p-arguments">mode</span><span>: </span><span class="p-varType">String</span><span> = </span><span class="p-string">'normal'</span><span class="p-blanket">)</span><span>: </span><span class="p-varType">void</span><span> => </span><span class="p-blanket">{</span>
+  <span class="p-variables">message</span><span>.</span><span class="p-attribute">subject</span><span> = </span><span class="p-arguments">subject</span><span>;</span>
+  <span class="p-variables">message</span><span>.</span><span class="p-attribute">body</span><span> = </span><span class="p-arguments">body</span><span>;</span>
+  <span class="p-variables">message</span><span>.</span><span class="p-attribute">mode</span><span> = </span><span class="p-arguments">mode</span><span>;</span>
+<span></span>
+  <span class="p-keyword">const </span><span class="p-variables">dialog</span><span> = </span><span class="p-attribute">document</span><span>.</span><span class="p-function">getElementById</span><span class="p-innerBlanket2">(</span><span class="p-string">'dialog'</span><span class="p-innerBlanket2">) </span><span class="p-keyword2">as </span><span class="p-varType">HTMLElement</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">style</span><span>.</span><span class="p-attribute">top</span><span> = </span><span class="p-string">`</span><span class="p-innerBlanket2">${</span><span class="p-attribute">window</span><span>.</span><span class="p-attribute">screenY</span><span>+</span><span class="p-numValue">90</span><span class="p-innerBlanket2">}</span><span class="p-string">px`</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket">(</span><span class="p-string">'js-close'</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">remove</span><span class="p-innerBlanket">(</span><span class="p-string">'c-fadeOut--fast'</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-variables">dialog</span><span>.</span><span class="p-attribute">classList</span><span>.</span><span class="p-function">add</span><span class="p-innerBlanket">(</span><span class="p-string">'js-open'</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-function">setTimeout</span><span class="p-innerBlanket">(</span><span class="p-arguments">closeDialog</span><span>, </span><span class="p-numValue">1600</span><span class="p-innerBlanket">)</span><span>;</span>
+<span class="p-blanket">)</span><span>;</span>
+<span></span>
+<span class="p-variables">dialogStore</span><span>.</span><span class="p-function">setFunc</span><span class="p-blanket">(</span><span class="p-function">openDialog</span><span class="p-blanket">)</span><span>;</span>
+&lt;/</span><span class="p-htmltag">script</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">style </span><span class="p-attribute">scoped</span><span>&gt;
+<span class="p-selector">.p-dialog </span><span class="p-blanket">{</span>
+  <span class="p-attribute">position</span><span>: </span><span class="p-string">fixed</span><span>;</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">none</span><span>;</span>
+  <span class="p-attribute">border-radius</span><span>: </span><span class="p-numValue">.3rem</span><span>;</span>
+  <span class="p-attribute">border</span><span>: </span><span class="p-string">none</span><span>;</span>
+  <span class="p-attribute">z-index</span><span>: </span><span class="p-numValue">9997</span><span>;</span>
+  <span class="p-attribute">background-color</span><span>: </span><span class="p-function">rgba</span><span class="p-innerBlanket">(</span><span class="p-numValue">245,</span><span class="p-numValue">245,</span><span class="p-numValue">245,</span><span class="p-numValue">.9</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-attribute">box-shadow</span><span>: </span><span class="p-numValue">1px 1px 1px 1px </span><span class="p-string">black</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-dialog.js-open </span><span class="p-blanket">{</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">block</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-dialog.js-close </span><span class="p-blanket">{</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">none</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-dialogContents </span><span class="p-blanket">{</span>
+  <span class="p-attribute">padding</span><span>: </span><span class="p-numValue">.3rem .5rem</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-dialog__subject </span><span class="p-blanket">{</span>
+  <span class="p-attribute">margin</span><span>: </span><span class="p-numValue">.6rem 0</span><span>;</span>
+  <span class="p-attribute">font-weight</span><span>: </span><span class="p-numValue">600</span><span>;</span>
+  <span class="p-attribute">font-size</span><span>: </span><span class="p-numValue">1.5rem</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-dialog__body {</span>
+  <span class="p-attribute">font-size</span><span>: </span><span class="p-numValue">1.2rem</span><span>;</span>
+<span class="p-blanket">}</span>
+&lt;/</span><span class="p-htmltag">style</span><span>&gt;</span>
+<span></span>
+<span>&lt;</span><span class="p-htmltag">template</span><span>&gt;
+  <span>&lt;</span><span class="p-htmltag">dialog </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialog c-fadeIn--fast" </span><span class="p-attribute">id</span><span>=</span><span class="p-string">"dialog"</span><span>&gt;
+    <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialogWrap"</span><span>&gt;
+      <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialogContents c-text--center" </span><span class="p-keyword2">v-if</span><span>=</span>"<span class="p-attribute">message</span><span>.</span><span class="p-attribute">mode</span><span> === </span><span class="p-string">'normal'</span><span>"&gt;
+        <span>&lt;</span><span class="p-htmltag">p </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialog__subject" </span><span class="p-keyword2">v-if</span><span>="</span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">subject</span><span>.</span><span class="p-attribute">length</span><span> > </span><span class="p-numValue">0"</span><span>&gt;</span><span class="p-blanket">{{ </span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">subject </span><span class="p-blanket">}}</span><span>&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+        <span>&lt;</span><span class="p-htmltag">p </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialog__body"</span><span>&gt;</span><span class="p-blanket">{{ </span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">body </span><span class="p-blanket">}}</span><span>&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+      &lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+      <span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialogContents c-color--red c-text--center" </span><span class="p-keyword2">v-if</span><span>="</span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">mode</span><span> === </span><span class="p-string">'error'</span><span>"&gt;
+        <span>&lt;</span><span class="p-htmltag">p </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialog__subject c-color--red" </span><span class="p-keyword2">v-if</span><span>="</span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">subject</span><span>.</span><span class="p-attribute">length</span><span> > </span><span class="p-numValue">0</span><span>"&gt;</span><span class="p-blanket">{{ </span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">subject </span><span class="p-blanket">}}</span><span>&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+        <span>&lt;</span><span class="p-htmltag">p </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-dialog__body c-color--red"</span><span>&gt;</span><span class="p-blanket">{{ </span><span class="p-attribute">message</span><span>.</span><span class="p-attribute">body </span><span class="p-blanket">}}</span><span>&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+      &lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+    &lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+  &lt;/</span><span class="p-htmltag">dialog</span><span>&gt;</span>
+&lt;/</span><span class="p-htmltag">template</span><span>&gt;</span>
+</code></pre>
+                  </section>
+                  <section class="p-explanation">
+                    <ul>
+                      <li class="p-subsentence">subject: ダイアログに表示する題名</li>
+                      <li class="p-subsentence">body: ダイアログに表示する本文</li>
+                      <li class="p-subsentence">mode: ダイアログに表示モード(normal: 通常, error: エラー)</li>
+                    </ul>
                   </section>
                 </section>
               </details>
@@ -652,11 +1034,11 @@
                     <section class="p-code">
                       <section class="p-filename">html</section>
                       <pre><code><span>&lt;</span><span class="p-htmltag">details</span><span>&gt;</span>
-<span>  &lt;</span><span class="p-htmltag">summary</span><span>&gt;</span>
-<span>    &lt;</span><span class="p-htmltag">span</span><span>&gt;ここを押してオープン&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
-<span>    &lt;</span><span class="p-htmltag">span</span><span> </span><span class="p-element">class</span><span>=</span><span class="p-string">"c-toggleIcon"</span><span>&gt;&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
-<span>  &lt;/</span><span class="p-htmltag">summary</span><span>&gt;</span>
-<span>  隠れる箇所</span>
+  <span>&lt;</span><span class="p-htmltag">summary</span><span>&gt;</span>
+    <span>&lt;</span><span class="p-htmltag">span</span><span>&gt;ここを押してオープン&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
+    <span>&lt;</span><span class="p-htmltag">span</span><span> </span><span class="p-element">class</span><span>=</span><span class="p-string">"c-toggleIcon"</span><span>&gt;&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
+  <span>&lt;/</span><span class="p-htmltag">summary</span><span>&gt;</span>
+  <span>隠れる箇所</span>
 <span>&lt;/</span><span class="p-htmltag">details</span><span>&gt;</span>
 </code></pre>
                     </section>
@@ -665,31 +1047,31 @@
                     <section class="p-code">
                       <section class="p-filename">css</section>
                       <pre><code><span class="p-selector">details </span><span>&gt; </span><span class="p-selector">summary </span><span>&gt; </span><span class="p-selector">.c-toggleIcon:before </span><span class="p-blanket">{</span>
-<span class="p-attribute">  position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
-<span class="p-attribute">  margin</span><span>: </span><span class="p-numValue">.4rem .5rem</span><span>;</span>
-<span class="p-attribute">  content</span><span>: </span><span class="p-string">""</span><span>;</span>
-<span class="p-attribute">  width: </span><span class="p-numValue">0.6rem</span><span>;</span>
-<span class="p-attribute">  height: </span><span class="p-numValue">0.6rem</span><span>;</span>
-<span class="p-attribute">  border-right</span><span>: </span><span class="p-numValue">4px </span><span class="p-string">solid #ffffff</span><span>;</span>
-<span class="p-attribute">  border-top</span><span>: </span><span class="p-numValue">4px </span><span class="p-string">solid #ffffff</span><span>;</span>
-<span class="p-attribute">  font-size</span><span>: </span><span class="p-numValue">2rem</span><span>;</span>
-<span class="p-attribute">  transform</span><span>: </span><span class="p-function">rotate</span><span class="p-innerBlanket">(</span><span class="p-numValue">135deg</span><span class="p-innerBlanket">)</span><span>;</span>
-<span class="p-attribute">  transition</span><span>: </span><span class="p-numValue">.1s</span><span>;</span>
+  <span class="p-attribute">position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
+  <span class="p-attribute">margin</span><span>: </span><span class="p-numValue">.4rem .5rem</span><span>;</span>
+  <span class="p-attribute">content</span><span>: </span><span class="p-string">""</span><span>;</span>
+  <span class="p-attribute">width: </span><span class="p-numValue">0.6rem</span><span>;</span>
+  <span class="p-attribute">height: </span><span class="p-numValue">0.6rem</span><span>;</span>
+  <span class="p-attribute">border-right</span><span>: </span><span class="p-numValue">4px </span><span class="p-string">solid #ffffff</span><span>;</span>
+  <span class="p-attribute">border-top</span><span>: </span><span class="p-numValue">4px </span><span class="p-string">solid #ffffff</span><span>;</span>
+  <span class="p-attribute">font-size</span><span>: </span><span class="p-numValue">2rem</span><span>;</span>
+  <span class="p-attribute">transform</span><span>: </span><span class="p-function">rotate</span><span class="p-innerBlanket">(</span><span class="p-numValue">135deg</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-attribute">transition</span><span>: </span><span class="p-numValue">.1s</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-selector">details</span><span class="p-blanket">[</span><span class="p-attribute">open</span><span class="p-blanket">] </span><span>&gt; </span><span class="p-selector">summary </span><span>&gt; </span><span class="p-selector">.c-toggleIcon:before </span><span class="p-blanket">{</span>
-<span class="p-attribute">  position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
-<span class="p-attribute">  margin</span><span>: </span><span class="p-numValue">.75rem .5rem</span><span>;</span>
-<span class="p-attribute">  content</span><span>: </span><span class="p-string">""</span><span>;</span>
-<span class="p-attribute">  transform</span><span>: </span><span class="p-function">rotate</span><span class="p-innerBlanket">(</span><span class="p-numValue">-135deg</span><span class="p-innerBlanket">) </span><span class="p-function">scaleY</span><span class="p-innerBlanket">(</span><span class="p-numValue">-1</span><span class="p-innerBlanket">)</span><span>;</span>
-<span class="p-attribute">  transition</span><span>: </span><span class="p-numValue">.1s</span><span>;</span>
+  <span class="p-attribute">position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
+  <span class="p-attribute">margin</span><span>: </span><span class="p-numValue">.75rem .5rem</span><span>;</span>
+  <span class="p-attribute">content</span><span>: </span><span class="p-string">""</span><span>;</span>
+  <span class="p-attribute">transform</span><span>: </span><span class="p-function">rotate</span><span class="p-innerBlanket">(</span><span class="p-numValue">-135deg</span><span class="p-innerBlanket">) </span><span class="p-function">scaleY</span><span class="p-innerBlanket">(</span><span class="p-numValue">-1</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-attribute">transition</span><span>: </span><span class="p-numValue">.1s</span><span>;</span>
 <span class="p-blanket">}</span>
 <span></span>
 <span class="p-selector">summary </span><span class="p-blanket">{</span>
-<span class="p-attribute">  display</span><span>: </span><span class="p-string">block</span><span>;</span>
-<span class="p-attribute">  cursor</span><span>: </span><span class="p-string">pointer</span><span>;</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">block</span><span>;</span>
+  <span class="p-attribute">cursor</span><span>: </span><span class="p-string">pointer</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-selector">summary::-webkit-details-marker</span><span>, </span><span class="p-selector">summary::-moz-details-marker </span><span class="p-blanket">{</span>
-<span class="p-attribute">  display</span><span>: </span><span class="p-string">none</span><span>;</span>
+  <span class="p-attribute">display</span><span>: </span><span class="p-string">none</span><span>;</span>
 <span class="p-blanket">}</span>
 </code></pre>
                     </section>
@@ -697,6 +1079,72 @@
                       <p class="p-subsentence">疑似要素の位置はmarginで調整すること</p>
                       <p class="p-subsentence">summary以下にh2などを差し込むと、その要素をリンク代わりにできる</p>
                     </section>
+                  </section>
+                </section>
+
+                <section class="p-framework">
+                  <section class="p-title">ナビゲーションサブメニュー</section>
+                  <section class="p-codeWrap">
+                    <h4>右上からのアニメーション</h4>
+                    <section class="p-code">
+                      <section class="p-filename">css</section>
+                      <pre><code><span class="p-selector">.p-sample__menuLink </span><span class="p-blanket">{</span>
+  <span class="p-attribute">margin</span><span>: </span><span class="p-numValue">.3rem</span><span>;</span>
+  <span class="p-attribute">z-index</span><span>: </span><span class="p-numValue">1</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-sample__menuLink:hover .p-sample__menuList </span><span class="p-blanket">{</span>
+  <span class="p-attribute">transform</span><span>: </span><span class="p-function">scale</span><span class="p-innerBlanket">(</span><span class="p-numValue">1.2</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-attribute">visibility</span><span>: </span><span class="p-string">visible</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-sample__menuLink .p-sample__menuButton </span><span class="p-blanket">{</span>
+  <span class="p-attribute">font-size</span><span>: </span><span class="p-numValue">2.1rem</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-sample__menuList</span><span class="p-blanket"> {</span>
+  <span class="p-attribute">position</span><span>: </span><span class="p-string">absolute</span><span>;</span>
+  <span class="p-attribute">margin</span><span>: </span><span class="p-numValue">1.3rem .3rem</span><span>;</span>
+  <span class="p-attribute">padding</span><span>: </span><span class="p-numValue">.3rem</span><span>;</span>
+  <span class="p-attribute">visibility</span><span>: </span><span class="p-string">hidden</span><span>;</span>
+  <span class="p-attribute">right</span><span>: </span><span class="p-numValue">.3rem</span><span>;</span>
+  <span class="p-attribute">top</span><span>: </span><span class="p-numValue">1.3rem</span><span>;</span>
+  <span class="p-attribute">border-radius</span><span>: </span><span class="p-numValue">.3rem</span><span>;</span>
+  <span class="p-attribute">transform-origin</span><span>: </span><span class="p-numValue">100% 0</span><span>;</span>
+  <span class="p-attribute">transform</span><span>: </span><span class="p-function">scale</span><span class="p-innerBlanket">(</span><span class="p-numValue">.1</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-attribute">transition</span><span>: </span><span class="p-string">all</span><span class="p-numValue">.2s</span><span>;</span>
+  <span class="p-attribute">background-color</span><span>: </span><span class="p-string">#EEEEEE</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-sample__menu </span><span class="p-blanket">{</span>
+  <span class="p-attribute">margin</span><span>: </span><span class="p-numValue">.9rem .5rem</span><span>;</span>
+  <span class="p-attribute">font-size</span><span>: </span><span class="p-numValue">1.3rem</span><span>;</span>
+<span class="p-blanket">}</span>
+<span></span>
+<span class="p-selector">.p-sample__menu:hover</span><span>, </span><span class="p-selector">.p-sample__menu:active </span><span class="p-blanket">{</span>
+  <span class="p-attribute">color</span><span>: </span><span class="p-string">#888</span><span>;</span>
+  <span class="p-attribute">cursor</span><span>: </span><span class="p-string">pointer</span><span>;</span>
+<span class="p-blanket">}</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation"></section>
+
+                    <section class="p-code">
+                      <section class="p-filename">HTML</section>
+                      <pre><code><span>&lt;</span><span class="p-htmltag">section </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-sample__menuLink"</span><span>&gt;</span>
+  <span>&lt;</span><span class="p-htmltag">span </span><span class="p-attribute">class</span><span class="p-string">"p-sample__menuButton"</span><span>&gt;メニュータイトル</span><span>&lt;/</span><span class="p-htmltag">span</span><span>&gt;</span>
+  <span>&lt;</span><span class="p-htmltag">ul </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-sample__menuList"</span><span>&gt;</span>
+    <span>&lt;</span><span class="p-htmltag">li </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-sample__menu"</span><span>&gt;</span>
+      <span>&lt;</span><span class="p-htmltag">p</span><span>&gt;サブメニュータイトル1&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+    <span>&lt;/</span><span class="p-htmltag">li</span><span>&gt;</span>
+    <span>&lt;</span><span class="p-htmltag">li </span><span class="p-attribute">class</span><span>=</span><span class="p-string">"p-sample__menu"</span><span>&gt;</span>
+      <span>&lt;</span><span class="p-htmltag">p</span><span>&gt;サブメニュータイトル2&lt;/</span><span class="p-htmltag">p</span><span>&gt;</span>
+    <span>&lt;/</span><span class="p-htmltag">li</span><span>&gt;</span>
+  <span>&lt;/</span><span class="p-htmltag">ul</span><span>&gt;</span>
+<span>&lt;/</span><span class="p-htmltag">section</span><span>&gt;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation"></section>
                   </section>
                 </section>
   
@@ -707,16 +1155,16 @@
                     <section class="p-code">
                       <section class="p-filename">css</section>
                       <pre><code><span class="p-selector">.c-fadeIn--fast </span><span class="p-blanket">{</span>
-<span class="p-attribute">  animation</span><span>: fadeIn </span><span class="p-numValue">.3s </span><span class="p-string">ease</span><span>;</span>
+  <span class="p-attribute">animation</span><span>: fadeIn </span><span class="p-numValue">.3s </span><span class="p-string">ease</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-keyframe">@keyframes</span><span class="p-attribute"> fadeIn </span><span class="p-blanket">{</span>
-<span>  0%</span><span class="p-innerBlanket">{</span>
-<span class="p-attribute">    display</span><span>: </span><span class="p-string">none</span><span>;</span>
-<span class="p-attribute">    opacity</span><span>: </span><span class="p-numValue">0</span><span>;</span>
-<span>  }</span>
-<span>  100%</span><span class="p-innerBlanket">{</span>
-<span class="p-attribute">    opacity</span><span>: </span><span class="p-numValue">1</span><span>;</span>
-<span>  }</span>
+  <span>0%</span><span class="p-innerBlanket">{</span>
+    <span class="p-attribute">display</span><span>: </span><span class="p-string">none</span><span>;</span>
+    <span class="p-attribute">opacity</span><span>: </span><span class="p-numValue">0</span><span>;</span>
+  <span>}</span>
+  <span>100%</span><span class="p-innerBlanket">{</span>
+    <span class="p-attribute">opacity</span><span>: </span><span class="p-numValue">1</span><span>;</span>
+  <span>}</span>
 <span class="p-blanket">}</span>
 </code></pre>
                     </section>
@@ -730,22 +1178,23 @@
                     <section class="p-code">
                       <section class="p-filename">css</section>
                       <pre><code><span class="p-selector">.c-fadeOut--fast </span><span class="p-blanket">{</span>
-<span class="p-attribute">  animation</span><span>: fadeOut </span><span class="p-numValue">.3s </span><span class="p-string">ease</span><span>;</span>
+  <span class="p-attribute">animation</span><span>: fadeOut </span><span class="p-numValue">.3s </span><span class="p-string">ease</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-keyframe">@keyframes</span><span class="p-attribute"> fadeOut </span><span class="p-blanket">{</span>
-<span>  0%</span><span class="p-innerBlanket">{</span>
-<span class="p-attribute">    display</span><span>: </span><span class="p-string">block</span><span>;</span>
-<span class="p-attribute">    opacity</span><span>: </span><span class="p-numValue">1</span><span>;</span>
-<span class="p-innerBlanket">  }</span>
-<span>  100%</span><span class="p-innerBlanket">{</span>
-<span class="p-attribute">    opacity</span><span>: </span><span class="p-numValue">0</span><span>;</span>
-<span class="p-innerBlanket">  }</span>
+  <span>0%</span><span class="p-innerBlanket">{</span>
+    <span class="p-attribute">display</span><span>: </span><span class="p-string">block</span><span>;</span>
+    <span class="p-attribute">opacity</span><span>: </span><span class="p-numValue">1</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
+  <span>100%</span><span class="p-innerBlanket">{</span>
+    <span class="p-attribute">opacity</span><span>: </span><span class="p-numValue">0</span><span>;</span>
+  <span class="p-innerBlanket">}</span>
 <span class="p-blanket">}</span>
 </code></pre>
                     </section>
                     <section class="p-explanation"></section>
                   </section>
                 </section>
+
                 <section class="p-framework">
                   <section class="p-title">スクロールバーデザイン</section>
                   <section class="p-codeWrap">
@@ -753,15 +1202,15 @@
                     <section class="p-code">
                       <section class="p-filename">css</section>
                       <pre><code><span class="p-selector">body::-webkit-scrollbar </span><span class="p-blanket">{</span>
-<span class="p-attribute">  width</span><span>: </span><span class="p-numValue">.8rem</span><span>;</span>
+  <span class="p-attribute">width</span><span>: </span><span class="p-numValue">.8rem</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-selector">body::-webkit-scrollbar-track </span><span class="p-blanket">{</span>
-<span class="p-attribute">  border-radius</span><span>: </span><span class="p-numValue">.5rem</span><span>;</span>
-<span class="p-attribute">  background-color</span><span>: </span><span class="p-string">#ececec</span><span>;</span>
+  <span class="p-attribute">border-radius</span><span>: </span><span class="p-numValue">.5rem</span><span>;</span>
+  <span class="p-attribute">background-color</span><span>: </span><span class="p-string">#ececec</span><span>;</span>
 <span class="p-blanket">}</span>
 <span class="p-selector">body::-webkit-scrollbar-thumb </span><span class="p-blanket">{</span>
-<span class="p-attribute">  border-radius</span><span>: </span><span class="p-numValue">.5rem</span><span>;</span>
-<span class="p-attribute">  background-color</span><span>: </span><span class="p-function">rgba</span><span class="p-innerBlanket">(</span><span class="p-numValue">184</span><span>, </span><span class="p-numValue">184</span><span>, </span><span class="p-numValue">184</span><span>, </span><span class="p-numValue">0.9</span><span class="p-innerBlanket">)</span><span>;</span>
+  <span class="p-attribute">border-radius</span><span>: </span><span class="p-numValue">.5rem</span><span>;</span>
+  <span class="p-attribute">background-color</span><span>: </span><span class="p-function">rgba</span><span class="p-innerBlanket">(</span><span class="p-numValue">184</span><span>, </span><span class="p-numValue">184</span><span>, </span><span class="p-numValue">184</span><span>, </span><span class="p-numValue">0.9</span><span class="p-innerBlanket">)</span><span>;</span>
 <span class="p-blanket">}</span>
 </code></pre>
                     </section>
