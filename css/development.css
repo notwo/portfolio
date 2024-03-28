@@ -243,6 +243,30 @@ details[open] > summary > .c-toggleIcon:before {
   transition: .1s;
 }
 
+details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus::before, details:not([open]) > summary > .c-toggleIconPlus::after {
+  position: absolute;
+  margin: -2.0rem 70%;
+  content: "";
+  width: 1.3rem;
+  height: 0.2rem;
+  transition: .1s;
+  border-radius: .6rem;
+  background-color: #ffffff;
+}
+details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus:after {
+  transform: rotate(90deg);
+}
+details[open].p-innerAccordion > summary > .c-toggleIconPlus:before {
+  content: '';
+  position: absolute;
+  margin: -2.0rem 70%;
+  width: 1.3rem;
+  height: 0.2rem;
+  transition: .1s;
+  border-radius: .6rem;
+  background-color: #ffffff;
+}
+
 summary {
   display: block;
   cursor: pointer;
@@ -270,6 +294,13 @@ summary::-webkit-details-marker, summary::-moz-details-marker {
   details[open] > summary > .c-toggleIcon:before {
     margin: -4rem 80%;
   }
+
+  details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
+  details[open].p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
 }
 
 /* tablet */
@@ -290,5 +321,12 @@ summary::-webkit-details-marker, summary::-moz-details-marker {
   }
   details[open] > summary > .c-toggleIcon:before {
     margin: -4rem 80%;
+  }
+
+  details.p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
+  details[open].p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
   }
 }
