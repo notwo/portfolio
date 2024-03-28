@@ -1,0 +1,28 @@
+.c-color--white {
+  color: white;
+}
+
+.c-text--alignCenter {
+  text-align: center;
+}
+
+.c-flex__contents--center {
+  display: flex;
+  justify-content: center;
+}
+.c-flex--column {
+  display: flex;
+  flex-direction: column;
+}
+.c-flex--start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.c-flexWrap {
+  flex-wrap: wrap;
+}
+
+.c-flex__align--center {
+  align-items: center;
+}

@@ -1,9 +1,9 @@
 /* sp */
 @media screen and (max-width: 414px) {
-  .sp-char {
+  .p-spChar {
     font-size: 1.3rem;
   }
-  .sp-char-mini {
+  .p-sp__charMini {
     font-size: 1rem;
   }
 
@@ -14,45 +14,31 @@
     height: 3.8rem;
   }
 
-  .menu-wrap {
-    display: none;
-  }
-
-  .sp-navButton {
-    display: block;
-  }
-
-  .sp-menu li {
-    margin: 2.5rem 0;
-    font-size: 1.6rem;
-    font-weight: 400;
-  }
-
   .flex-contents {
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
   }
-  .skillbox {
+  .p-skillbox {
     width: calc(100% - 5px);
     margin: 0.6rem;
   }
-  .skillbox p {
+  .p-skillbox p {
     font-size: 1.2rem;
     padding: 0.9rem;
   }
 
-  .sentenses-only {
+  .p-sentensesOnly {
     font-size: 1.2rem;
     width: 80%;
     padding-bottom: 2rem;
   }
 
-  .contacts {
+  .p-contacts {
     margin: 2rem 0;
   }
 
-  .contacts article {
+  .p-contacts article {
     margin: 0 1.5rem;
   }
 
@@ -60,7 +46,7 @@
     margin-top: 5rem;
   }
 
-  .copyright {
+  .p-copyright {
     font-size: 0.7rem;
   }
 
@@ -86,38 +72,24 @@
     height: 3.8rem;
   }
 
-  .menu-wrap {
-    display: none;
-  }
-
-  .sp-navButton {
-    display: block;
-  }
-
-  .sp-menu li {
-    margin: 2.5rem 0;
-    font-size: 1.6rem;
-    font-weight: 400;
-  }
-
-  .skillbox {
+  .p-skillbox {
     width: calc(45% - 10px);
     margin: 0.6rem;
   }
-  .skillbox p {
+  .p-skillbox p {
     font-size: 1.2rem;
     padding: 0.9rem;
   }
 
-  .contacts {
+  .p-contacts {
     margin: 4rem 0;
   }
 
-  .contacts article {
+  .p-contacts article {
     margin: 0 1.5rem;
   }
 
-  .copyright {
+  .p-copyright {
     font-size: 0.8rem;
   }
 

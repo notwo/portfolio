@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #333333;
+}
+
+main {
+  padding-top: 7rem;
+}
+
+/*
+ * メインコンテンツ
+ */
+.l-container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.l-container h2 {
+  margin: 2rem 0;
+  padding: .5rem;
+  font-size: 1.8rem;
+  border-left: 7px solid #777;
+  border-bottom: 5px solid #333;
+  background:linear-gradient(left, #999, #333);
+  background:-webkit-linear-gradient(left, #999, #333);
+  background:-moz-linear-gradient(left, #999, #333);
+}
+
+.l-container h3 {
+  margin: .9rem 0;
+  font-size: 1.4rem;
+}
+.l-container h3::before {
+  content: "■";
+  color: #999;
+}
+
+.l-container h4::before {
+  content: "";
+}
+
+.p-title {
+  margin: 1.6rem 0;
+  padding: .2rem;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(to right, #456, #333) 1;
+  border-image: -webkit-linear-gradient(to right, #456, #333) 1;
+  border-image: -moz-linear-gradient(to right, #456, #333) 1;
+  width: auto;
+}
+
+.p-code {
+  margin: 1rem 0 0 0;
+  background-color: black;
+  overflow-x: auto;
+}
+
+.p-filename {
+  display: inline-block;
+  position: relative;
+  padding: .5rem;
+  font-size: .9rem;
+  font-weight: 800;
+  background-color: gray;
+}
+
+.p-python .p-keyword {
+  color: orange;
+}
+
+.p-python .p-string {
+  color: rgb(28, 193, 39);
+}
+
+.p-python .p-number {
+  color: rgb(9, 152, 254);
+}
+
+.p-python .p-function {
+  color: rgb(242, 255, 2);
+}
+
+.p-python .p-search, .p-python .p-arguments {
+  color: rgb(177, 52, 3);
+}
+
+.p-python .p-self {
+  color: rgb(195, 50, 195);
+}
+
+.p-python .p-decorator {
+  color: rgb(195, 195, 44);
+}
+
+.p-javascript .p-keyword__files, .p-javascript .p-innerBlanket, .p-javascript .p-keyword2, .p-javascript .p-keyframe {
+  color: rgb(195, 50, 195);
+}
+
+.p-javascript .p-vue__file, .p-javascript .p-symol, .p-javascript .p-imported, .p-javascript .p-arguments, .p-javascript .p-attribute, .p-javascript .p-element {
+  color: rgb(52, 220, 214);
+}
+
+.p-javascript .p-string {
+  color: orange;
+}
+
+.p-javascript .p-blanket, .p-javascript .p-function {
+  color: rgb(195, 195, 44);
+}
+
+.p-javascript .p-keyword, .p-javascript .p-keyword__innerFiles, .p-javascript .p-innerBlanket2, .p-javascript .p-htmltag {
+  color: rgb(35, 61, 255);
+}
+
+.p-javascript .p-variables {
+  color: rgb(82, 132, 169);
+}
+
+.p-javascript .p-numValue {
+  color: rgb(43, 192, 5);
+}
+
+.p-javascript .p-varType {
+  color: rgb(108, 253, 117);
+}
+
+.p-javascript .p-tagblanket {
+  color: #777;
+}
+
+.p-javascript .p-selector {
+  color: rgb(249, 228, 0);
+}
+
+.p-css .p-htmltag {
+  color: rgb(85, 105, 255);
+}
+
+.p-css .p-element, .p-css .p-attribute {
+  color: rgb(52, 220, 214);
+}
+
+.p-css .p-string {
+  color: orange;
+}
+
+.p-css .p-blanket, .p-css .p-selector {
+  color: rgb(255, 221, 48);
+}
+
+.p-css .p-innerBlanket {
+  color: rgb(195, 50, 195);
+}
+
+.p-css .p-keyframe {
+  color: rgb(237, 53, 237);
+}
+
+.p-css .p-numValue {
+  color: rgb(43, 192, 5);
+}
+
+.p-css .p-function {
+  color: rgb(195, 195, 44);
+}
+
+.p-codeWrap {
+  margin: .5rem 0 0 0;
+}
+
+.p-explanation {
+  margin: 0 0 2rem 0;
+  padding: 1.5rem 0.7rem;
+  background-color: #444;
+  overflow-x: auto;
+}
+
+.p-explanation .p-subsentence {
+  margin: .2rem 0;
+  line-height: 1.5;
+}
+
+.p-explanation .p-example {
+  margin: .5rem 0;
+}
+
+
+/* 基本タグ */
+h1 {
+}
+
+h4 {
+}
+
+p {
+  font-family: 'Noto Serif JP', serif;
+}
+
+a {
+  text-decoration: none;
+  color: #CCC;
+}
+a:hover {
+  opacity: 0.6;
+}
+
+ol,ul {
+  list-style: none;
+}
+
+pre {
+  display: block;
+  font-size: .8rem;
+}
+
+code {
+  display: block;
+  padding: 1.0rem 1.3rem;
+  line-height: 1.8;
+}
+
+details > summary > .c-toggleIcon:before {
+  position: absolute;
+  margin: -4.5rem 70%;
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 4px solid #ffffff;
+  border-top: 4px solid #ffffff;
+  font-size: 2rem;
+  transform: rotate(135deg);
+  transition: .1s;
+}
+details[open] > summary > .c-toggleIcon:before {
+  position: absolute;
+  margin: -4rem 70%;
+  content: "";
+  transform: rotate(-135deg) scaleY(-1);
+  transition: .1s;
+}
+
+details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus::before, details:not([open]) > summary > .c-toggleIconPlus::after {
+  position: absolute;
+  margin: -2.0rem 70%;
+  content: "";
+  width: 1.3rem;
+  height: 0.2rem;
+  transition: .1s;
+  border-radius: .6rem;
+  background-color: #ffffff;
+}
+details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus:after {
+  transform: rotate(90deg);
+}
+details[open].p-innerAccordion > summary > .c-toggleIconPlus:before {
+  content: '';
+  position: absolute;
+  margin: -2.0rem 70%;
+  width: 1.3rem;
+  height: 0.2rem;
+  transition: .1s;
+  border-radius: .6rem;
+  background-color: #ffffff;
+}
+
+summary {
+  display: block;
+  cursor: pointer;
+}
+summary::-webkit-details-marker, summary::-moz-details-marker {
+  display: none;
+}
+
+/* sp */
+@media screen and (max-width: 414px) {
+  header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 3.8rem;
+  }
+
+  main {
+    padding-top: 5rem;
+  }
+
+  details > summary > .c-toggleIcon:before {
+    margin: -4.5rem 80%;
+  }
+  details[open] > summary > .c-toggleIcon:before {
+    margin: -4rem 80%;
+  }
+
+  details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
+  details[open].p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 3.8rem;
+  }
+
+  main {
+    padding-top: 5rem;
+  }
+  
+  details > summary > .c-toggleIcon:before {
+    margin: -4.5rem 80%;
+  }
+  details[open] > summary > .c-toggleIcon:before {
+    margin: -4rem 80%;
+  }
+
+  details.p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
+  details[open].p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
+    margin: -2.0rem 80%;
+  }
+}
