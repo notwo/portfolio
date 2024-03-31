@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="実装ノウハウ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/accordion.css">
+    <link rel="stylesheet" href="../css/sp-nav.css">
+    <link rel="stylesheet" href="../css/dev-knowledge.css">
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap">
+    <title>Takashi's 実装ノウハウ</title>
+  </head>
+  <body>
+    <header class="c-color--white">
+      <nav class="p-menuWrap">
+        <ul class="p-menu">
+          <li><a class="p-sp__charMini" href="#css">設計</a></li>
+          <li><a class="p-sp__charMini" href="#vba">実装</a></li>
+        </ul>
+      </nav>
+      <button class="p-sp__navButton js-navButton">
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navItem"></span>
+        <span class="p-sp__navMenu c-color--white">MENU</span>
+        <span class="p-sp__navClose c-color--white">CLOSE</span>
+      </button>
+
+      <section class="p-sp__navOverlay js-navOverlay">
+        <nav class="p-sp__menuWrap c-flex--column c-text--alignCenter">
+          <ul class="p-sp__menu">
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#design">設計</a></li>
+            <li><a class="p-sp__charMini p-sp__closeLink js-sp-closeLink" href="#development">実装</a></li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+
+    <main class="l-container c-color--white">
+      <h1 class="c-text--alignCenter">個人的ノウハウ</h1>
+      <p>後々追記します。。。</p>
+      <section class="p-knowledgeWrap">
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="design">設計</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-knowledge p-design">
+            <section class="p-designWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>共通</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">TBD</section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-designWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>フロントエンド</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">TBD</section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-designWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>バックエンド</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">TBD</section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-designWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>batch</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">ログ設計</section>
+                  <section class="p-sentence">
+                    <p>どんなエラー内容なのか詳細に書く。エラー種別と実際のエラー内容は絶対に一致させる</p>
+                  </section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-developmentWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>クエリ(SQL)</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">基本形</section>
+                  <section class="p-sentence">
+                  </section>
+                </section>
+              </details>
+            </section>
+          </section>
+        </details>
+      </section>
+
+      <section class="p-knowledgeWrap">
+        <details>
+          <summary>
+            <h2 class="c-flex--start" id="development">実装</h2>
+            <span class="c-toggleIcon"></span>
+          </summary>
+          <section class="p-knowledge p-development">
+            <section class="p-developmentWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>共通</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">変数宣言</section>
+                  <section class="p-sentence">
+                    <p>C言語のような、関数の頭にまとめて宣言をしないといけない場合を除き、最初にその変数を使う直前で宣言する</p>
+                    <p>→宣言から何行も間が空いていると、宣言元を辿るのが面倒になるため</p>
+                  </section>
+
+                  <section class="p-title">メタプログラミング(変数、メソッド動的作成、呼び出し)</section>
+                  <section class="p-sentence">
+                    <p>原則として使わない(特に作成)</p>
+                    <p>例としてRubyであればdefine_methodによるメソッド定義やevalによる変数宣言は可読性を大きく下げるだけでなくgrep検索に引っかからないため影響調査漏れのリスクが常に付き纏う</p>
+                    <p>constantizeやsendはクラス名、メソッド名のgrepには引っかかるのでそこまで問題ではないが、有識者が直接のコーダーしかいない状況はどう考えても異常であり非推奨</p>
+                    <p>どうしても</p>
+                  </section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-developmentWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>フロントエンド</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+              </details>
+            </section>
+
+            <section class="p-designWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>バックエンド</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">MVCフレームワーク</section>
+                  <h4>コーディング</h4>
+                  <section class="p-sentence">
+                    <p>fat controllerにならないように、controllerにはviewの振り分けくらいしか書かないようにする</p>
+                    <p>次に、fat modelにならないようにビジネスロジックをserviceクラスに分割する</p>
+                    <p>serviceクラスには要件ごとの機能を定義する。例えば外部接続など。</p>
+                    <p>テーブル関連の情報の整形、取得等は全てmodelクラスに定義する。ただし、batchからしか呼ばれていないような特殊なメソッドはそのクラス内にメソッド定義した方が検索が楽になる</p>
+                  </section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-developmentWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>batch</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">基本形</section>
+                  <h4>コーディング</h4>
+                  <section class="p-sentence">
+                    <p>なるべくそのままリランしやすい作りにする。処理が長くなったり難しい場合は複数のバッチに細分化する</p>
+                  </section>
+                </section>
+              </details>
+            </section>
+
+            <section class="p-developmentWrap">
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>クエリ(SQL)</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-detail">
+                  <section class="p-title">基本形</section>
+                  <h4>コーディング</h4>
+                  <section class="p-sentence">
+                    <p>副問合せなど複雑で負荷のかかるクエリにしない</p>
+                    <p>クエリ実行(作成)処理をループ内に入れない(N+1防止)</p>
+                  </section>
+                </section>
+
+                <section class="p-detail">
+                  <section class="p-title">マイグレーション</section>
+                  <section class="p-sentence">
+                    <p>よく検索されるカラム(大抵は~~_id)には必ずインデックスを張る</p>
+                  </section>
+                </section>
+              </details>
+            </section>
+          </section>
+        </details>
+      </section>
+    </main>
+
+    <footer class="c-color--white">
+    </footer>
+
+    <script type="text/Javascript" src="../js/sp-nav.js"></script>
+  </body>
+</html>
