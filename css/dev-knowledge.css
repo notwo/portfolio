@@ -19,6 +19,10 @@ a:hover {
   opacity: 0.6;
 }
 
+p {
+  font-family: 'Noto Serif JP', serif;
+}
+
 ol,ul {
   list-style: none;
 }
@@ -75,6 +79,15 @@ li {
   margin: .8rem .5rem 1.5rem .5rem;
 }
 
-.p-sentence p {
+.p-sentence ul.p-list {
+  list-style: circle;
+}
+
+.p-sentence ul.p-list li {
+  margin: .5rem 1.5rem;
+}
+
+.p-sentence p.p-subsentence {
   line-height: 1.5;
+  margin: .4rem 0;
 }

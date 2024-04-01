@@ -135,16 +135,17 @@
                 <section class="p-detail">
                   <section class="p-title">変数宣言</section>
                   <section class="p-sentence">
-                    <p>C言語のような、関数の頭にまとめて宣言をしないといけない場合を除き、最初にその変数を使う直前で宣言する</p>
-                    <p>→宣言から何行も間が空いていると、宣言元を辿るのが面倒になるため</p>
+                    <p class="p-subsentence">C言語のような、関数の頭にまとめて宣言をしないといけない場合を除き、最初にその変数を使う直前で宣言する</p>
+                    <p class="p-subsentence">→宣言から何行も間が空いていると、宣言元を辿るのが面倒になるため</p>
                   </section>
 
                   <section class="p-title">メタプログラミング(変数、メソッド動的作成、呼び出し)</section>
                   <section class="p-sentence">
-                    <p>原則として使わない(特に作成)</p>
-                    <p>例としてRubyであればdefine_methodによるメソッド定義やevalによる変数宣言は可読性を大きく下げるだけでなくgrep検索に引っかからないため影響調査漏れのリスクが常に付き纏う</p>
-                    <p>constantizeやsendはクラス名、メソッド名のgrepには引っかかるのでそこまで問題ではないが、有識者が直接のコーダーしかいない状況はどう考えても異常であり非推奨</p>
-                    <p>どうしても</p>
+                    <p class="p-subsentence">原則として使わない(特に作成)</p>
+                    <p class="p-subsentence">例としてRubyであればdefine_methodによるメソッド定義やevalによる変数宣言は可読性を大きく下げるだけでなくgrep検索に引っかからないため影響調査漏れのリスクが常に付き纏う</p>
+                    <p class="p-subsentence">constantizeやsendはクラス名、メソッド名のgrepには引っかかるのでそこまで問題ではないが、有識者が直接のコーダーしかいない状況はどう考えても異常であり非推奨</p>
+                    <p class="p-subsentence"></p>
+                    <p class="p-subsentence">どうしても使いたいのであれば、どんなメソッドや関数が生成されるのか名前とともにコメントで記載するルール作りするのが最低条件</p>
                   </section>
                 </section>
               </details>
@@ -169,10 +170,12 @@
                   <section class="p-title">MVCフレームワーク</section>
                   <h4>コーディング</h4>
                   <section class="p-sentence">
-                    <p>fat controllerにならないように、controllerにはviewの振り分けくらいしか書かないようにする</p>
-                    <p>次に、fat modelにならないようにビジネスロジックをserviceクラスに分割する</p>
-                    <p>serviceクラスには要件ごとの機能を定義する。例えば外部接続など。</p>
-                    <p>テーブル関連の情報の整形、取得等は全てmodelクラスに定義する。ただし、batchからしか呼ばれていないような特殊なメソッドはそのクラス内にメソッド定義した方が検索が楽になる</p>
+                    <ul class="p-list">
+                      <li class="c-color--white">fat controllerにならないように、controllerにはviewの振り分けくらいしか書かないようにする</li>
+                      <li class="c-color--white">次に、fat modelにならないようにビジネスロジックをserviceクラスに分割する</li>
+                      <li class="c-color--white">serviceクラスには要件ごとの機能を定義する。例えば外部接続など。</li>
+                      <li class="c-color--white">テーブル関連の情報の整形、取得等は全てmodelクラスに定義する。ただし、batchからしか呼ばれていないような特殊なメソッドはそのクラス内にメソッド定義した方が検索が楽になる</li>
+                    </ul>
                   </section>
                 </section>
               </details>
@@ -188,7 +191,10 @@
                   <section class="p-title">基本形</section>
                   <h4>コーディング</h4>
                   <section class="p-sentence">
-                    <p>なるべくそのままリランしやすい作りにする。処理が長くなったり難しい場合は複数のバッチに細分化する</p>
+                    <ul class="p-list">
+                      <li class="c-color--white">なるべくそのままリランしやすい作りにする</li>
+                      <li class="c-color--white">処理が長くなったり難しい場合は複数のバッチに細分化する</li>
+                    </ul>
                   </section>
                 </section>
               </details>
@@ -204,8 +210,10 @@
                   <section class="p-title">基本形</section>
                   <h4>コーディング</h4>
                   <section class="p-sentence">
-                    <p>副問合せなど複雑で負荷のかかるクエリにしない</p>
-                    <p>クエリ実行(作成)処理をループ内に入れない(N+1防止)</p>
+                    <ul class="p-list">
+                      <li class="c-color--white">副問合せなど複雑で負荷のかかるクエリにしない</li>
+                      <li class="c-color--white">クエリ実行(作成)処理をループ内に入れない(N+1防止)</li>
+                    </ul>
                   </section>
                 </section>
 
