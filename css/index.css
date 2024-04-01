@@ -73,6 +73,10 @@ ol,ul {
   width: 70%;
 }
 
+.p-link {
+  text-decoration: underline;
+}
+
 .p-contacts {
   margin: 8rem 0;
 }
@@ -176,13 +180,6 @@ b {
     font-size: 1rem;
   }
 
-  header {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 3.8rem;
-  }
-
   .flex-contents {
     display: flex;
     justify-content: start;
@@ -234,13 +231,6 @@ b {
 
 /* tablet */
 @media screen and (min-width: 415px) and (max-width: 1024px) {
-  header {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 3.8rem;
-  }
-
   .p-skillbox {
     width: calc(45% - 10px);
     margin: 0.6rem;

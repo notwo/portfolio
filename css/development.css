@@ -223,110 +223,17 @@ code {
   line-height: 1.8;
 }
 
-details > summary > .c-toggleIcon:before {
-  position: absolute;
-  margin: -4.5rem 70%;
-  content: "";
-  width: 0.6rem;
-  height: 0.6rem;
-  border-right: 4px solid #ffffff;
-  border-top: 4px solid #ffffff;
-  font-size: 2rem;
-  transform: rotate(135deg);
-  transition: .1s;
-}
-details[open] > summary > .c-toggleIcon:before {
-  position: absolute;
-  margin: -4rem 70%;
-  content: "";
-  transform: rotate(-135deg) scaleY(-1);
-  transition: .1s;
-}
-
-details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus::before, details:not([open]) > summary > .c-toggleIconPlus::after {
-  position: absolute;
-  margin: -2.0rem 70%;
-  content: "";
-  width: 1.3rem;
-  height: 0.2rem;
-  transition: .1s;
-  border-radius: .6rem;
-  background-color: #ffffff;
-}
-details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus:after {
-  transform: rotate(90deg);
-}
-details[open].p-innerAccordion > summary > .c-toggleIconPlus:before {
-  content: '';
-  position: absolute;
-  margin: -2.0rem 70%;
-  width: 1.3rem;
-  height: 0.2rem;
-  transition: .1s;
-  border-radius: .6rem;
-  background-color: #ffffff;
-}
-
-summary {
-  display: block;
-  cursor: pointer;
-}
-summary::-webkit-details-marker, summary::-moz-details-marker {
-  display: none;
-}
-
 /* sp */
 @media screen and (max-width: 414px) {
-  header {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 3.8rem;
-  }
-
   main {
     padding-top: 5rem;
   }
 
-  details > summary > .c-toggleIcon:before {
-    margin: -4.5rem 80%;
-  }
-  details[open] > summary > .c-toggleIcon:before {
-    margin: -4rem 80%;
-  }
-
-  details:not([open]).p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
-    margin: -2.0rem 80%;
-  }
-  details[open].p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
-    margin: -2.0rem 80%;
-  }
 }
 
 /* tablet */
 @media screen and (min-width: 415px) and (max-width: 1024px) {
-  header {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 3.8rem;
-  }
-
   main {
     padding-top: 5rem;
-  }
-  
-  details > summary > .c-toggleIcon:before {
-    margin: -4.5rem 80%;
-  }
-  details[open] > summary > .c-toggleIcon:before {
-    margin: -4rem 80%;
-  }
-
-  details.p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
-    margin: -2.0rem 80%;
-  }
-  details[open].p-innerAccordion > summary > .c-toggleIconPlus::before, details.p-innerAccordion > summary > .c-toggleIconPlus::after {
-    margin: -2.0rem 80%;
   }
 }
