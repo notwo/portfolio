@@ -184,8 +184,13 @@ main {
   line-height: 1.5;
 }
 
-.p-explanation .p-example {
-  margin: .5rem 0;
+.p-explanation p.p-subsentence {
+  line-height: 1.5;
+  margin: .4rem 0;
+}
+
+.p-link {
+  text-decoration: underline;
 }
 
 

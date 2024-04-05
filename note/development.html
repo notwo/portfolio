@@ -342,9 +342,36 @@
           </summary>
           <section class="p-language p-javascript">
             <section class="p-frameworkWrap">
-              <h3>Pure JS</h3>
-              <section class="p-framework">
-              </section>
+              <details class="p-innerAccordion">
+                <summary>
+                  <h3>Pure JS</h3>
+                  <span class="c-toggleIconPlus"></span>
+                </summary>
+                <section class="p-framework">
+                  <section class="p-title">Auth0</section>
+                  <section class="p-codeWrap">
+                    <h4>Auth0へユーザ登録後にコールバック</h4>
+                    <section class="p-code">
+                      <section class="p-filename">Auth0</section>
+                      <pre><code><span class="p-keyword">const </span><span>axios = </span><span class="p-keyword">require</span><span class="p-blanket">(</span><span class="p-string">"axios"</span><span class="p-blanket">)</span><span>;</span>
+<span></span>
+<span>exports.onExecutePostUserRegistration = </span><span class="p-keyword">async </span><span class="p-blanket">(</span><span>event, api</span><span class="p-blanket">)</span><span> => </span><span class="p-blanket">{</span>
+  <span class="p-keyword">await </span><span>axios.post</span><span class="p-innerBlanket">(</span><span class="p-string">"コールバック先URL"</span><span>,</span>
+    <span class="p-innerBlanket2">{</span>
+      <span>username: </span><span class="p-varType">String</span><span class="p-blanket">(</span><span>event.user.email</span><span class="p-blanket">)</span><span>.split</span><span class="p-blanket">(</span><span class="p-string">'@'</span><span class="p-blanket">)[</span><span class="p-numValue">0</span><span class="p-blanket">]</span><span>,</span>
+      <span>email: event.user.email,</span>
+      <span>sub: event.user.user_id</span>
+    <span class="p-innerBlanket2">}</span>
+  <span class="p-innerBlanket">)</span><span>;</span>
+<span class="p-blanket">}</span><span>;</span>
+</code></pre>
+                    </section>
+                    <section class="p-explanation">
+                      <p class="p-subsentence">上記コールバック関数の設定の仕方は<a class="p-link c-color--cyan" href="https://github.com/notwo/youknowFrontend/blob/main/doc/Authentication.md" target="_blank">こちら</a>を参照</p>
+                    </section>
+                  </section>
+                </section>
+              </details>
 
               <details class="p-innerAccordion">
                 <summary>
